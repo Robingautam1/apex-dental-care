@@ -2,53 +2,58 @@
 
 import { motion } from 'framer-motion';
 import Container from '@/components/shared/Container';
-import SectionHeading from '@/components/shared/SectionHeading';
 
 export function AboutSection() {
     return (
-        <section className="py-20 md:py-28 bg-white overflow-hidden" aria-labelledby="about-heading">
+        <section className="bg-white" aria-labelledby="about-heading">
             <Container>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    {/* Left: Image placeholder — clean and simple */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: '-80px' }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                    >
-                        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-[#1A3C5E] to-[#2a5298] shadow-lg">
-                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-6">
-                                <p className="text-white font-semibold text-lg" style={{ fontFamily: 'var(--font-display)' }}>Dr. Aashish Malik</p>
-                                <p className="text-white/70 text-sm">BDS, Dental Surgeon</p>
-                            </div>
-                        </div>
-                    </motion.div>
+                <div className="border-t border-[#E5E7EB] py-24 md:py-28">
+                    <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16">
+                        {/* Left label */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true, margin: '-40px' }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <p className="text-sm font-medium text-[#2DBD8F] mb-3">About</p>
+                            <h2
+                                id="about-heading"
+                                className="text-2xl md:text-3xl font-semibold text-[#1C1C1E] leading-snug tracking-tight"
+                                style={{ fontFamily: 'var(--font-display)' }}
+                            >
+                                The dentist
+                            </h2>
+                        </motion.div>
 
-                    {/* Right: Content */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: '-80px' }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                    >
-                        <SectionHeading
-                            eyebrow="About the Doctor"
-                            heading="Dr. Aashish Malik — Dental Surgeon, Rohtak"
-                            subtext="With years of dedicated practice in dental surgery and patient care, Dr. Aashish Malik has earned the trust of hundreds of families across Rohtak, Haryana."
-                        />
-                        <p className="text-[#4B5563] leading-[1.7] mb-6 text-sm">
-                            His commitment to painless procedures, honest diagnoses, and affordable treatment has made Apex Dental Care one of the most referred dental clinics in Model Town. Dr. Malik specializes in root canal treatment, dental implants, cosmetic dentistry, and orthodontics.
-                        </p>
-                        <blockquote className="border-l-2 border-[#2DBD8F] pl-4 mb-6">
-                            <p className="text-[#374151] italic text-sm leading-relaxed">
-                                &ldquo;Dr. Aashish is one of the best dental surgeons in town. Very polite with patients.&rdquo;
+                        {/* Right content */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 12 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: '-40px' }}
+                            transition={{ duration: 0.5, delay: 0.1 }}
+                            className="max-w-xl"
+                        >
+                            <p className="text-lg text-[#374151] leading-relaxed mb-6">
+                                <strong className="text-[#1C1C1E]">Dr. Aashish Malik</strong> has earned the trust of hundreds of families across Rohtak with his commitment to painless procedures, honest diagnoses, and affordable treatment.
                             </p>
-                            <cite className="text-xs text-[#6B7280] not-italic mt-2 block">— A.M., Rohtak (Google Review)</cite>
-                        </blockquote>
-                        <a href="/about" className="text-[#2DBD8F] font-semibold text-sm hover:gap-2 inline-flex items-center gap-1 transition-all duration-150">
-                            Read More About Us →
-                        </a>
-                    </motion.div>
+                            <p className="text-base text-[#6B7280] leading-relaxed mb-8">
+                                Specializing in root canal treatment, dental implants, cosmetic dentistry, and orthodontics, Dr. Malik provides personalized attention in a warm, modern clinic environment at Model Town, Rohtak.
+                            </p>
+                            <blockquote className="border-l-2 border-[#2DBD8F] pl-5 py-1">
+                                <p className="text-[#374151] italic leading-relaxed">
+                                    &ldquo;Dr. Aashish is one of the best dental surgeons in town. Very polite with patients.&rdquo;
+                                </p>
+                                <cite className="text-sm text-[#9CA3AF] not-italic mt-2 block">— A.M., Rohtak</cite>
+                            </blockquote>
+                            <a
+                                href="/about"
+                                className="inline-flex items-center gap-1 text-sm font-medium text-[#2DBD8F] mt-6 hover:gap-2 transition-all duration-150"
+                            >
+                                More about us →
+                            </a>
+                        </motion.div>
+                    </div>
                 </div>
             </Container>
         </section>

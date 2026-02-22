@@ -3,45 +3,57 @@
 import { motion } from 'framer-motion';
 import { ShieldCheck, Wallet, MapPin, Stethoscope } from 'lucide-react';
 import Container from '@/components/shared/Container';
-import SectionHeading from '@/components/shared/SectionHeading';
 
 const features = [
-    { icon: Stethoscope, title: 'Advanced Equipment', desc: 'State-of-the-art dental technology for accurate diagnosis and comfortable treatment.' },
-    { icon: ShieldCheck, title: 'Painless Procedures', desc: 'Modern anesthesia and gentle techniques ensure a virtually pain-free experience.' },
-    { icon: Wallet, title: 'Affordable Pricing', desc: 'Quality dental care at honest prices — no hidden costs, no surprises.' },
-    { icon: MapPin, title: 'Model Town, Rohtak', desc: 'Conveniently located near Life Care Hospital in the heart of Model Town.' },
+    { icon: Stethoscope, title: 'Advanced Equipment', desc: 'State-of-the-art technology for accurate diagnosis.' },
+    { icon: ShieldCheck, title: 'Painless Procedures', desc: 'Modern anesthesia and gentle techniques.' },
+    { icon: Wallet, title: 'Honest Pricing', desc: 'No hidden costs, no surprises.' },
+    { icon: MapPin, title: 'Model Town, Rohtak', desc: 'Near Life Care Hospital, easy to reach.' },
 ];
 
 export function WhyChooseUs() {
     return (
-        <section className="py-20 md:py-28 bg-[#F7F4EF] overflow-hidden" aria-labelledby="why-heading">
+        <section className="bg-white" aria-labelledby="why-heading">
             <Container>
-                <SectionHeading
-                    eyebrow="Why Us"
-                    heading="Why Families in Rohtak Choose Apex"
-                    subtext="We combine modern dental science with genuine human care."
-                    center
-                />
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
-                    {features.map((f, i) => (
+                <div className="border-t border-[#E5E7EB] py-24 md:py-28">
+                    <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16">
+                        {/* Left label */}
                         <motion.div
-                            key={f.title}
-                            initial={{ opacity: 0, y: 16 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: '-60px' }}
-                            transition={{ duration: 0.4, delay: i * 0.05 }}
-                            className="flex items-start gap-4 bg-white rounded-xl p-5 border border-[#E5E0D8]"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true, margin: '-40px' }}
+                            transition={{ duration: 0.5 }}
                         >
-                            <div className="w-10 h-10 rounded-lg bg-[#1A3C5E] flex items-center justify-center flex-shrink-0">
-                                <f.icon size={20} className="text-[#2DBD8F]" />
-                            </div>
-                            <div>
-                                <h3 className="font-semibold text-[#1A3C5E] text-sm mb-1">{f.title}</h3>
-                                <p className="text-[#6B7280] text-xs leading-relaxed">{f.desc}</p>
-                            </div>
+                            <p className="text-sm font-medium text-[#2DBD8F] mb-3">Why us</p>
+                            <h2
+                                id="why-heading"
+                                className="text-2xl md:text-3xl font-semibold text-[#1C1C1E] leading-snug tracking-tight"
+                                style={{ fontFamily: 'var(--font-display)' }}
+                            >
+                                Why families choose Apex
+                            </h2>
                         </motion.div>
-                    ))}
+
+                        {/* Right features */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
+                            {features.map((f, i) => (
+                                <motion.div
+                                    key={f.title}
+                                    initial={{ opacity: 0, y: 12 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: '-40px' }}
+                                    transition={{ duration: 0.35, delay: i * 0.06 }}
+                                    className="flex gap-4"
+                                >
+                                    <f.icon size={20} className="text-[#2DBD8F] flex-shrink-0 mt-0.5" />
+                                    <div>
+                                        <h3 className="text-sm font-semibold text-[#1C1C1E] mb-1">{f.title}</h3>
+                                        <p className="text-sm text-[#9CA3AF] leading-relaxed">{f.desc}</p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </Container>
         </section>

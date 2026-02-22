@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Playfair_Display, Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
-import { Navbar } from '@/components/layout/Navbar';
-import { Footer } from '@/components/layout/Footer';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 import { MobileBottomBar } from '@/components/layout/MobileBottomBar';
 import { generateLocalBusinessJsonLd, generatePersonJsonLd, SITE_URL } from '@/lib/seo';
 
@@ -84,7 +84,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <Navbar />
-        <main id="main-content" className="pt-20 pb-20 md:pb-0">
+        <main id="main-content" className="pt-16 pb-20 md:pb-0">
           {children}
         </main>
         <Footer />

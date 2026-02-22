@@ -1,49 +1,60 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { BlogCard } from '@/components/shared/BlogCard';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 import { blogPosts } from '@/data/blog-posts';
-import { Button } from '@/components/shared/Button';
 import Container from '@/components/shared/Container';
-import SectionHeading from '@/components/shared/SectionHeading';
-
-const container = {
-    hidden: {},
-    show: { transition: { staggerChildren: 0.06 } },
-};
-
-const item = {
-    hidden: { opacity: 0, y: 16 },
-    show: { opacity: 1, y: 0 },
-};
 
 export function BlogPreview() {
     return (
-        <section className="py-20 md:py-28 bg-[#F7F4EF] overflow-hidden" aria-labelledby="blog-heading">
+        <section className="bg-white" aria-labelledby="blog-heading">
             <Container>
-                <SectionHeading
-                    eyebrow="From the Blog"
-                    heading="Dental Health Tips"
-                    subtext="Expert advice from Dr. Aashish Malik."
-                    center
-                />
-
-                <motion.div
-                    className="grid grid-cols-1 md:grid-cols-3 gap-5"
-                    variants={container}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: '-80px' }}
-                >
-                    {blogPosts.map((post) => (
-                        <motion.div key={post.slug} variants={item}>
-                            <BlogCard {...post} />
+                <div className="border-t border-[#E5E7EB] py-24 md:py-28">
+                    <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16">
+                        {/* Left label */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true, margin: '-40px' }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <p className="text-sm font-medium text-[#2DBD8F] mb-3">Blog</p>
+                            <h2
+                                id="blog-heading"
+                                className="text-2xl md:text-3xl font-semibold text-[#1C1C1E] leading-snug tracking-tight"
+                                style={{ fontFamily: 'var(--font-display)' }}
+                            >
+                                Dental health tips
+                            </h2>
                         </motion.div>
-                    ))}
-                </motion.div>
 
-                <div className="text-center mt-8">
-                    <Button href="/blog" variant="secondary">View All Articles</Button>
+                        {/* Right blog list */}
+                        <div className="divide-y divide-[#E5E7EB]">
+                            {blogPosts.map((post, i) => (
+                                <motion.div
+                                    key={post.slug}
+                                    initial={{ opacity: 0, y: 8 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: '-40px' }}
+                                    transition={{ duration: 0.3, delay: i * 0.06 }}
+                                >
+                                    <Link
+                                        href={`/blog/${post.slug}`}
+                                        className="group flex items-center justify-between gap-4 py-5 hover:pl-2 transition-all duration-150"
+                                    >
+                                        <div className="flex-1 min-w-0">
+                                            <h3 className="text-base font-semibold text-[#1C1C1E] group-hover:text-[#2DBD8F] transition-colors mb-1">
+                                                {post.title}
+                                            </h3>
+                                            <p className="text-sm text-[#9CA3AF]">{post.readTime} · {post.category}</p>
+                                        </div>
+                                        <ArrowUpRight size={16} className="text-[#D1D5DB] group-hover:text-[#2DBD8F] flex-shrink-0 transition-colors" />
+                                    </Link>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </Container>
         </section>
