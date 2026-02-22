@@ -39,11 +39,13 @@ export const metadata: Metadata = {
     siteName: 'Apex Dental Care',
     locale: 'en_IN',
     type: 'website',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Apex Dental Care — Best Dental Clinic in Rohtak' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Apex Dental Care — Best Dental Clinic in Rohtak',
     description: 'Trusted dental clinic in Model Town, Rohtak led by Dr. Aashish Malik.',
+    images: ['/og-image.png'],
   },
   alternates: {
     canonical: SITE_URL,
@@ -82,7 +84,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <Navbar />
-        <main id="main-content" className="pt-16 sm:pt-20 pb-20 md:pb-0">
+        <main id="main-content" className="pt-20 pb-20 md:pb-0">
           {children}
         </main>
         <Footer />

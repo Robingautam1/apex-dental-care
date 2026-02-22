@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Shield, CalendarCheck, Banknote, MapPin } from 'lucide-react';
 import Container from '@/components/shared/Container';
-import SectionLabel from '@/components/shared/SectionLabel';
+import SectionHeading from '@/components/shared/SectionHeading';
 
 const features = [
     {
@@ -28,53 +28,51 @@ const features = [
     },
 ];
 
+const container = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.08 } },
+};
+
+const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 },
+};
+
 export function WhyChooseUs() {
     return (
         <section className="py-20 md:py-28 bg-[#F7F4EF] overflow-hidden" aria-labelledby="why-heading">
             <Container>
-                <motion.div
-                    className="text-center max-w-2xl mx-auto mb-12"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                >
-                    <SectionLabel>Why Us</SectionLabel>
-                    <h2
-                        id="why-heading"
-                        className="text-3xl md:text-4xl font-semibold text-[#1A3C5E] mt-1 mb-4 leading-tight tracking-[-0.02em]"
-                        style={{ fontFamily: 'var(--font-display)' }}
-                    >
-                        Why Families in Rohtak Choose Apex
-                    </h2>
-                    <p className="text-[#6B7280] leading-relaxed">
-                        We combine modern dental science with genuine human care — that&apos;s what makes us the preferred dental clinic in Rohtak, Haryana.
-                    </p>
-                </motion.div>
+                <SectionHeading
+                    eyebrow="Why Us"
+                    heading="Why Families in Rohtak Choose Apex"
+                    subtext="We combine modern dental science with genuine human care — that's what makes us the preferred dental clinic in Rohtak, Haryana."
+                    center
+                />
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {features.map((f, i) => (
+                {/* Horizontal card layout — 2-col grid */}
+                <motion.div
+                    className="grid grid-cols-1 md:grid-cols-2 gap-5"
+                    variants={container}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: '-80px' }}
+                >
+                    {features.map((f) => (
                         <motion.div
                             key={f.title}
-                            className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-[#E5E0D8] border-t-2 border-t-[#2DBD8F] text-left"
-                            style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: i * 0.1 }}
+                            variants={item}
+                            className="flex gap-5 items-start p-6 bg-white rounded-2xl border border-[#E5E0D8] shadow-[0_1px_4px_rgba(0,0,0,0.05)]"
                         >
-                            <div className="w-12 h-12 rounded-2xl bg-[#1A3C5E] flex items-center justify-center mb-4">
-                                <f.icon size={24} className="text-white" />
+                            <div className="flex-shrink-0 w-14 h-14 bg-[#1A3C5E] rounded-2xl flex items-center justify-center">
+                                <f.icon size={28} className="text-[#2DBD8F]" />
                             </div>
-                            <h3 className="font-semibold text-[#1A3C5E] text-lg mb-2">
-                                {f.title}
-                            </h3>
-                            <p className="text-[#6B7280] text-sm leading-relaxed">
-                                {f.description}
-                            </p>
+                            <div>
+                                <h3 className="font-semibold text-[#1A3C5E] text-lg mb-1.5">{f.title}</h3>
+                                <p className="text-[#6B7280] text-sm leading-relaxed">{f.description}</p>
+                            </div>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </Container>
         </section>
     );

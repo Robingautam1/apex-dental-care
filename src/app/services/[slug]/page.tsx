@@ -28,14 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             description: service.description,
             url: `${SITE_URL}/services/${slug}`,
         },
-        twitter: {
-            card: 'summary',
-            title: service.title,
-            description: service.description,
-        },
-        alternates: {
-            canonical: `${SITE_URL}/services/${slug}`,
-        },
+        alternates: { canonical: `${SITE_URL}/services/${slug}` },
     };
 }
 
@@ -57,11 +50,9 @@ export default async function ServicePage({ params }: Props) {
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
             <article>
-                {/* Hero */}
                 <section className="bg-[#1A3C5E] text-white py-16 lg:py-24">
                     <Container>
-                        {/* Breadcrumb */}
-                        <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/60">
+                        <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/50">
                             <ol className="flex items-center gap-2">
                                 <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
                                 <li>/</li>
@@ -70,48 +61,40 @@ export default async function ServicePage({ params }: Props) {
                                 <li className="text-white">{service.shortTitle}</li>
                             </ol>
                         </nav>
-                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-[-0.02em]" style={{ fontFamily: 'var(--font-display)' }}>
+                        <h1 className="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-[-0.03em]" style={{ fontFamily: 'var(--font-display)' }}>
                             {service.title.replace(' — Apex Dental Care', '')}
                         </h1>
-                        <p className="mt-4 text-lg text-white/80 max-w-2xl">{service.tagline}</p>
+                        <p className="mt-4 text-lg text-white/70 max-w-2xl leading-[1.7]">{service.tagline}</p>
                     </Container>
                 </section>
 
-                <WaveDivider className="w-full h-12 text-[#F7F4EF] -mt-1" />
+                <WaveDivider topColor="#1A3C5E" bottomColor="#F7F4EF" />
 
-                {/* Content */}
                 <section className="py-20 md:py-28 bg-[#F7F4EF]">
                     <Container>
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-                            {/* Main content */}
                             <div className="lg:col-span-2">
-                                <div className="prose prose-lg max-w-none">
-                                    {service.body.split('\n\n').map((para, i) => (
-                                        <p key={i} className="text-[#1C1C1E] leading-relaxed mb-5">
-                                            {para}
-                                        </p>
-                                    ))}
-                                </div>
+                                {service.body.split('\n\n').map((para, i) => (
+                                    <p key={i} className="text-[#4B5563] leading-[1.7] mb-5">{para}</p>
+                                ))}
 
-                                {/* Service FAQ */}
                                 <div className="mt-12">
-                                    <h2 className="text-2xl font-semibold text-[#1A3C5E] mb-6 leading-tight tracking-[-0.02em]" style={{ fontFamily: 'var(--font-display)' }}>
+                                    <h2 className="text-2xl font-semibold text-[#1C1C1E] mb-6 tracking-[-0.02em]" style={{ fontFamily: 'var(--font-display)' }}>
                                         Common Questions About {service.shortTitle}
                                     </h2>
                                     <Accordion items={service.faqs} />
                                 </div>
                             </div>
 
-                            {/* Sidebar */}
                             <aside className="lg:col-span-1">
-                                <div className="bg-white rounded-2xl p-6 border border-[#E5E0D8] sticky top-24 shadow-[0_2px_8px_rgba(0,0,0,0.06)]">
+                                <div className="bg-white rounded-2xl p-6 border border-[#E5E0D8] sticky top-24 shadow-[0_4px_16px_rgba(0,0,0,0.06)]">
                                     <h3 className="text-lg font-semibold text-[#1A3C5E] mb-4" style={{ fontFamily: 'var(--font-display)' }}>
                                         Book This Service
                                     </h3>
                                     <div className="space-y-4 mb-6">
                                         <div className="flex items-start gap-3 text-sm">
                                             <MapPin size={18} className="text-[#2DBD8F] flex-shrink-0 mt-0.5" />
-                                            <span className="text-[#6B7280]">Near Life Care Hospital, Model Town, Rohtak, Haryana 124001</span>
+                                            <span className="text-[#6B7280]">Near Life Care Hospital, Model Town, Rohtak 124001</span>
                                         </div>
                                         <div className="flex items-center gap-3 text-sm">
                                             <Phone size={18} className="text-[#2DBD8F] flex-shrink-0" />
@@ -125,12 +108,8 @@ export default async function ServicePage({ params }: Props) {
                                             </div>
                                         </div>
                                     </div>
-                                    <Button href="/contact" className="w-full">
-                                        Book Appointment
-                                    </Button>
-                                    <Button href="tel:09802155667" variant="outline" className="w-full mt-3" icon={<Phone size={16} />}>
-                                        Call Now
-                                    </Button>
+                                    <Button href="/contact" className="w-full">Book Appointment</Button>
+                                    <Button href="tel:09802155667" variant="secondary" className="w-full mt-3" icon={<Phone size={16} />}>Call Now</Button>
                                 </div>
                             </aside>
                         </div>

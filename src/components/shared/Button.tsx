@@ -1,12 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
 
 interface ButtonProps {
     children: ReactNode;
-    variant?: 'primary' | 'outline' | 'danger';
-    size?: 'sm' | 'md' | 'lg';
+    variant?: 'primary' | 'secondary' | 'ghost';
     href?: string;
     onClick?: () => void;
     className?: string;
@@ -16,21 +14,17 @@ interface ButtonProps {
 }
 
 const variants = {
-    primary: 'bg-[#2DBD8F] text-white hover:bg-[#24a07a]',
-    outline: 'bg-transparent border-2 border-[#1A3C5E] text-[#1A3C5E] hover:bg-[#1A3C5E] hover:text-white',
-    danger: 'bg-[#E85D4A] text-white hover:bg-[#d14a38]',
-};
-
-const sizes = {
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg',
+    primary:
+        'bg-[#2DBD8F] hover:bg-[#25a87e] text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-[0_4px_14px_rgba(45,189,143,0.35)] hover:shadow-[0_6px_20px_rgba(45,189,143,0.45)] transition-all duration-200 active:scale-[0.98] inline-flex items-center justify-center gap-2',
+    secondary:
+        'border-2 border-[#1A3C5E] text-[#1A3C5E] hover:bg-[#1A3C5E] hover:text-white font-semibold text-sm px-6 py-3 rounded-xl transition-all duration-200 active:scale-[0.98] inline-flex items-center justify-center gap-2',
+    ghost:
+        'text-[#2DBD8F] font-semibold text-sm hover:gap-2 inline-flex items-center gap-1 transition-all duration-150 group',
 };
 
 export function Button({
     children,
     variant = 'primary',
-    size = 'md',
     href,
     onClick,
     className = '',
@@ -38,7 +32,7 @@ export function Button({
     ariaLabel,
     icon,
 }: ButtonProps) {
-    const baseClasses = `inline-flex items-center justify-center gap-2 font-semibold rounded-lg transition-all duration-200 cursor-pointer ${variants[variant]} ${sizes[size]} ${className}`;
+    const classes = `${variants[variant]} ${className}`;
 
     const content = (
         <>
@@ -48,29 +42,37 @@ export function Button({
     );
 
     if (href) {
+        // External links (tel:, mailto:, http) use <a>
+        const isExternal = href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('http');
+        if (isExternal) {
+            return (
+                <a
+                    href={href}
+                    className={classes}
+                    aria-label={ariaLabel}
+                    {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                >
+                    {content}
+                </a>
+            );
+        }
+        // Internal links use Next.js Link
+        const Link = require('next/link').default;
         return (
-            <motion.a
-                href={href}
-                className={baseClasses}
-                aria-label={ariaLabel}
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.98 }}
-            >
+            <Link href={href} className={classes} aria-label={ariaLabel}>
                 {content}
-            </motion.a>
+            </Link>
         );
     }
 
     return (
-        <motion.button
+        <button
             type={type}
             onClick={onClick}
-            className={baseClasses}
+            className={`cursor-pointer ${classes}`}
             aria-label={ariaLabel}
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.98 }}
         >
             {content}
-        </motion.button>
+        </button>
     );
 }

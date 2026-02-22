@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { Menu, X, ChevronDown, Phone } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { SmileArc } from '@/components/svg/SmileArc';
 import { services } from '@/data/services';
 
@@ -18,8 +18,16 @@ const navLinks = [
 export function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [servicesOpen, setServicesOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
-    // Close dropdown on Escape key
+    // Scroll detection
+    useEffect(() => {
+        const handler = () => setScrolled(window.scrollY > 20);
+        window.addEventListener('scroll', handler, { passive: true });
+        return () => window.removeEventListener('scroll', handler);
+    }, []);
+
+    // Close on Escape
     const handleEscape = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {
             setServicesOpen(false);
@@ -41,8 +49,12 @@ export function Navbar() {
     }, [servicesOpen]);
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 border-b border-[#E5E0D8]/50">
-            <nav className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 sm:h-20" aria-label="Main navigation">
+        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+                ? 'bg-white/95 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.08)]'
+                : 'bg-white/80 backdrop-blur-sm'
+            }`}>
+            <nav className={`max-w-[1240px] mx-auto px-5 sm:px-8 lg:px-12 flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-16' : 'h-20'
+                }`} aria-label="Main navigation">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 flex-shrink-0">
                     <div className="w-10 h-10 rounded-xl bg-[#1A3C5E] flex items-center justify-center">
@@ -59,10 +71,10 @@ export function Navbar() {
                 {/* Desktop Nav */}
                 <div className="hidden lg:flex items-center gap-8">
                     {navLinks.map((link) => (
-                        <div key={link.label} className="relative group">
+                        <div key={link.label} className="relative">
                             {link.hasDropdown ? (
                                 <button
-                                    className="relative flex items-center gap-1 text-[#1C1C1E] hover:text-[#2DBD8F] transition-colors duration-150 font-medium text-sm cursor-pointer after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#2DBD8F] hover:after:w-full after:transition-all after:duration-200"
+                                    className="relative flex items-center gap-1 text-[#1C1C1E] hover:text-[#2DBD8F] transition-colors duration-150 font-medium text-sm cursor-pointer after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-[#2DBD8F] hover:after:w-full after:transition-all after:duration-200"
                                     onClick={(e) => {
                                         e.stopPropagation();
                                         setServicesOpen(!servicesOpen);
@@ -76,7 +88,7 @@ export function Navbar() {
                             ) : (
                                 <Link
                                     href={link.href}
-                                    className="relative text-[#1C1C1E] hover:text-[#2DBD8F] transition-colors duration-150 font-medium text-sm after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#2DBD8F] hover:after:w-full after:transition-all after:duration-200"
+                                    className="relative text-[#1C1C1E] hover:text-[#2DBD8F] transition-colors duration-150 font-medium text-sm after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-[#2DBD8F] hover:after:w-full after:transition-all after:duration-200"
                                 >
                                     {link.label}
                                 </Link>
@@ -89,7 +101,7 @@ export function Navbar() {
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: 8 }}
                                             transition={{ duration: 0.15 }}
-                                            className="absolute top-full left-1/2 -translate-x-1/2 pt-2"
+                                            className="absolute top-full left-1/2 -translate-x-1/2 pt-3"
                                             onClick={(e) => e.stopPropagation()}
                                         >
                                             <div className="bg-white rounded-xl shadow-xl border border-[#E5E0D8] p-2 min-w-[220px]">
@@ -113,7 +125,7 @@ export function Navbar() {
                 </div>
 
                 {/* Desktop CTA */}
-                <div className="hidden lg:flex items-center gap-3">
+                <div className="hidden lg:flex items-center gap-4">
                     <a
                         href="tel:09802155667"
                         className="flex items-center gap-2 text-sm font-medium text-[#1A3C5E] hover:text-[#2DBD8F] transition-colors duration-150"
@@ -123,7 +135,7 @@ export function Navbar() {
                     </a>
                     <Link
                         href="/contact"
-                        className="bg-[#2DBD8F] text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#24a07a] transition-colors"
+                        className="bg-[#2DBD8F] hover:bg-[#25a87e] text-white px-5 py-2.5 rounded-xl font-semibold text-sm shadow-[0_4px_14px_rgba(45,189,143,0.35)] hover:shadow-[0_6px_20px_rgba(45,189,143,0.45)] transition-all duration-200 active:scale-[0.98]"
                     >
                         Book Appointment
                     </Link>
@@ -140,7 +152,6 @@ export function Navbar() {
                 </button>
             </nav>
 
-            {/* Mobile slide-in drawer */}
             <AnimatePresence>
                 {mobileOpen && (
                     <>
@@ -160,14 +171,8 @@ export function Navbar() {
                         >
                             <div className="p-6">
                                 <div className="flex items-center justify-between mb-8">
-                                    <span className="text-lg font-bold text-[#1A3C5E]" style={{ fontFamily: 'var(--font-display)' }}>
-                                        Menu
-                                    </span>
-                                    <button
-                                        onClick={() => setMobileOpen(false)}
-                                        aria-label="Close menu"
-                                        className="p-2 cursor-pointer"
-                                    >
+                                    <span className="text-lg font-bold text-[#1A3C5E]" style={{ fontFamily: 'var(--font-display)' }}>Menu</span>
+                                    <button onClick={() => setMobileOpen(false)} aria-label="Close menu" className="p-2 cursor-pointer">
                                         <X size={24} className="text-[#1A3C5E]" />
                                     </button>
                                 </div>
@@ -175,15 +180,13 @@ export function Navbar() {
                                     {navLinks.map((link) =>
                                         link.hasDropdown ? (
                                             <div key={link.label}>
-                                                <div className="px-4 py-3 text-[#6B7280] text-xs font-semibold uppercase tracking-wider">
-                                                    Services
-                                                </div>
+                                                <div className="px-4 py-3 text-[#6B7280] text-xs font-semibold uppercase tracking-wider">Services</div>
                                                 {services.map((s) => (
                                                     <Link
                                                         key={s.slug}
                                                         href={`/services/${s.slug}`}
                                                         onClick={() => setMobileOpen(false)}
-                                                        className="block px-4 py-3 text-[#1C1C1E] hover:bg-[#F7F4EF] rounded-lg transition-colors"
+                                                        className="block px-4 py-3 text-[#1C1C1E] hover:bg-[#F7F4EF] rounded-lg transition-colors text-sm"
                                                     >
                                                         {s.shortTitle}
                                                     </Link>
@@ -202,18 +205,10 @@ export function Navbar() {
                                     )}
                                 </div>
                                 <div className="mt-8 space-y-3">
-                                    <a
-                                        href="tel:09802155667"
-                                        className="flex items-center justify-center gap-2 w-full border-2 border-[#1A3C5E] text-[#1A3C5E] py-3 rounded-lg font-semibold"
-                                    >
-                                        <Phone size={18} />
-                                        Call Now
+                                    <a href="tel:09802155667" className="flex items-center justify-center gap-2 w-full border-2 border-[#1A3C5E] text-[#1A3C5E] py-3 rounded-xl font-semibold text-sm">
+                                        <Phone size={18} /> Call Now
                                     </a>
-                                    <Link
-                                        href="/contact"
-                                        onClick={() => setMobileOpen(false)}
-                                        className="block text-center w-full bg-[#2DBD8F] text-white py-3 rounded-lg font-semibold"
-                                    >
+                                    <Link href="/contact" onClick={() => setMobileOpen(false)} className="block text-center w-full bg-[#2DBD8F] text-white py-3 rounded-xl font-semibold text-sm shadow-[0_4px_14px_rgba(45,189,143,0.35)]">
                                         Book Appointment
                                     </Link>
                                 </div>

@@ -1,18 +1,17 @@
-export function WaveDivider({ className = '', flip = false }: { className?: string; flip?: boolean }) {
+export function WaveDivider({ topColor, bottomColor, flip = false }: { topColor: string; bottomColor: string; flip?: boolean }) {
     return (
-        <svg
-            viewBox="0 0 1440 100"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className={className}
-            aria-hidden="true"
-            preserveAspectRatio="none"
-            style={flip ? { transform: 'scaleY(-1)' } : undefined}
-        >
-            <path
-                d="M0 40C120 80 240 90 360 70C480 50 600 20 720 15C840 10 960 30 1080 45C1200 60 1320 70 1440 50V100H0V40Z"
-                fill="currentColor"
-            />
-        </svg>
+        <div className="relative h-16 md:h-20 overflow-hidden" aria-hidden="true" style={{ backgroundColor: topColor }}>
+            <svg
+                viewBox="0 0 1440 80"
+                xmlns="http://www.w3.org/2000/svg"
+                className={`absolute bottom-0 w-full ${flip ? 'scale-y-[-1]' : ''}`}
+                preserveAspectRatio="none"
+            >
+                <path
+                    d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z"
+                    fill={bottomColor}
+                />
+            </svg>
+        </div>
     );
 }

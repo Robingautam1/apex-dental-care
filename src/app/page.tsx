@@ -20,20 +20,35 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <article>
+        {/* Hero — white bg */}
         <Hero />
-        <WaveDivider className="w-full h-12 md:h-16 text-[#F7F4EF] -mb-1" />
+        {/* Wave: white → warm */}
+        <WaveDivider topColor="#FFFFFF" bottomColor="#F7F4EF" />
+        {/* Services — warm bg */}
         <ServicesStrip />
-        <WaveDivider className="w-full h-12 md:h-16 text-white -mb-1" flip />
+        {/* Wave: warm → white */}
+        <WaveDivider topColor="#F7F4EF" bottomColor="#FFFFFF" />
+        {/* About — white bg */}
         <AboutSection />
-        <WaveDivider className="w-full h-12 md:h-16 text-[#F7F4EF] -mb-1" />
+        {/* Wave: white → warm */}
+        <WaveDivider topColor="#FFFFFF" bottomColor="#F7F4EF" />
+        {/* Why Choose Us — warm bg */}
         <WhyChooseUs />
-        <WaveDivider className="w-full h-12 md:h-16 text-white -mb-1" flip />
+        {/* Wave: warm → dark navy */}
+        <WaveDivider topColor="#F7F4EF" bottomColor="#1A3C5E" />
+        {/* Reviews — DARK navy bg */}
         <Reviews />
-        <WaveDivider className="w-full h-12 md:h-16 text-[#F7F4EF] -mb-1" />
+        {/* Wave: dark navy → white */}
+        <WaveDivider topColor="#1A3C5E" bottomColor="#FFFFFF" />
+        {/* FAQ — white bg */}
         <FAQ faqs={homeFaqs} />
-        <WaveDivider className="w-full h-12 md:h-16 text-white -mb-1" flip />
+        {/* Wave: white → warm */}
+        <WaveDivider topColor="#FFFFFF" bottomColor="#F7F4EF" />
+        {/* Blog — warm bg */}
         <BlogPreview />
-        <WaveDivider className="w-full h-12 md:h-16 text-white -mb-1" />
+        {/* Wave: warm → white */}
+        <WaveDivider topColor="#F7F4EF" bottomColor="#FFFFFF" />
+        {/* Contact — white bg */}
         <ContactMap />
       </article>
     </>

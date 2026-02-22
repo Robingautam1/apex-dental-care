@@ -1,60 +1,73 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ServiceCard } from '@/components/shared/ServiceCard';
+import Link from 'next/link';
+import { ArrowRight, Sparkles, ShieldCheck, Sun, Anchor, AlignCenter, Gem, Baby, Siren } from 'lucide-react';
 import { services } from '@/data/services';
 import Container from '@/components/shared/Container';
-import SectionLabel from '@/components/shared/SectionLabel';
+import SectionHeading from '@/components/shared/SectionHeading';
+
+const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+    Sparkles, ShieldCheck, Sun, Anchor, AlignCenter, Gem, Baby, Siren,
+};
+
+const container = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.08 } },
+};
+
+const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 },
+};
 
 export function ServicesStrip() {
     return (
         <section className="py-20 md:py-28 bg-[#F7F4EF] overflow-hidden" aria-labelledby="services-heading">
             <Container>
+                <SectionHeading
+                    eyebrow="What We Offer"
+                    heading="Comprehensive Dental Services in Rohtak"
+                    subtext="From routine cleanings to advanced cosmetic procedures — Apex Dental Care offers a full spectrum of dental services right here in Model Town, Rohtak."
+                    center
+                />
+
+                {/* 4×2 grid on desktop, 2-col tablet, 1-col mobile */}
                 <motion.div
-                    className="text-center max-w-2xl mx-auto mb-12"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+                    variants={container}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: '-80px' }}
                 >
-                    <SectionLabel>What We Offer</SectionLabel>
-                    <h2
-                        id="services-heading"
-                        className="text-3xl md:text-4xl font-semibold text-[#1A3C5E] mt-1 mb-4 leading-tight tracking-[-0.02em]"
-                        style={{ fontFamily: 'var(--font-display)' }}
-                    >
-                        Comprehensive Dental Services in Rohtak
-                    </h2>
-                    <p className="text-[#6B7280] leading-relaxed">
-                        From routine cleanings to advanced cosmetic procedures, Apex Dental Care offers a full spectrum of dental services right here in Model Town, Rohtak.
-                    </p>
+                    {services.map((s) => {
+                        const Icon = iconMap[s.icon] || Sparkles;
+                        return (
+                            <motion.div key={s.slug} variants={item}>
+                                <Link
+                                    href={`/services/${s.slug}`}
+                                    className="group bg-white rounded-2xl p-6 border border-[#E5E0D8] shadow-[0_1px_4px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.10)] hover:-translate-y-1.5 hover:border-[#2DBD8F]/40 transition-all duration-300 ease-out flex flex-col gap-4 h-full"
+                                >
+                                    {/* Icon badge */}
+                                    <div className="w-12 h-12 rounded-xl bg-[#EBF9F4] flex items-center justify-center group-hover:bg-[#2DBD8F] transition-colors duration-300">
+                                        <Icon size={24} className="text-[#2DBD8F] group-hover:text-white transition-colors duration-300" />
+                                    </div>
+                                    {/* Text */}
+                                    <div>
+                                        <h3 className="font-semibold text-[#1C1C1E] text-lg mb-1.5 group-hover:text-[#1A3C5E] transition-colors">
+                                            {s.shortTitle}
+                                        </h3>
+                                        <p className="text-[#6B7280] text-sm leading-relaxed">{s.tagline}</p>
+                                    </div>
+                                    {/* Arrow */}
+                                    <div className="mt-auto flex items-center gap-1 text-[#2DBD8F] text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200">
+                                        Learn more <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-150" />
+                                    </div>
+                                </Link>
+                            </motion.div>
+                        );
+                    })}
                 </motion.div>
-
-                {/* Mobile: horizontal scroll */}
-                <div className="lg:hidden overflow-x-auto pb-4 -mx-4 px-4">
-                    <div className="flex gap-4" style={{ width: 'max-content' }}>
-                        {services.map((s) => (
-                            <div key={s.slug} className="w-64 flex-shrink-0">
-                                <ServiceCard {...s} />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Desktop: 4-col grid */}
-                <div className="hidden lg:grid grid-cols-4 gap-6">
-                    {services.map((s, i) => (
-                        <motion.div
-                            key={s.slug}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: i * 0.05 }}
-                        >
-                            <ServiceCard {...s} />
-                        </motion.div>
-                    ))}
-                </div>
             </Container>
         </section>
     );
