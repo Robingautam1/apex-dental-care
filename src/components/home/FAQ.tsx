@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { Accordion } from '@/components/shared/Accordion';
-import Container from '@/components/shared/Container';
 
 interface FAQProps {
     faqs: { question: string; answer: string }[];
@@ -10,40 +9,37 @@ interface FAQProps {
 
 export function FAQ({ faqs }: FAQProps) {
     return (
-        <section className="bg-white" aria-labelledby="faq-heading">
-            <Container>
-                <div className="border-t border-[#E5E7EB] py-24 md:py-28">
-                    <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16">
-                        {/* Left label */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true, margin: '-40px' }}
-                            transition={{ duration: 0.5 }}
-                        >
-                            <p className="text-sm font-medium text-[#2DBD8F] mb-3">FAQ</p>
-                            <h2
-                                id="faq-heading"
-                                className="text-2xl md:text-3xl font-semibold text-[#1C1C1E] leading-snug tracking-tight"
-                                style={{ fontFamily: 'var(--font-display)' }}
-                            >
-                                Common questions
-                            </h2>
-                        </motion.div>
-
-                        {/* Right accordion */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 12 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: '-40px' }}
-                            transition={{ duration: 0.45 }}
-                            className="max-w-2xl"
-                        >
-                            <Accordion items={faqs} />
-                        </motion.div>
-                    </div>
+        <section className="py-24 bg-background-base">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center max-w-3xl mx-auto mb-16">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-100px' }}
+                        className="text-3xl md:text-4xl font-bold mb-4"
+                    >
+                        Frequently Asked Questions
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-100px' }}
+                        transition={{ delay: 0.1 }}
+                        className="text-lg text-text-muted"
+                    >
+                        Everything you need to know about dental care at Apex Dental Clinic, Rohtak.
+                    </motion.p>
                 </div>
-            </Container>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-100px' }}
+                    className="max-w-3xl mx-auto"
+                >
+                    <Accordion items={faqs} />
+                </motion.div>
+            </div>
         </section>
     );
 }

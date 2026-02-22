@@ -1,24 +1,20 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #1A3C5E;
-  --color-accent: #2DBD8F;
-  --color-accent-dark: #24a07a;
-  --color-warm: #F7F4EF;
-  --color-dark: #1C1C1E;
-  --color-muted: #6B7280;
-  --color-border: #E5E0D8;
-  --color-danger: #E85D4A;
-  --color-white: #FFFFFF;
-  --color-background: #F7F4EF;
-  --color-foreground: #1C1C1E;
+  --color-primary: #0B3B60;
+  --color-primary-hover: #082C48;
+  --color-secondary: #1FA299;
+  --color-secondary-hover: #17827A;
+  --color-background-base: #FFFFFF;
+  --color-background-alt: #F8FAFC;
+  --color-text-dark: #0F172A;
+  --color-text-muted: #475569;
+  --color-accent: #F59E0B;
 
-  --font-display: var(--font-playfair);
-  --font-body: var(--font-inter);
-  --font-mono: var(--font-jetbrains);
+  --font-heading: var(--font-plus-jakarta-sans);
+  --font-sans: var(--font-inter);
 
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.06);
-  --shadow-card-hover: 0 2px 8px rgba(0, 0, 0, 0.1), 0 16px 40px rgba(0, 0, 0, 0.08);
+  --shadow-soft: 0 10px 40px -10px rgba(11, 59, 96, 0.08);
 }
 
 * {
@@ -30,13 +26,12 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
-  /* accounts for sticky navbar height */
 }
 
 body {
-  background-color: var(--color-warm);
-  color: var(--color-dark);
-  font-family: var(--font-body), system-ui, sans-serif;
+  background-color: var(--color-background-base);
+  color: var(--color-text-muted);
+  font-family: var(--font-sans), system-ui, sans-serif;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -48,10 +43,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-display), serif;
+  font-family: var(--font-heading), system-ui, sans-serif;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: var(--color-primary);
+  color: var(--color-text-dark);
 }
 
 /* Skip to main content link */
@@ -62,7 +57,7 @@ h6 {
   z-index: 100;
   padding: 0.75rem 1.5rem;
   background: var(--color-primary);
-  color: var(--color-white);
+  color: white;
   font-weight: 600;
   text-decoration: none;
   border-radius: 0 0 0.5rem 0;
@@ -74,7 +69,7 @@ h6 {
 
 /* Focus visible styles */
 *:focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-secondary);
   outline-offset: 2px;
 }
 
@@ -84,14 +79,14 @@ h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-warm);
+  background: var(--color-background-alt);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
+  background: #CBD5E1;
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-muted);
+  background: var(--color-text-muted);
 }

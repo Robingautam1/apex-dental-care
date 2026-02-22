@@ -1,17 +1,10 @@
 import type { Metadata } from 'next';
-import { Playfair_Display, Inter, JetBrains_Mono } from 'next/font/google';
+import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { MobileBottomBar } from '@/components/layout/MobileBottomBar';
 import { generateLocalBusinessJsonLd, generatePersonJsonLd, SITE_URL } from '@/lib/seo';
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  variable: '--font-playfair',
-  display: 'swap',
-});
 
 const inter = Inter({
   subsets: ['latin'],
@@ -20,52 +13,51 @@ const inter = Inter({
   display: 'swap',
 });
 
-const jetbrains = JetBrains_Mono({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-jetbrains',
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-plus-jakarta-sans',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: 'Apex Dental Care — Best Dental Clinic in Rohtak, Haryana',
-  description: 'Apex Dental Care is a leading dental clinic in Model Town, Rohtak, Haryana. Dr. Aashish Malik offers expert dental surgery, root canal, teeth whitening, and cosmetic dentistry. 5.0★ Google rating. Call 098021 55667.',
-  keywords: ['dental clinic Rohtak', 'dentist in Model Town Rohtak', 'dental surgeon Rohtak Haryana', 'teeth whitening Rohtak', 'root canal Rohtak', 'Dr Aashish Malik dentist', 'best dentist Rohtak', 'dental implants Rohtak'],
+  title: {
+    default: 'Apex Dental Care | Best Dentist in Rohtak – Dr. Aashish Malik',
+    template: '%s | Apex Dental Care Rohtak',
+  },
+  description:
+    'Experience premium dental care at Apex Dental Care in Model Town, Rohtak. Dr. Aashish Malik provides advanced treatments, from general checkups to implants and braces.',
+  keywords: [
+    'dentist rohtak', 'dental clinic rohtak', 'best dentist rohtak',
+    'root canal rohtak', 'dental implants rohtak', 'teeth whitening rohtak',
+    'orthodontist rohtak', 'apex dental care', 'model town rohtak dentist',
+    'dr aashish malik rohtak',
+  ],
   openGraph: {
-    title: 'Apex Dental Care — Best Dental Clinic in Rohtak, Haryana',
-    description: 'Trusted dental clinic in Model Town, Rohtak led by Dr. Aashish Malik. Expert dental care with 5.0★ Google rating.',
+    title: 'Apex Dental Care | Best Dentist in Rohtak',
+    description: 'Experience premium dental care at Apex Dental Care in Model Town, Rohtak.',
     url: SITE_URL,
     siteName: 'Apex Dental Care',
     locale: 'en_IN',
     type: 'website',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Apex Dental Care — Best Dental Clinic in Rohtak' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Apex Dental Care — Best Dental Clinic in Rohtak',
-    description: 'Trusted dental clinic in Model Town, Rohtak led by Dr. Aashish Malik.',
-    images: ['/og-image.png'],
+    title: 'Apex Dental Care | Best Dentist in Rohtak',
+    description: 'Experience premium dental care at Apex Dental Care in Model Town, Rohtak.',
   },
-  alternates: {
-    canonical: SITE_URL,
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  alternates: { canonical: SITE_URL },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   const localBusinessJsonLd = generateLocalBusinessJsonLd();
   const personJsonLd = generatePersonJsonLd();
 
   return (
-    <html lang="en-IN" className={`${playfair.variable} ${inter.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -84,7 +76,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <Navbar />
-        <main id="main-content" className="pt-16 pb-20 md:pb-0">
+        <main id="main-content">
           {children}
         </main>
         <Footer />

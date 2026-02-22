@@ -1,156 +1,115 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, Phone } from 'lucide-react';
 import Link from 'next/link';
-import { Phone, Menu, X, ChevronDown } from 'lucide-react';
-import Container from '@/components/shared/Container';
 
 const navLinks = [
-    { label: 'Home', href: '/' },
-    {
-        label: 'Services', href: '/services/teeth-cleaning',
-        children: [
-            { label: 'Teeth Cleaning', href: '/services/teeth-cleaning' },
-            { label: 'Root Canal', href: '/services/root-canal-treatment' },
-            { label: 'Teeth Whitening', href: '/services/teeth-whitening' },
-            { label: 'Dental Implants', href: '/services/dental-implants' },
-            { label: 'Orthodontics', href: '/services/orthodontics' },
-            { label: 'Cosmetic Dentistry', href: '/services/cosmetic-dentistry' },
-            { label: 'Pediatric Dentistry', href: '/services/pediatric-dentistry' },
-            { label: 'Emergency Care', href: '/services/emergency-dental-care' },
-        ],
-    },
-    { label: 'About', href: '/about' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Contact', href: '/contact' },
+    { name: 'Home', href: '/' },
+    { name: 'Services', href: '#services' },
+    { name: 'Why Us', href: '#features' },
+    { name: 'Blog', href: '#blog' },
+    { name: 'Contact', href: '#contact' },
 ];
 
 export default function Navbar() {
-    const [mobileOpen, setMobileOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
-    const [servicesOpen, setServicesOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 10);
-        handleScroll();
+        const handleScroll = () => setIsScrolled(window.scrollY > 20);
         window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${scrolled
-                    ? 'bg-white/95 backdrop-blur-sm border-b border-[#E5E7EB]'
-                    : 'bg-white'
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${isScrolled
+                    ? 'bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-soft py-3'
+                    : 'bg-transparent py-5'
                 }`}
         >
-            <Container>
-                <nav className="flex items-center justify-between h-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-between items-center">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-lg bg-[#1A3C5E] flex items-center justify-center">
-                            <span className="text-white font-bold text-sm">A</span>
+                    <Link href="/" className="flex items-center gap-2 group">
+                        <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white font-heading font-bold text-xl group-hover:bg-primary-hover transition-colors">
+                            A
                         </div>
-                        <span className="font-semibold text-[#1C1C1E] text-sm tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
-                            Apex Dental Care
+                        <span className="font-heading font-bold text-xl text-text-dark tracking-tight">
+                            Apex Dental
                         </span>
                     </Link>
 
-                    {/* Desktop links */}
-                    <div className="hidden md:flex items-center gap-8">
+                    {/* Desktop Nav */}
+                    <nav className="hidden md:flex items-center gap-8">
                         {navLinks.map((link) => (
-                            <div key={link.label} className="relative group">
-                                {link.children ? (
-                                    <>
-                                        <button
-                                            className="text-sm text-[#6B7280] hover:text-[#1C1C1E] transition-colors flex items-center gap-1 cursor-pointer"
-                                            onMouseEnter={() => setServicesOpen(true)}
-                                            onMouseLeave={() => setServicesOpen(false)}
-                                        >
-                                            {link.label}
-                                            <ChevronDown size={12} />
-                                        </button>
-                                        {servicesOpen && (
-                                            <div
-                                                className="absolute top-full left-0 pt-2"
-                                                onMouseEnter={() => setServicesOpen(true)}
-                                                onMouseLeave={() => setServicesOpen(false)}
-                                            >
-                                                <div className="bg-white border border-[#E5E7EB] rounded-lg shadow-lg py-2 min-w-[200px]">
-                                                    {link.children.map((child) => (
-                                                        <Link
-                                                            key={child.href}
-                                                            href={child.href}
-                                                            className="block px-4 py-2 text-sm text-[#6B7280] hover:text-[#1C1C1E] hover:bg-[#FAFAF9] transition-colors"
-                                                        >
-                                                            {child.label}
-                                                        </Link>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        )}
-                                    </>
-                                ) : (
-                                    <Link
-                                        href={link.href}
-                                        className="text-sm text-[#6B7280] hover:text-[#1C1C1E] transition-colors"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Right */}
-                    <div className="hidden md:flex items-center gap-4">
-                        <a href="tel:09802155667" className="text-sm text-[#6B7280] hover:text-[#1C1C1E] transition-colors flex items-center gap-1.5">
-                            <Phone size={14} /> 098021 55667
-                        </a>
-                        <Link
-                            href="/contact"
-                            className="bg-[#1C1C1E] text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#333] transition-colors"
-                        >
-                            Book Now
-                        </Link>
-                    </div>
-
-                    {/* Mobile toggle */}
-                    <button
-                        className="md:hidden p-2 text-[#6B7280] cursor-pointer"
-                        onClick={() => setMobileOpen(!mobileOpen)}
-                        aria-label="Toggle menu"
-                    >
-                        {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-                    </button>
-                </nav>
-
-                {/* Mobile menu */}
-                {mobileOpen && (
-                    <div className="md:hidden border-t border-[#E5E7EB] py-4 space-y-1">
-                        {navLinks.map((link) => (
-                            <div key={link.label}>
-                                <Link
-                                    href={link.href}
-                                    className="block py-2 text-sm text-[#6B7280] hover:text-[#1C1C1E]"
-                                    onClick={() => setMobileOpen(false)}
-                                >
-                                    {link.label}
-                                </Link>
-                            </div>
-                        ))}
-                        <div className="pt-3 border-t border-[#E5E7EB]">
                             <Link
-                                href="/contact"
-                                className="block text-center bg-[#1C1C1E] text-white text-sm font-medium px-4 py-2.5 rounded-lg"
-                                onClick={() => setMobileOpen(false)}
+                                key={link.name}
+                                href={link.href}
+                                className="text-sm font-medium text-text-muted hover:text-primary transition-colors duration-300"
                             >
-                                Book Appointment
+                                {link.name}
                             </Link>
-                        </div>
+                        ))}
+                    </nav>
+
+                    {/* CTA & Mobile Toggle */}
+                    <div className="flex items-center gap-4">
+                        <a
+                            href="#contact"
+                            className="hidden md:flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-medium text-sm hover:bg-primary-hover hover:scale-105 transition-all duration-300 shadow-soft"
+                            aria-label="Book Appointment"
+                        >
+                            <Phone className="w-4 h-4" />
+                            <span>Book Appointment</span>
+                        </a>
+
+                        <button
+                            className="md:hidden p-2 text-text-dark cursor-pointer"
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            aria-label="Toggle menu"
+                        >
+                            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                        </button>
                     </div>
+                </div>
+            </div>
+
+            {/* Mobile Menu */}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="md:hidden bg-white border-b border-slate-100 overflow-hidden"
+                    >
+                        <div className="px-4 py-6 flex flex-col gap-4">
+                            {navLinks.map((link) => (
+                                <Link
+                                    key={link.name}
+                                    href={link.href}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="text-lg font-medium text-text-dark py-2 border-b border-slate-50"
+                                >
+                                    {link.name}
+                                </Link>
+                            ))}
+                            <a
+                                href="#contact"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="mt-4 flex items-center justify-center gap-2 bg-primary text-white px-6 py-4 rounded-full font-medium text-base hover:bg-primary-hover transition-colors"
+                            >
+                                <Phone className="w-5 h-5" />
+                                <span>Book Appointment</span>
+                            </a>
+                        </div>
+                    </motion.div>
                 )}
-            </Container>
+            </AnimatePresence>
         </header>
     );
 }

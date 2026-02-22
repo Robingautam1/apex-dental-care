@@ -1,75 +1,85 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
+import { Star, ArrowRight } from 'lucide-react';
 import { reviews } from '@/data/reviews';
-import Container from '@/components/shared/Container';
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
+};
 
 export function Reviews() {
     return (
-        <section className="bg-[#FAFAF9]" aria-labelledby="reviews-heading">
-            <Container>
-                <div className="py-24 md:py-28">
-                    <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16">
-                        {/* Left label */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true, margin: '-40px' }}
-                            transition={{ duration: 0.5 }}
+        <section className="py-24 bg-background-alt">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                    <div className="max-w-2xl">
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: '-100px' }}
+                            className="text-3xl md:text-4xl font-bold mb-4"
                         >
-                            <p className="text-sm font-medium text-[#2DBD8F] mb-3">Reviews</p>
-                            <h2
-                                id="reviews-heading"
-                                className="text-2xl md:text-3xl font-semibold text-[#1C1C1E] leading-snug tracking-tight mb-4"
-                                style={{ fontFamily: 'var(--font-display)' }}
-                            >
-                                Trusted by patients
-                            </h2>
-                            <div className="flex items-center gap-2">
-                                <div className="flex gap-0.5">
-                                    {[...Array(5)].map((_, i) => (
-                                        <Star key={i} size={14} className="text-[#FBBF24] fill-[#FBBF24]" />
-                                    ))}
-                                </div>
-                                <span className="text-sm font-semibold text-[#1C1C1E]">5.0</span>
-                                <span className="text-xs text-[#9CA3AF]">on Google</span>
+                            What Our Patients Say
+                        </motion.h2>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: '-100px' }}
+                            transition={{ delay: 0.1 }}
+                            className="text-lg text-text-muted"
+                        >
+                            See why hundreds of families in Rohtak trust Apex Dental Care for their dental needs.
+                        </motion.p>
+                    </div>
+                    <motion.a
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: '-100px' }}
+                        href="https://www.google.com/search?q=Apex+Dental+Care+Rohtak+reviews"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-hover transition-colors"
+                    >
+                        See All on Google <ArrowRight className="w-5 h-5" />
+                    </motion.a>
+                </div>
+
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-100px' }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    {reviews.map((r, index) => (
+                        <motion.div
+                            key={r.name}
+                            variants={itemVariants}
+                            className="bg-white p-8 rounded-2xl border border-slate-50 shadow-sm hover:shadow-soft transition-all duration-300 ease-in-out hover:-translate-y-2 flex flex-col h-full"
+                        >
+                            <div className="flex gap-1 mb-4">
+                                {[...Array(5)].map((_, i) => (
+                                    <Star key={i} className="w-4 h-4 fill-accent text-accent" />
+                                ))}
+                            </div>
+                            <p className="text-text-muted leading-relaxed mb-6 flex-grow">
+                                &ldquo;{r.text}&rdquo;
+                            </p>
+                            <div className="pt-4 border-t border-slate-50">
+                                <p className="font-bold text-text-dark text-sm">{r.name}</p>
+                                <p className="text-xs text-text-muted">Google Review</p>
                             </div>
                         </motion.div>
-
-                        {/* Right reviews */}
-                        <div className="space-y-6">
-                            {reviews.map((r, i) => (
-                                <motion.blockquote
-                                    key={r.name}
-                                    initial={{ opacity: 0, y: 12 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: '-40px' }}
-                                    transition={{ duration: 0.4, delay: i * 0.08 }}
-                                    className="border-l-2 border-[#E5E7EB] pl-5 py-1"
-                                >
-                                    <p className="text-[#374151] leading-relaxed mb-2">
-                                        &ldquo;{r.text}&rdquo;
-                                    </p>
-                                    <cite className="text-sm text-[#9CA3AF] not-italic">
-                                        {r.name}
-                                    </cite>
-                                </motion.blockquote>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="mt-8 lg:pl-[calc(280px+4rem)]">
-                        <a
-                            href="https://www.google.com/search?q=Apex+Dental+Care+Rohtak+reviews"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm font-medium text-[#2DBD8F] hover:underline"
-                        >
-                            See all reviews on Google →
-                        </a>
-                    </div>
-                </div>
-            </Container>
+                    ))}
+                </motion.div>
+            </div>
         </section>
     );
 }

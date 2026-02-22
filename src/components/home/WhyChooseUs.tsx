@@ -1,61 +1,109 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ShieldCheck, Wallet, MapPin, Stethoscope } from 'lucide-react';
-import Container from '@/components/shared/Container';
+import { CheckCircle2, MapPin, Stethoscope } from 'lucide-react';
 
 const features = [
-    { icon: Stethoscope, title: 'Advanced Equipment', desc: 'State-of-the-art technology for accurate diagnosis.' },
-    { icon: ShieldCheck, title: 'Painless Procedures', desc: 'Modern anesthesia and gentle techniques.' },
-    { icon: Wallet, title: 'Honest Pricing', desc: 'No hidden costs, no surprises.' },
-    { icon: MapPin, title: 'Model Town, Rohtak', desc: 'Near Life Care Hospital, easy to reach.' },
+    'Over 10+ Years of Experience',
+    'State-of-the-Art Technology',
+    'Painless Treatment Methods',
+    'Strict Sterilization Protocols',
+    'Honest & Affordable Pricing',
+    'Friendly & Caring Staff',
 ];
 
 export function WhyChooseUs() {
     return (
-        <section className="bg-white" aria-labelledby="why-heading">
-            <Container>
-                <div className="border-t border-[#E5E7EB] py-24 md:py-28">
-                    <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16">
-                        {/* Left label */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true, margin: '-40px' }}
-                            transition={{ duration: 0.5 }}
-                        >
-                            <p className="text-sm font-medium text-[#2DBD8F] mb-3">Why us</p>
-                            <h2
-                                id="why-heading"
-                                className="text-2xl md:text-3xl font-semibold text-[#1C1C1E] leading-snug tracking-tight"
-                                style={{ fontFamily: 'var(--font-display)' }}
-                            >
-                                Why families choose Apex
-                            </h2>
-                        </motion.div>
+        <section id="features" className="py-24 bg-background-base overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    {/* Image Side */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: '-100px' }}
+                        transition={{ duration: 0.8, ease: 'easeOut' }}
+                        className="relative"
+                    >
+                        {/* Background Blobs */}
+                        <div className="absolute -top-10 -left-10 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
+                        <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
 
-                        {/* Right features */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
-                            {features.map((f, i) => (
+                        <div className="relative h-[500px] w-full rounded-3xl overflow-hidden shadow-soft">
+                            {/* Gradient placeholder for team/clinic photo */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-secondary/50 to-primary/30 flex items-center justify-center">
+                                <div className="text-center text-white/90">
+                                    <Stethoscope className="w-12 h-12 mx-auto mb-3 opacity-60" />
+                                    <p className="text-lg font-heading font-bold">Dr. Aashish Malik</p>
+                                    <p className="text-sm opacity-70">& Team</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Floating Badge */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.4, duration: 0.6 }}
+                            className="absolute -bottom-8 -right-8 md:-right-12 bg-white p-6 rounded-2xl shadow-soft border border-slate-50 max-w-[240px]"
+                        >
+                            <div className="flex items-center gap-3 mb-2">
+                                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <MapPin className="w-5 h-5 text-primary" />
+                                </div>
+                                <h4 className="font-bold text-text-dark">Proudly Serving</h4>
+                            </div>
+                            <p className="text-sm text-text-muted font-medium">
+                                The Rohtak community with premium dental care since 2013.
+                            </p>
+                        </motion.div>
+                    </motion.div>
+
+                    {/* Text Side */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: '-100px' }}
+                        transition={{ duration: 0.8, ease: 'easeOut' }}
+                        className="flex flex-col gap-8"
+                    >
+                        <div>
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                                Why Choose <span className="text-primary">Apex Dental</span> in Rohtak?
+                            </h2>
+                            <p className="text-lg text-text-muted leading-relaxed">
+                                We combine advanced dental technology with a compassionate approach. Dr. Aashish Malik and team provide personalized attention in a warm, modern clinic at Model Town, Rohtak.
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {features.map((feature, index) => (
                                 <motion.div
-                                    key={f.title}
-                                    initial={{ opacity: 0, y: 12 }}
+                                    key={index}
+                                    initial={{ opacity: 0, y: 10 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: '-40px' }}
-                                    transition={{ duration: 0.35, delay: i * 0.06 }}
-                                    className="flex gap-4"
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1, duration: 0.4 }}
+                                    className="flex items-start gap-3"
                                 >
-                                    <f.icon size={20} className="text-[#2DBD8F] flex-shrink-0 mt-0.5" />
-                                    <div>
-                                        <h3 className="text-sm font-semibold text-[#1C1C1E] mb-1">{f.title}</h3>
-                                        <p className="text-sm text-[#9CA3AF] leading-relaxed">{f.desc}</p>
-                                    </div>
+                                    <CheckCircle2 className="w-6 h-6 text-secondary shrink-0 mt-0.5" />
+                                    <span className="text-text-dark font-medium">{feature}</span>
                                 </motion.div>
                             ))}
                         </div>
-                    </div>
+
+                        <div className="pt-6">
+                            <a
+                                href="#contact"
+                                className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-primary-hover hover:scale-105 transition-all duration-300 shadow-soft"
+                            >
+                                Schedule Your Visit
+                            </a>
+                        </div>
+                    </motion.div>
                 </div>
-            </Container>
+            </div>
         </section>
     );
 }
