@@ -22,32 +22,21 @@ export default function HomePage() {
       <article>
         {/* Hero — white bg */}
         <Hero />
-        {/* Wave: white → warm */}
-        <WaveDivider topColor="#FFFFFF" bottomColor="#F7F4EF" />
-        {/* Services — warm bg */}
+        {/* Services — warm bg (single divider into warm) */}
         <ServicesStrip />
-        {/* Wave: warm → white */}
-        <WaveDivider topColor="#F7F4EF" bottomColor="#FFFFFF" />
         {/* About — white bg */}
         <AboutSection />
-        {/* Wave: white → warm */}
-        <WaveDivider topColor="#FFFFFF" bottomColor="#F7F4EF" />
         {/* Why Choose Us — warm bg */}
         <WhyChooseUs />
-        {/* Wave: warm → dark navy */}
+        {/* Wave transition into dark navy */}
         <WaveDivider topColor="#F7F4EF" bottomColor="#1A3C5E" />
         {/* Reviews — DARK navy bg */}
         <Reviews />
-        {/* Wave: dark navy → white */}
         <WaveDivider topColor="#1A3C5E" bottomColor="#FFFFFF" />
         {/* FAQ — white bg */}
         <FAQ faqs={homeFaqs} />
-        {/* Wave: white → warm */}
-        <WaveDivider topColor="#FFFFFF" bottomColor="#F7F4EF" />
         {/* Blog — warm bg */}
         <BlogPreview />
-        {/* Wave: warm → white */}
-        <WaveDivider topColor="#F7F4EF" bottomColor="#FFFFFF" />
         {/* Contact — white bg */}
         <ContactMap />
       </article>

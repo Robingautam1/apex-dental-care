@@ -9,11 +9,11 @@ import SectionHeading from '@/components/shared/SectionHeading';
 
 const container = {
     hidden: {},
-    show: { transition: { staggerChildren: 0.08 } },
+    show: { transition: { staggerChildren: 0.06 } },
 };
 
 const item = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 16 },
     show: { opacity: 1, y: 0 },
 };
 
@@ -23,13 +23,13 @@ export function BlogPreview() {
             <Container>
                 <SectionHeading
                     eyebrow="From the Blog"
-                    heading="Dental Health Tips & Guides from Rohtak's Trusted Clinic"
-                    subtext="Expert dental health advice from Dr. Aashish Malik to help you maintain a healthy, confident smile."
+                    heading="Dental Health Tips"
+                    subtext="Expert advice from Dr. Aashish Malik."
                     center
                 />
 
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-3 gap-6"
+                    className="grid grid-cols-1 md:grid-cols-3 gap-5"
                     variants={container}
                     initial="hidden"
                     whileInView="show"
@@ -42,10 +42,8 @@ export function BlogPreview() {
                     ))}
                 </motion.div>
 
-                <div className="text-center mt-10">
-                    <Button href="/blog" variant="secondary">
-                        View All Articles
-                    </Button>
+                <div className="text-center mt-8">
+                    <Button href="/blog" variant="secondary">View All Articles</Button>
                 </div>
             </Container>
         </section>

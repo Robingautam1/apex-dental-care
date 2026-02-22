@@ -13,11 +13,11 @@ const iconMap: Record<string, React.ComponentType<{ size?: number; className?: s
 
 const container = {
     hidden: {},
-    show: { transition: { staggerChildren: 0.08 } },
+    show: { transition: { staggerChildren: 0.06 } },
 };
 
 const item = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 16 },
     show: { opacity: 1, y: 0 },
 };
 
@@ -27,14 +27,14 @@ export function ServicesStrip() {
             <Container>
                 <SectionHeading
                     eyebrow="What We Offer"
-                    heading="Comprehensive Dental Services in Rohtak"
-                    subtext="From routine cleanings to advanced cosmetic procedures — Apex Dental Care offers a full spectrum of dental services right here in Model Town, Rohtak."
+                    heading="Our Dental Services"
+                    subtext="Expert dental care across 8 specialties at our Model Town, Rohtak clinic."
                     center
                 />
 
-                {/* 4×2 grid on desktop, 2-col tablet, 1-col mobile */}
+                {/* 3-col desktop, 2-col tablet, 1-col mobile — breathing room */}
                 <motion.div
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
                     variants={container}
                     initial="hidden"
                     whileInView="show"
@@ -46,23 +46,18 @@ export function ServicesStrip() {
                             <motion.div key={s.slug} variants={item}>
                                 <Link
                                     href={`/services/${s.slug}`}
-                                    className="group bg-white rounded-2xl p-6 border border-[#E5E0D8] shadow-[0_1px_4px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.10)] hover:-translate-y-1.5 hover:border-[#2DBD8F]/40 transition-all duration-300 ease-out flex flex-col gap-4 h-full"
+                                    className="group flex items-start gap-4 bg-white rounded-xl p-5 border border-[#E5E0D8] hover:shadow-md hover:border-[#2DBD8F]/30 transition-all duration-200 h-full"
                                 >
-                                    {/* Icon badge */}
-                                    <div className="w-12 h-12 rounded-xl bg-[#EBF9F4] flex items-center justify-center group-hover:bg-[#2DBD8F] transition-colors duration-300">
-                                        <Icon size={24} className="text-[#2DBD8F] group-hover:text-white transition-colors duration-300" />
+                                    <div className="w-10 h-10 rounded-lg bg-[#EBF9F4] flex items-center justify-center flex-shrink-0 group-hover:bg-[#2DBD8F] transition-colors duration-200">
+                                        <Icon size={20} className="text-[#2DBD8F] group-hover:text-white transition-colors duration-200" />
                                     </div>
-                                    {/* Text */}
-                                    <div>
-                                        <h3 className="font-semibold text-[#1C1C1E] text-lg mb-1.5 group-hover:text-[#1A3C5E] transition-colors">
+                                    <div className="flex-1 min-w-0">
+                                        <h3 className="font-semibold text-[#1C1C1E] text-sm mb-1 group-hover:text-[#1A3C5E] transition-colors">
                                             {s.shortTitle}
                                         </h3>
-                                        <p className="text-[#6B7280] text-sm leading-relaxed">{s.tagline}</p>
+                                        <p className="text-[#6B7280] text-xs leading-relaxed line-clamp-2">{s.tagline}</p>
                                     </div>
-                                    {/* Arrow */}
-                                    <div className="mt-auto flex items-center gap-1 text-[#2DBD8F] text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200">
-                                        Learn more <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-150" />
-                                    </div>
+                                    <ArrowRight size={14} className="text-[#D1D5DB] group-hover:text-[#2DBD8F] flex-shrink-0 mt-1 transition-colors duration-200" />
                                 </Link>
                             </motion.div>
                         );
