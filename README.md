@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Apex Dental Care — Website
+
+Production-ready website for **Apex Dental Care**, a dental clinic in Model Town, Rohtak, Haryana, India.
+
+## Tech Stack
+
+- **Next.js 14** (App Router)
+- **TypeScript**
+- **Tailwind CSS**
+- **Framer Motion** (animations)
+- **Lucide React** (icons)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How to Customize
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Replace Placeholder Images
 
-## Learn More
+Search for `// TODO: Replace` comments throughout the codebase. Key locations:
 
-To learn more about Next.js, take a look at the following resources:
+- **Hero section**: `src/components/home/Hero.tsx` — clinic photo
+- **About section**: `src/components/home/AboutSection.tsx` — doctor photo
+- **About page**: `src/app/about/page.tsx` — doctor portrait + clinic gallery
+- **Blog cards**: `src/components/shared/BlogCard.tsx` — featured images
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Replace the gradient placeholders with `<Image>` from `next/image` using files in `public/images/`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Update Business Information
 
-## Deploy on Vercel
+All business details are centralized in `src/lib/seo.ts`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Clinic name, doctor name, phone
+- Address and geo coordinates
+- Opening hours
+- Google rating
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Add New Blog Posts
+
+1. Open `src/data/blog-posts.ts`
+2. Add a new object to the `blogPosts` array following the existing format
+3. The new post will automatically appear on `/blog` and generate a page at `/blog/[slug]`
+
+### Add or Modify Services
+
+1. Open `src/data/services.ts`
+2. Add/edit entries in the `services` array
+3. Each service auto-generates a page at `/services/[slug]`
+
+## Deployment
+
+This project is ready to deploy on **Vercel** with zero configuration:
+
+```bash
+npm run build  # Verify build succeeds
+```
+
+Then connect the GitHub repository to Vercel.
+
+## SEO Features
+
+- JSON-LD structured data (LocalBusiness, Dentist, Person, FAQPage, Article, BreadcrumbList)
+- Dynamic `sitemap.xml` and `robots.txt`
+- `generateMetadata()` on every page
+- Semantic HTML throughout
+- Core Web Vitals optimized
