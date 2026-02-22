@@ -3,6 +3,8 @@ import { makeTitle, SITE_URL } from '@/lib/seo';
 import { ContactMap } from '@/components/home/ContactMap';
 import { WaveDivider } from '@/components/svg/WaveDivider';
 import { Phone, MapPin, Clock, Mail } from 'lucide-react';
+import Container from '@/components/shared/Container';
+import SectionLabel from '@/components/shared/SectionLabel';
 
 export const metadata: Metadata = {
     title: makeTitle('Contact Us'),
@@ -30,24 +32,22 @@ export default function ContactPage() {
     return (
         <article>
             <section className="bg-[#1A3C5E] text-white py-16 lg:py-24">
-                <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-                    <span className="text-xs font-semibold text-[#2DBD8F] bg-[#2DBD8F]/20 px-4 py-1.5 rounded-full tracking-wider uppercase">
-                        Contact Us
-                    </span>
-                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
+                <Container>
+                    <SectionLabel>Contact Us</SectionLabel>
+                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-1 leading-tight tracking-[-0.02em]" style={{ fontFamily: 'var(--font-display)' }}>
                         Book Your Appointment at Apex Dental Care
                     </h1>
                     <p className="mt-4 text-lg text-white/80 max-w-2xl">
                         We are here to help you smile with confidence. Reach out to us by phone, visit our clinic, or fill out the form below.
                     </p>
-                </div>
+                </Container>
             </section>
 
             <WaveDivider className="w-full h-12 text-white -mt-1" />
 
             {/* Quick contact cards */}
-            <section className="py-12 bg-white">
-                <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+            <section className="py-12 md:py-16 bg-white">
+                <Container>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                         <a
                             href="tel:09802155667"
@@ -81,16 +81,16 @@ export default function ContactPage() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Container>
             </section>
 
             {/* Business hours */}
-            <section className="py-12 bg-[#F7F4EF]">
-                <div className="max-w-[600px] mx-auto px-4 sm:px-6">
-                    <h2 className="text-2xl font-bold text-[#1A3C5E] text-center mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+            <section className="py-12 md:py-16 bg-[#F7F4EF]">
+                <Container className="max-w-[600px]">
+                    <h2 className="text-2xl font-semibold text-[#1A3C5E] text-center mb-6 leading-tight tracking-[-0.02em]" style={{ fontFamily: 'var(--font-display)' }}>
                         Business Hours
                     </h2>
-                    <div className="bg-white rounded-2xl border border-[#E5E0D8] overflow-hidden" style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06)' }}>
+                    <div className="bg-white rounded-2xl border border-[#E5E0D8] overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.06)]">
                         <div className="flex items-center gap-3 p-4 bg-[#1A3C5E] text-white">
                             <Clock size={20} />
                             <span className="font-semibold text-sm">Weekly Schedule</span>
@@ -108,9 +108,8 @@ export default function ContactPage() {
                             </tbody>
                         </table>
                     </div>
-                    {/* TODO: Replace placeholder — verify actual hours */}
                     <p className="text-xs text-[#6B7280] text-center mt-3">* Hours may vary on public holidays</p>
-                </div>
+                </Container>
             </section>
 
             <WaveDivider className="w-full h-12 text-white -mt-1" flip />

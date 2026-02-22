@@ -4,6 +4,7 @@ import { AboutSection } from '@/components/home/AboutSection';
 import { WhyChooseUs } from '@/components/home/WhyChooseUs';
 import { Reviews } from '@/components/home/Reviews';
 import { FAQ } from '@/components/home/FAQ';
+import { BlogPreview } from '@/components/home/BlogPreview';
 import { ContactMap } from '@/components/home/ContactMap';
 import { WaveDivider } from '@/components/svg/WaveDivider';
 import { generateFaqJsonLd } from '@/lib/seo';
@@ -20,17 +21,19 @@ export default function HomePage() {
       />
       <article>
         <Hero />
-        <WaveDivider className="w-full h-16 text-[#F7F4EF] -mb-1" />
+        <WaveDivider className="w-full h-12 md:h-16 text-[#F7F4EF] -mb-1" />
         <ServicesStrip />
-        <WaveDivider className="w-full h-16 text-white -mb-1" flip />
+        <WaveDivider className="w-full h-12 md:h-16 text-white -mb-1" flip />
         <AboutSection />
-        <WaveDivider className="w-full h-16 text-[#F7F4EF] -mb-1" />
+        <WaveDivider className="w-full h-12 md:h-16 text-[#F7F4EF] -mb-1" />
         <WhyChooseUs />
-        <WaveDivider className="w-full h-16 text-white -mb-1" flip />
+        <WaveDivider className="w-full h-12 md:h-16 text-white -mb-1" flip />
         <Reviews />
-        <WaveDivider className="w-full h-16 text-[#F7F4EF] -mb-1" />
+        <WaveDivider className="w-full h-12 md:h-16 text-[#F7F4EF] -mb-1" />
         <FAQ faqs={homeFaqs} />
-        <WaveDivider className="w-full h-16 text-white -mb-1" flip />
+        <WaveDivider className="w-full h-12 md:h-16 text-white -mb-1" flip />
+        <BlogPreview />
+        <WaveDivider className="w-full h-12 md:h-16 text-white -mb-1" />
         <ContactMap />
       </article>
     </>

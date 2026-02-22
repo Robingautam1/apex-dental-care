@@ -6,15 +6,15 @@ import { services } from '@/data/services';
 export function Footer() {
     return (
         <footer className="bg-[#1A3C5E] text-white">
-            <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-16">
+            <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-                    {/* Brand */}
+                    {/* Brand — light variant for dark background */}
                     <div>
                         <div className="flex items-center gap-2 mb-4">
                             <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
                                 <span className="text-white font-bold text-xl" style={{ fontFamily: 'var(--font-display)' }}>A</span>
                             </div>
-                            <span className="text-lg font-bold" style={{ fontFamily: 'var(--font-display)' }}>
+                            <span className="text-lg font-bold text-white" style={{ fontFamily: 'var(--font-display)' }}>
                                 Apex Dental Care
                             </span>
                         </div>
@@ -22,15 +22,15 @@ export function Footer() {
                         <p className="text-white/70 text-sm leading-relaxed mb-6">
                             Trusted dental clinic in Model Town, Rohtak, Haryana — providing world-class dental care with a personal touch.
                         </p>
-                        {/* Social links - placeholders */}
+                        {/* Social links */}
                         <div className="flex items-center gap-3">
-                            <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#2DBD8F] transition-colors" aria-label="Facebook">
+                            <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#2DBD8F] transition-colors" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                                 <Facebook size={16} />
                             </a>
-                            <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#2DBD8F] transition-colors" aria-label="Instagram">
+                            <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#2DBD8F] transition-colors" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                                 <Instagram size={16} />
                             </a>
-                            <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#2DBD8F] transition-colors" aria-label="Twitter">
+                            <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#2DBD8F] transition-colors" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
                                 <Twitter size={16} />
                             </a>
                         </div>
@@ -99,7 +99,7 @@ export function Footer() {
 
             {/* Bottom bar */}
             <div className="border-t border-white/10">
-                <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <p className="text-white/50 text-xs text-center sm:text-left">
                         © {new Date().getFullYear()} Apex Dental Care, Model Town, Rohtak, Haryana 124001
                     </p>

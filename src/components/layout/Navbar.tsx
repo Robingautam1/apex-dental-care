@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -19,9 +19,30 @@ export function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [servicesOpen, setServicesOpen] = useState(false);
 
+    // Close dropdown on Escape key
+    const handleEscape = useCallback((e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+            setServicesOpen(false);
+            setMobileOpen(false);
+        }
+    }, []);
+
+    useEffect(() => {
+        document.addEventListener('keydown', handleEscape);
+        return () => document.removeEventListener('keydown', handleEscape);
+    }, [handleEscape]);
+
+    // Close dropdown on outside click
+    useEffect(() => {
+        if (!servicesOpen) return;
+        const handleClick = () => setServicesOpen(false);
+        document.addEventListener('click', handleClick);
+        return () => document.removeEventListener('click', handleClick);
+    }, [servicesOpen]);
+
     return (
         <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 border-b border-[#E5E0D8]/50">
-            <nav className="max-w-[1200px] mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-20" aria-label="Main navigation">
+            <nav className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 sm:h-20" aria-label="Main navigation">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 flex-shrink-0">
                     <div className="w-10 h-10 rounded-xl bg-[#1A3C5E] flex items-center justify-center">
@@ -41,53 +62,51 @@ export function Navbar() {
                         <div key={link.label} className="relative group">
                             {link.hasDropdown ? (
                                 <button
-                                    className="flex items-center gap-1 text-[#1C1C1E] hover:text-[#2DBD8F] transition-colors font-medium text-sm cursor-pointer"
-                                    onMouseEnter={() => setServicesOpen(true)}
-                                    onMouseLeave={() => setServicesOpen(false)}
+                                    className="relative flex items-center gap-1 text-[#1C1C1E] hover:text-[#2DBD8F] transition-colors duration-150 font-medium text-sm cursor-pointer after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#2DBD8F] hover:after:w-full after:transition-all after:duration-200"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setServicesOpen(!servicesOpen);
+                                    }}
                                     aria-expanded={servicesOpen}
                                     aria-haspopup="true"
                                 >
                                     {link.label}
-                                    <ChevronDown size={14} />
+                                    <ChevronDown size={14} className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
                                 </button>
                             ) : (
                                 <Link
                                     href={link.href}
-                                    className="text-[#1C1C1E] hover:text-[#2DBD8F] transition-colors font-medium text-sm"
+                                    className="relative text-[#1C1C1E] hover:text-[#2DBD8F] transition-colors duration-150 font-medium text-sm after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#2DBD8F] hover:after:w-full after:transition-all after:duration-200"
                                 >
                                     {link.label}
                                 </Link>
                             )}
                             {link.hasDropdown && (
-                                <div
-                                    onMouseEnter={() => setServicesOpen(true)}
-                                    onMouseLeave={() => setServicesOpen(false)}
-                                >
-                                    <AnimatePresence>
-                                        {servicesOpen && (
-                                            <motion.div
-                                                initial={{ opacity: 0, y: 8 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, y: 8 }}
-                                                transition={{ duration: 0.15 }}
-                                                className="absolute top-full left-1/2 -translate-x-1/2 pt-2"
-                                            >
-                                                <div className="bg-white rounded-2xl border border-[#E5E0D8] p-3 w-64"
-                                                    style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.1), 0 16px 40px rgba(0,0,0,0.08)' }}>
-                                                    {services.map((s) => (
-                                                        <Link
-                                                            key={s.slug}
-                                                            href={`/services/${s.slug}`}
-                                                            className="block px-3 py-2 rounded-lg text-sm text-[#1C1C1E] hover:bg-[#F7F4EF] hover:text-[#2DBD8F] transition-colors"
-                                                        >
-                                                            {s.shortTitle}
-                                                        </Link>
-                                                    ))}
-                                                </div>
-                                            </motion.div>
-                                        )}
-                                    </AnimatePresence>
-                                </div>
+                                <AnimatePresence>
+                                    {servicesOpen && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 8 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: 8 }}
+                                            transition={{ duration: 0.15 }}
+                                            className="absolute top-full left-1/2 -translate-x-1/2 pt-2"
+                                            onClick={(e) => e.stopPropagation()}
+                                        >
+                                            <div className="bg-white rounded-xl shadow-xl border border-[#E5E0D8] p-2 min-w-[220px]">
+                                                {services.map((s) => (
+                                                    <Link
+                                                        key={s.slug}
+                                                        href={`/services/${s.slug}`}
+                                                        onClick={() => setServicesOpen(false)}
+                                                        className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1C1C1E] hover:bg-[#F7F4EF] hover:text-[#2DBD8F] transition-colors"
+                                                    >
+                                                        {s.shortTitle}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             )}
                         </div>
                     ))}
@@ -97,7 +116,7 @@ export function Navbar() {
                 <div className="hidden lg:flex items-center gap-3">
                     <a
                         href="tel:09802155667"
-                        className="flex items-center gap-2 text-sm font-medium text-[#1A3C5E] hover:text-[#2DBD8F] transition-colors"
+                        className="flex items-center gap-2 text-sm font-medium text-[#1A3C5E] hover:text-[#2DBD8F] transition-colors duration-150"
                     >
                         <Phone size={16} />
                         098021 55667

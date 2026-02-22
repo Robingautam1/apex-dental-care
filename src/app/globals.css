@@ -29,6 +29,8 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  /* accounts for sticky navbar height */
 }
 
 body {

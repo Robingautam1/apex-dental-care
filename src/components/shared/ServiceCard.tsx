@@ -21,15 +21,12 @@ export function ServiceCard({ slug, shortTitle, tagline, icon }: ServiceCardProp
     return (
         <Link href={`/services/${slug}`}>
             <motion.article
-                className="group bg-white rounded-2xl p-6 border border-[#E5E0D8] cursor-pointer h-full"
-                style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06)' }}
-                whileHover={{ y: -4, boxShadow: '0 2px 8px rgba(0,0,0,0.1), 0 16px 40px rgba(0,0,0,0.08)' }}
-                transition={{ duration: 0.2 }}
+                className="group bg-white rounded-2xl p-6 shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-[#E5E0D8] cursor-pointer h-full hover:shadow-[0_8px_24px_rgba(0,0,0,0.10)] hover:-translate-y-1 transition-all duration-200"
             >
-                <div className="w-12 h-12 rounded-xl bg-[#2DBD8F]/10 flex items-center justify-center mb-4 group-hover:bg-[#2DBD8F]/20 transition-colors">
-                    <Icon size={24} className="text-[#2DBD8F]" />
+                <div className="w-10 h-10 rounded-xl bg-[#2DBD8F]/10 flex items-center justify-center mb-4 group-hover:bg-[#2DBD8F]/20 transition-colors">
+                    <Icon size={20} className="text-[#2DBD8F]" />
                 </div>
-                <h3 className="font-semibold text-[#1A3C5E] text-lg mb-2 font-[var(--font-display)]">
+                <h3 className="font-semibold text-[#1A3C5E] text-lg mb-2">
                     {shortTitle}
                 </h3>
                 <p className="text-[#6B7280] text-sm leading-relaxed">

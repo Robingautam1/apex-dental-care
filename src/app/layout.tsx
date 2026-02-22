@@ -63,7 +63,7 @@ export default function RootLayout({
   const personJsonLd = generatePersonJsonLd();
 
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable} ${jetbrains.variable}`}>
+    <html lang="en-IN" className={`${playfair.variable} ${inter.variable} ${jetbrains.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -82,7 +82,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <Navbar />
-        <main id="main-content" className="pt-16 sm:pt-20 pb-20 lg:pb-0">
+        <main id="main-content" className="pt-16 sm:pt-20 pb-20 md:pb-0">
           {children}
         </main>
         <Footer />

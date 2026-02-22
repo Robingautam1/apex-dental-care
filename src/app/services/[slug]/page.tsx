@@ -7,6 +7,7 @@ import { Button } from '@/components/shared/Button';
 import { WaveDivider } from '@/components/svg/WaveDivider';
 import { Phone, MapPin, Clock } from 'lucide-react';
 import { makeTitle, generateFaqJsonLd, generateBreadcrumbJsonLd, SITE_URL } from '@/lib/seo';
+import Container from '@/components/shared/Container';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -58,7 +59,7 @@ export default async function ServicePage({ params }: Props) {
             <article>
                 {/* Hero */}
                 <section className="bg-[#1A3C5E] text-white py-16 lg:py-24">
-                    <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+                    <Container>
                         {/* Breadcrumb */}
                         <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/60">
                             <ol className="flex items-center gap-2">
@@ -69,18 +70,18 @@ export default async function ServicePage({ params }: Props) {
                                 <li className="text-white">{service.shortTitle}</li>
                             </ol>
                         </nav>
-                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
+                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-[-0.02em]" style={{ fontFamily: 'var(--font-display)' }}>
                             {service.title.replace(' — Apex Dental Care', '')}
                         </h1>
                         <p className="mt-4 text-lg text-white/80 max-w-2xl">{service.tagline}</p>
-                    </div>
+                    </Container>
                 </section>
 
                 <WaveDivider className="w-full h-12 text-[#F7F4EF] -mt-1" />
 
                 {/* Content */}
-                <section className="py-12 lg:py-20 bg-[#F7F4EF]">
-                    <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+                <section className="py-20 md:py-28 bg-[#F7F4EF]">
+                    <Container>
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
                             {/* Main content */}
                             <div className="lg:col-span-2">
@@ -94,7 +95,7 @@ export default async function ServicePage({ params }: Props) {
 
                                 {/* Service FAQ */}
                                 <div className="mt-12">
-                                    <h2 className="text-2xl font-bold text-[#1A3C5E] mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+                                    <h2 className="text-2xl font-semibold text-[#1A3C5E] mb-6 leading-tight tracking-[-0.02em]" style={{ fontFamily: 'var(--font-display)' }}>
                                         Common Questions About {service.shortTitle}
                                     </h2>
                                     <Accordion items={service.faqs} />
@@ -103,8 +104,8 @@ export default async function ServicePage({ params }: Props) {
 
                             {/* Sidebar */}
                             <aside className="lg:col-span-1">
-                                <div className="bg-white rounded-2xl p-6 border border-[#E5E0D8] sticky top-24" style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06)' }}>
-                                    <h3 className="text-lg font-bold text-[#1A3C5E] mb-4" style={{ fontFamily: 'var(--font-display)' }}>
+                                <div className="bg-white rounded-2xl p-6 border border-[#E5E0D8] sticky top-24 shadow-[0_2px_8px_rgba(0,0,0,0.06)]">
+                                    <h3 className="text-lg font-semibold text-[#1A3C5E] mb-4" style={{ fontFamily: 'var(--font-display)' }}>
                                         Book This Service
                                     </h3>
                                     <div className="space-y-4 mb-6">
@@ -114,7 +115,7 @@ export default async function ServicePage({ params }: Props) {
                                         </div>
                                         <div className="flex items-center gap-3 text-sm">
                                             <Phone size={18} className="text-[#2DBD8F] flex-shrink-0" />
-                                            <a href="tel:09802155667" className="text-[#1C1C1E] hover:text-[#2DBD8F] font-medium">098021 55667</a>
+                                            <a href="tel:09802155667" className="text-[#1C1C1E] hover:text-[#2DBD8F] font-medium transition-colors">098021 55667</a>
                                         </div>
                                         <div className="flex items-start gap-3 text-sm">
                                             <Clock size={18} className="text-[#2DBD8F] flex-shrink-0 mt-0.5" />
@@ -133,7 +134,7 @@ export default async function ServicePage({ params }: Props) {
                                 </div>
                             </aside>
                         </div>
-                    </div>
+                    </Container>
                 </section>
             </article>
         </>

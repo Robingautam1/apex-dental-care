@@ -5,6 +5,7 @@ import { blogPosts } from '@/data/blog-posts';
 import { makeTitle, generateArticleJsonLd, generateBreadcrumbJsonLd, SITE_URL } from '@/lib/seo';
 import { WaveDivider } from '@/components/svg/WaveDivider';
 import { Calendar, Clock, User } from 'lucide-react';
+import Container from '@/components/shared/Container';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -55,14 +56,14 @@ export default async function BlogPostPage({ params }: Props) {
         return body.split('\n\n').map((block, i) => {
             if (block.startsWith('## ')) {
                 return (
-                    <h2 key={i} className="text-2xl font-bold text-[#1A3C5E] mt-8 mb-4" style={{ fontFamily: 'var(--font-display)' }}>
+                    <h2 key={i} className="text-2xl font-semibold text-[#1A3C5E] mt-8 mb-4 leading-tight tracking-[-0.02em]" style={{ fontFamily: 'var(--font-display)' }}>
                         {block.replace('## ', '')}
                     </h2>
                 );
             }
             if (block.startsWith('### ')) {
                 return (
-                    <h3 key={i} className="text-xl font-bold text-[#1A3C5E] mt-6 mb-3" style={{ fontFamily: 'var(--font-display)' }}>
+                    <h3 key={i} className="text-xl font-semibold text-[#1A3C5E] mt-6 mb-3 leading-tight tracking-[-0.02em]" style={{ fontFamily: 'var(--font-display)' }}>
                         {block.replace('### ', '')}
                     </h3>
                 );
@@ -83,7 +84,7 @@ export default async function BlogPostPage({ params }: Props) {
             <article>
                 {/* Hero */}
                 <section className="bg-[#1A3C5E] text-white py-16 lg:py-24">
-                    <div className="max-w-[800px] mx-auto px-4 sm:px-6">
+                    <Container className="max-w-[800px]">
                         <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/60">
                             <ol className="flex items-center gap-2">
                                 <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
@@ -93,10 +94,10 @@ export default async function BlogPostPage({ params }: Props) {
                                 <li className="text-white truncate max-w-[200px]">{post.title}</li>
                             </ol>
                         </nav>
-                        <span className="inline-block text-xs font-semibold text-[#2DBD8F] bg-[#2DBD8F]/20 px-3 py-1 rounded-full mb-4">
+                        <span className="inline-block text-xs font-semibold text-[#2DBD8F] bg-[#2DBD8F]/20 px-3 py-1 rounded-full mb-4 tracking-[0.2em] uppercase">
                             {post.category}
                         </span>
-                        <h1 className="text-3xl sm:text-4xl font-bold leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
+                        <h1 className="text-3xl sm:text-4xl font-bold leading-tight tracking-[-0.02em]" style={{ fontFamily: 'var(--font-display)' }}>
                             {post.title}
                         </h1>
                         <div className="flex flex-wrap items-center gap-4 mt-6 text-sm text-white/70">
@@ -104,15 +105,15 @@ export default async function BlogPostPage({ params }: Props) {
                             <span className="flex items-center gap-1.5"><Calendar size={16} /> {new Date(post.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
                             <span className="flex items-center gap-1.5"><Clock size={16} /> {post.readTime}</span>
                         </div>
-                    </div>
+                    </Container>
                 </section>
 
                 <WaveDivider className="w-full h-12 text-[#F7F4EF] -mt-1" />
 
                 {/* Content */}
-                <section className="py-12 lg:py-20 bg-[#F7F4EF]">
-                    <div className="max-w-[800px] mx-auto px-4 sm:px-6">
-                        <div className="bg-white rounded-2xl p-6 sm:p-10 border border-[#E5E0D8]" style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06)' }}>
+                <section className="py-20 md:py-28 bg-[#F7F4EF]">
+                    <Container className="max-w-[800px]">
+                        <div className="bg-white rounded-2xl p-6 sm:p-10 border border-[#E5E0D8] shadow-[0_2px_8px_rgba(0,0,0,0.06)]">
                             {renderBody(post.body)}
                         </div>
 
@@ -122,7 +123,7 @@ export default async function BlogPostPage({ params }: Props) {
                                 ← Back to All Articles
                             </Link>
                         </div>
-                    </div>
+                    </Container>
                 </section>
             </article>
         </>

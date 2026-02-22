@@ -4,13 +4,15 @@ import { motion } from 'framer-motion';
 import { BlobShape } from '@/components/svg/BlobShape';
 import { ToothDecor } from '@/components/svg/ToothDecor';
 import Link from 'next/link';
+import Container from '@/components/shared/Container';
+import SectionLabel from '@/components/shared/SectionLabel';
 
 export function AboutSection() {
     return (
-        <section className="py-12 lg:py-20 bg-white" aria-labelledby="about-heading">
-            <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+        <section className="py-20 md:py-28 bg-white overflow-hidden" aria-labelledby="about-heading">
+            <Container>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    {/* Left: Doctor image placeholder with blob */}
+                    {/* Left: Doctor image placeholder with blob behind it */}
                     <motion.div
                         className="relative"
                         initial={{ opacity: 0, x: -20 }}
@@ -18,15 +20,31 @@ export function AboutSection() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <BlobShape className="absolute inset-0 w-full h-full text-[#2DBD8F]/10 -rotate-12 scale-110" />
-                        {/* TODO: Replace with actual doctor photo */}
-                        <div className="relative aspect-[3/4] max-w-md mx-auto rounded-3xl overflow-hidden bg-gradient-to-br from-[#1A3C5E] to-[#1A3C5E]/80">
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <ToothDecor className="w-24 h-32 text-white/10" />
-                            </div>
-                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1A3C5E] to-transparent p-6">
-                                <p className="text-white font-semibold text-lg" style={{ fontFamily: 'var(--font-display)' }}>Dr. Aashish Malik</p>
-                                <p className="text-white/70 text-sm">Dental Surgeon, Rohtak</p>
+                        <div className="relative max-w-md mx-auto">
+                            {/* Blob shape positioned BEHIND the image frame */}
+                            <BlobShape className="absolute -bottom-6 -right-6 w-[110%] h-[110%] text-[#2DBD8F] opacity-20 -z-10" />
+                            {/* TODO: Replace with actual doctor photo */}
+                            <div className="relative aspect-[3/4] rounded-3xl overflow-hidden bg-gradient-to-br from-[#1A3C5E] via-[#1A3C5E]/90 to-[#2DBD8F]/40 ring-1 ring-white/10">
+                                {/* Decorative quote mark top-left */}
+                                <div className="absolute top-4 left-4 text-[#2DBD8F] opacity-40" aria-hidden="true">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
+                                        <path d="M7.031 14c3.866 0 7 3.134 7 7s-3.134 7-7 7-7-3.134-7-7l-0.031-1c0-7.732 6.268-14 14-14v4c-3.521 0-6.624 1.742-8.509 4.412 0.497-0.106 1.009-0.162 1.54-0.162zM25.031 14c3.866 0 7 3.134 7 7s-3.134 7-7 7-7-3.134-7-7l-0.031-1c0-7.732 6.268-14 14-14v4c-3.521 0-6.624 1.742-8.509 4.412 0.497-0.106 1.009-0.162 1.54-0.162z" />
+                                    </svg>
+                                </div>
+                                {/* Dot pattern overlay */}
+                                <svg className="absolute inset-0 w-full h-full opacity-[0.05]" aria-hidden="true">
+                                    <pattern id="aboutDotPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                                        <circle cx="2" cy="2" r="1" fill="white" />
+                                    </pattern>
+                                    <rect width="100%" height="100%" fill="url(#aboutDotPattern)" />
+                                </svg>
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                    <ToothDecor className="w-[35%] h-auto text-white opacity-15" />
+                                </div>
+                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1A3C5E] to-transparent p-6">
+                                    <p className="text-white font-semibold text-lg" style={{ fontFamily: 'var(--font-display)' }}>Dr. Aashish Malik</p>
+                                    <p className="text-white/70 text-sm">Dental Surgeon, Rohtak</p>
+                                </div>
                             </div>
                         </div>
                     </motion.div>
@@ -38,12 +56,10 @@ export function AboutSection() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <span className="text-xs font-semibold text-[#2DBD8F] bg-[#2DBD8F]/10 px-4 py-1.5 rounded-full tracking-wider uppercase">
-                            About the Doctor
-                        </span>
+                        <SectionLabel>About the Doctor</SectionLabel>
                         <h2
                             id="about-heading"
-                            className="text-3xl sm:text-4xl font-bold text-[#1A3C5E] mt-4 mb-6"
+                            className="text-3xl md:text-4xl font-semibold text-[#1A3C5E] mt-1 mb-6 leading-tight tracking-[-0.02em]"
                             style={{ fontFamily: 'var(--font-display)' }}
                         >
                             Meet Dr. Aashish Malik
@@ -71,7 +87,7 @@ export function AboutSection() {
                         </Link>
                     </motion.div>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 }

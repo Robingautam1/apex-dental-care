@@ -4,24 +4,24 @@ import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import { ReviewCard } from '@/components/shared/ReviewCard';
 import { reviews } from '@/data/reviews';
+import Container from '@/components/shared/Container';
+import SectionLabel from '@/components/shared/SectionLabel';
 
 export function Reviews() {
     return (
-        <section className="py-12 lg:py-20 bg-white" aria-labelledby="reviews-heading">
-            <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+        <section className="py-20 md:py-28 bg-white overflow-hidden" aria-labelledby="reviews-heading">
+            <Container>
                 <motion.div
-                    className="text-center mb-12"
+                    className="text-center max-w-2xl mx-auto mb-12"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    <span className="text-xs font-semibold text-[#2DBD8F] bg-[#2DBD8F]/10 px-4 py-1.5 rounded-full tracking-wider uppercase">
-                        Testimonials
-                    </span>
+                    <SectionLabel>Testimonials</SectionLabel>
                     <h2
                         id="reviews-heading"
-                        className="text-3xl sm:text-4xl font-bold text-[#1A3C5E] mt-4 mb-4"
+                        className="text-3xl md:text-4xl font-semibold text-[#1A3C5E] mt-1 mb-4 leading-tight tracking-[-0.02em]"
                         style={{ fontFamily: 'var(--font-display)' }}
                     >
                         What Our Patients Say
@@ -66,7 +66,7 @@ export function Reviews() {
                         See All Reviews on Google →
                     </a>
                 </motion.div>
-            </div>
+            </Container>
         </section>
     );
 }

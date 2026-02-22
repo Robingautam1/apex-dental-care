@@ -3,34 +3,34 @@
 import { motion } from 'framer-motion';
 import { ServiceCard } from '@/components/shared/ServiceCard';
 import { services } from '@/data/services';
+import Container from '@/components/shared/Container';
+import SectionLabel from '@/components/shared/SectionLabel';
 
 export function ServicesStrip() {
     return (
-        <section className="py-12 lg:py-20 bg-[#F7F4EF]" aria-labelledby="services-heading">
-            <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+        <section className="py-20 md:py-28 bg-[#F7F4EF] overflow-hidden" aria-labelledby="services-heading">
+            <Container>
                 <motion.div
-                    className="text-center mb-12"
+                    className="text-center max-w-2xl mx-auto mb-12"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    <span className="text-xs font-semibold text-[#2DBD8F] bg-[#2DBD8F]/10 px-4 py-1.5 rounded-full tracking-wider uppercase">
-                        What We Offer
-                    </span>
+                    <SectionLabel>What We Offer</SectionLabel>
                     <h2
                         id="services-heading"
-                        className="text-3xl sm:text-4xl font-bold text-[#1A3C5E] mt-4 mb-4"
+                        className="text-3xl md:text-4xl font-semibold text-[#1A3C5E] mt-1 mb-4 leading-tight tracking-[-0.02em]"
                         style={{ fontFamily: 'var(--font-display)' }}
                     >
                         Comprehensive Dental Services in Rohtak
                     </h2>
-                    <p className="text-[#6B7280] max-w-2xl mx-auto">
+                    <p className="text-[#6B7280] leading-relaxed">
                         From routine cleanings to advanced cosmetic procedures, Apex Dental Care offers a full spectrum of dental services right here in Model Town, Rohtak.
                     </p>
                 </motion.div>
 
-                {/* Mobile: horizontal scroll, Desktop: 4-col grid */}
+                {/* Mobile: horizontal scroll */}
                 <div className="lg:hidden overflow-x-auto pb-4 -mx-4 px-4">
                     <div className="flex gap-4" style={{ width: 'max-content' }}>
                         {services.map((s) => (
@@ -41,6 +41,7 @@ export function ServicesStrip() {
                     </div>
                 </div>
 
+                {/* Desktop: 4-col grid */}
                 <div className="hidden lg:grid grid-cols-4 gap-6">
                     {services.map((s, i) => (
                         <motion.div
@@ -54,7 +55,7 @@ export function ServicesStrip() {
                         </motion.div>
                     ))}
                 </div>
-            </div>
+            </Container>
         </section>
     );
 }

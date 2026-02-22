@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { Accordion } from '@/components/shared/Accordion';
+import Container from '@/components/shared/Container';
+import SectionLabel from '@/components/shared/SectionLabel';
 
 interface FAQProps {
     faqs: { question: string; answer: string }[];
@@ -9,26 +11,24 @@ interface FAQProps {
 
 export function FAQ({ faqs }: FAQProps) {
     return (
-        <section className="py-12 lg:py-20 bg-[#F7F4EF]" aria-labelledby="faq-heading">
-            <div className="max-w-[800px] mx-auto px-4 sm:px-6">
+        <section className="py-20 md:py-28 bg-[#F7F4EF] overflow-hidden" aria-labelledby="faq-heading">
+            <Container className="max-w-[800px]">
                 <motion.div
-                    className="text-center mb-12"
+                    className="text-center max-w-2xl mx-auto mb-12"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    <span className="text-xs font-semibold text-[#2DBD8F] bg-[#2DBD8F]/10 px-4 py-1.5 rounded-full tracking-wider uppercase">
-                        FAQ
-                    </span>
+                    <SectionLabel>FAQ</SectionLabel>
                     <h2
                         id="faq-heading"
-                        className="text-3xl sm:text-4xl font-bold text-[#1A3C5E] mt-4 mb-4"
+                        className="text-3xl md:text-4xl font-semibold text-[#1A3C5E] mt-1 mb-4 leading-tight tracking-[-0.02em]"
                         style={{ fontFamily: 'var(--font-display)' }}
                     >
                         Frequently Asked Questions
                     </h2>
-                    <p className="text-[#6B7280]">
+                    <p className="text-[#6B7280] leading-relaxed">
                         Everything you need to know about dental care at Apex Dental Care in Rohtak.
                     </p>
                 </motion.div>
@@ -41,7 +41,7 @@ export function FAQ({ faqs }: FAQProps) {
                 >
                     <Accordion items={faqs} />
                 </motion.div>
-            </div>
+            </Container>
         </section>
     );
 }
