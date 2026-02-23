@@ -1,48 +1,28 @@
 'use client';
 
-import { Phone, MessageCircle, MapPin } from 'lucide-react';
+import { Phone as PhoneIcon, Calendar as CalendarIcon } from 'lucide-react';
+import Link from 'next/link';
 
 export default function MobileBottomBar() {
     return (
-        <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate-100 shadow-[0_-4px_20px_-10px_rgba(0,0,0,0.1)] pb-safe">
-            <div className="flex h-16 items-center justify-between px-2">
-
-                <a
-                    href="https://wa.me/919802155667"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-1 flex-col items-center justify-center gap-1 text-slate-500 hover:text-secondary transition-colors"
-                    style={{ minWidth: '44px', minHeight: '44px' }}
-                >
-                    <MessageCircle className="w-5 h-5" />
-                    <span className="text-[10px] font-medium">WhatsApp</span>
-                </a>
-
-                <div className="relative flex-1 flex justify-center -mt-6">
-                    <a
-                        href="tel:+919802155667"
-                        className="group relative flex flex-col items-center justify-center gap-1 bg-primary text-white w-16 h-16 rounded-full shadow-soft"
-                    >
-                        {/* Soft Pulse Animation Component */}
-                        <span className="absolute inset-0 rounded-full animate-ping bg-primary opacity-20"></span>
-
-                        <Phone className="w-6 h-6 z-10" />
-                        <span className="text-[9px] font-bold z-10">Call Now</span>
-                    </a>
-                </div>
-
-                <a
-                    href="https://www.google.com/maps/place/Apex+Dental+Care"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-1 flex-col items-center justify-center gap-1 text-slate-500 hover:text-secondary transition-colors"
-                    style={{ minWidth: '44px', minHeight: '44px' }}
-                >
-                    <MapPin className="w-5 h-5" />
-                    <span className="text-[10px] font-medium">Directions</span>
-                </a>
-
-            </div>
+        <div className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white/90 backdrop-blur-md 
+                    border-t border-[#E5E0D8] px-4 py-3 pb-[max(12px,env(safe-area-inset-bottom))]
+                    flex gap-3 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+            <a href="tel:09802155667"
+                className="flex-1 flex flex-col items-center justify-center gap-1 bg-[#F7F4EF] 
+                    text-[#1A3C5E] py-2.5 rounded-xl active:bg-[#E5E0D8] transition-colors"
+                aria-label="Call Clinic">
+                <PhoneIcon className="w-5 h-5" aria-hidden="true" />
+                <span className="text-[11px] font-semibold">Call Now</span>
+            </a>
+            <Link href="/contact"
+                className="flex-[1.5] flex items-center justify-center gap-2 bg-[#1A3C5E] 
+                       text-white py-2.5 rounded-xl shadow-[0_4px_12px_rgba(26,60,94,0.3)]
+                       active:scale-[0.98] transition-transform animate-[softPulse_2s_infinite]"
+                aria-label="Book Appointment">
+                <CalendarIcon className="w-5 h-5" aria-hidden="true" />
+                <span className="text-sm font-semibold">Book Appointment</span>
+            </Link>
         </div>
     );
 }

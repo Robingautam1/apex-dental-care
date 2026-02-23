@@ -65,3 +65,35 @@
     transform: translateX(100%);
   }
 }
+
+@layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes softPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(45, 189, 143, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(45, 189, 143, 0);
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}

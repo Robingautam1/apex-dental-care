@@ -74,82 +74,125 @@ const itemVariants = {
 };
 
 export default function Blog() {
+  const featuredPost = blogPosts[0];
+
   return (
-    <section id="blog" className="py-24 bg-background-alt">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-          <div className="max-w-2xl">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              className="text-3xl md:text-4xl font-bold mb-4"
-            >
-              Latest from Our Blog
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ delay: 0.1 }}
-              className="text-lg text-text-muted"
-            >
-              Stay updated with dental care tips, news, and insights from our experts in Rohtak.
-            </motion.p>
-          </div>
-          <motion.a
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            href="#"
-            className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-hover transition-colors"
-          >
-            View All Posts <ArrowRight className="w-5 h-5" />
-          </motion.a>
+    <>
+      {/* MOBILE BLOG — single featured post + link */}
+      <section className="md:hidden px-5 py-10 bg-[#F7F4EF]">
+        <div className="mb-6">
+          <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#2DBD8F] mb-2">
+            Dental Insights
+          </p>
+          <h2 className="font-display text-2xl font-semibold text-[#1C1C1E] leading-tight">
+            Latest from the Blog
+          </h2>
         </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          className="flex overflow-x-auto pb-8 md:pb-0 md:grid md:grid-cols-3 gap-8 snap-x snap-mandatory"
-        >
-          {blogPosts.map((post, index) => (
-            <motion.article
-              key={index}
-              variants={itemVariants}
-              className="min-w-[85vw] sm:min-w-[300px] md:min-w-0 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-soft transition-all duration-300 ease-in-out hover:-translate-y-2 group snap-center border border-slate-50 flex flex-col h-full"
+        <a href={featuredPost.link} className="block relative bg-[#1A3C5E] rounded-2xl overflow-hidden mb-5">
+          <div className={`relative h-48 w-full overflow-hidden bg-gradient-to-br ${featuredPost.gradient} flex items-center justify-center`}>
+            <span className="absolute z-10 top-3 left-3 bg-white/20 backdrop-blur-sm text-white text-xs font-bold uppercase tracking-wider px-2 py-1 rounded">
+              {featuredPost.category}
+            </span>
+            {featuredPost.svg}
+          </div>
+          <div className="p-5">
+            <span className="text-[#9CA3AF] text-xs mb-2 block">{featuredPost.date}</span>
+            <h3 className="text-white font-semibold text-lg leading-snug mb-2">
+              {featuredPost.title}
+            </h3>
+            <div className="flex items-center gap-1.5 text-[#2DBD8F] text-sm font-semibold">
+              Read Article <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </div>
+          </div>
+        </a>
+
+        <a href="/blog"
+          className="flex items-center justify-center gap-2 w-full border-2 border-[#1A3C5E] 
+                         text-[#1A3C5E] font-semibold text-sm py-3.5 rounded-xl
+                         active:bg-[#1A3C5E] active:text-white transition-colors duration-150">
+          Read All Articles
+          <ArrowRight className="w-4 h-4" aria-hidden="true" />
+        </a>
+      </section>
+
+      {/* DESKTOP BLOG — unchanged */}
+      <section id="blog" className="hidden md:block py-24 bg-background-alt">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div className="max-w-2xl">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-100px' }}
+                className="text-3xl md:text-4xl font-bold mb-4"
+              >
+                Latest from Our Blog
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ delay: 0.1 }}
+                className="text-lg text-text-muted"
+              >
+                Stay updated with dental care tips, news, and insights from our experts in Rohtak.
+              </motion.p>
+            </div>
+            <motion.a
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              href="#"
+              className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-hover transition-colors"
             >
-              <div className={`relative h-48 w-full overflow-hidden bg-gradient-to-br ${post.gradient} flex items-center justify-center`}>
-                <div className="group-hover:scale-105 transition-transform duration-500">
-                  {post.svg}
+              View All Posts <ArrowRight className="w-5 h-5" />
+            </motion.a>
+          </div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            className="flex overflow-x-auto pb-8 md:pb-0 md:grid md:grid-cols-3 gap-8 snap-x snap-mandatory"
+          >
+            {blogPosts.map((post, index) => (
+              <motion.article
+                key={index}
+                variants={itemVariants}
+                className="min-w-[85vw] sm:min-w-[300px] md:min-w-0 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-soft transition-all duration-300 ease-in-out hover:-translate-y-2 group snap-center border border-slate-50 flex flex-col h-full"
+              >
+                <div className={`relative h-48 w-full overflow-hidden bg-gradient-to-br ${post.gradient} flex items-center justify-center`}>
+                  <div className="group-hover:scale-105 transition-transform duration-500">
+                    {post.svg}
+                  </div>
                 </div>
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs text-secondary font-bold uppercase tracking-wider">
-                    {post.category}
-                  </span>
-                  <span className="text-sm text-text-muted">{post.date}</span>
+                <div className="p-6 flex flex-col flex-grow">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs text-secondary font-bold uppercase tracking-wider">
+                      {post.category}
+                    </span>
+                    <span className="text-sm text-text-muted">{post.date}</span>
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-text-dark group-hover:text-primary transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-text-muted leading-relaxed mb-6 flex-grow">
+                    {post.excerpt}
+                  </p>
+                  <a
+                    href={post.link}
+                    className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-hover transition-colors mt-auto"
+                  >
+                    Read More <ArrowRight className="w-4 h-4" />
+                  </a>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-text-dark group-hover:text-primary transition-colors">
-                  {post.title}
-                </h3>
-                <p className="text-text-muted leading-relaxed mb-6 flex-grow">
-                  {post.excerpt}
-                </p>
-                <a
-                  href={post.link}
-                  className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-hover transition-colors mt-auto"
-                >
-                  Read More <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-            </motion.article>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+              </motion.article>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+    </>
   );
 }

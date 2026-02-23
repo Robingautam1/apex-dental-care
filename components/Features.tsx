@@ -46,7 +46,7 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="absolute -bottom-8 -right-8 md:-right-12 bg-white p-6 rounded-2xl shadow-soft border border-slate-50 max-w-[240px]"
+              className="relative mt-4 md:mt-0 md:absolute md:-bottom-8 md:-right-12 bg-white p-6 rounded-2xl shadow-soft border border-slate-50 md:max-w-[240px]"
             >
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">

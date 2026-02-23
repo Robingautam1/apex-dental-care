@@ -35,23 +35,32 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6 }}
-            className="p-8 md:p-12 flex flex-col gap-10"
+            className="p-6 md:p-12 flex flex-col gap-8 md:gap-10"
           >
             <div>
               <h3 className="text-2xl font-bold mb-6 text-text-dark">Get in Touch</h3>
               <div className="flex flex-col gap-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <MapPin className="w-6 h-6 text-primary" />
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                      <MapPin className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-text-dark mb-1">Clinic Address</h4>
+                      <p className="text-text-muted leading-relaxed">
+                        {/* INSERT USER CONTENT: Full Address Here */}
+                        123 Dental Street, Model Town,<br />
+                        Rohtak, Haryana 124001
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-text-dark mb-1">Clinic Address</h4>
-                    <p className="text-text-muted leading-relaxed">
-                      {/* INSERT USER CONTENT: Full Address Here */}
-                      123 Dental Street, Model Town,<br />
-                      Rohtak, Haryana 124001
-                    </p>
-                  </div>
+                  {/* MOBILE MAP CTA */}
+                  <a href="https://www.google.com/maps/place/Apex+Dental+Care"
+                    target="_blank" rel="noopener noreferrer"
+                    className="md:hidden flex items-center justify-center gap-2 bg-[#F7F4EF] text-[#1A3C5E] py-3.5 mt-2 rounded-xl font-semibold w-full">
+                    <MapPin className="w-5 h-5" />
+                    Open in Google Maps
+                  </a>
                 </div>
 
                 <div className="flex items-start gap-4">
@@ -111,7 +120,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6 }}
-            className="p-8 md:p-12 bg-background-alt border-l border-slate-100 flex flex-col justify-center"
+            className="p-6 md:p-12 bg-background-alt border-t md:border-t-0 md:border-l border-slate-100 flex flex-col justify-center"
           >
             <h3 className="text-2xl font-bold mb-6 text-text-dark">Request an Appointment</h3>
             <form className="flex flex-col gap-5" noValidate>
@@ -123,7 +132,7 @@ export default function Contact() {
                   name="name"
                   aria-required="true"
                   placeholder="e.g. Rahul Sharma"
-                  className="px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow w-full"
+                  className="px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow w-full text-base"
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -134,7 +143,7 @@ export default function Contact() {
                   name="phone"
                   aria-required="true"
                   placeholder="+91 90000 00000"
-                  className="px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow w-full"
+                  className="px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow w-full text-base"
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -142,7 +151,7 @@ export default function Contact() {
                 <select
                   id="service"
                   name="service"
-                  className="px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow w-full appearance-none"
+                  className="px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow w-full appearance-none text-base"
                 >
                   <option value="">Select a service (Optional)</option>
                   <option value="general">General Checkup</option>

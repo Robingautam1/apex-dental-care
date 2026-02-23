@@ -6,6 +6,8 @@ export const metadata = {
     },
 };
 
+import { MobileAboutAccordion } from '@/components/MobileAboutAccordion';
+
 export default function AboutPage() {
     const values = [
         {
@@ -33,7 +35,9 @@ export default function AboutPage() {
                     </h1>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                <MobileAboutAccordion />
+
+                <div className="hidden md:grid grid-cols-1 lg:grid-cols-12 gap-16">
 
                     {/* Main Content Column */}
                     <div className="lg:col-span-8 flex flex-col gap-16">
