@@ -1,5 +1,5 @@
 export const metadata = {
-    title: 'About Dr. Aashish Malik — Apex Dental Care Rohtak',
+    title: 'About Dr. Aashish Malik - Apex Dental Care Rohtak',
     description: 'Learn about Dr. Aashish Malik, dental surgeon at Apex Dental Care, the most trusted dental clinic in Model Town, Rohtak, Haryana. Call 98021 55667.',
     alternates: {
         canonical: '/about',
@@ -49,7 +49,7 @@ export default function AboutPage() {
                             </h2>
                             <div className="prose prose-lg text-text-muted">
                                 <p>
-                                    Apex Dental Care was founded with one belief — that every person in Rohtak deserves access to world-class dental care, delivered with warmth and integrity. Located at Apex Dental Care, near life care hospital, Model Town, our clinic has grown to become one of the most trusted dental practices in Haryana.
+                                    Apex Dental Care was founded with one belief - that every person in Rohtak deserves access to world-class dental care, delivered with warmth and integrity. Located at Apex Dental Care, near life care hospital, Model Town, our clinic has grown to become one of the most trusted dental practices in Haryana.
                                 </p>
                                 <p>
                                     We combine modern technology with a deep commitment to patient comfort. Whether you are visiting for a routine checkup or a complex smile makeover, our goal is to ensure you leave with a healthier, more confident smile.
@@ -69,7 +69,7 @@ export default function AboutPage() {
                                     Dr. Aashish Malik holds a Bachelor of Dental Surgery (BDS) and brings over a decade of focused practice in general, cosmetic, and surgical dentistry to Apex Dental Care. His calm, methodical approach has earned him a 5.0 Google rating and the loyalty of patients from across Rohtak and Haryana.
                                 </p>
                                 <p>
-                                    He specialises in root canal treatment, dental implants, smile makeovers, and paediatric care — always ensuring patients understand each step of their treatment.
+                                    He specialises in root canal treatment, dental implants, smile makeovers, and paediatric care - always ensuring patients understand each step of their treatment.
                                 </p>
                             </div>
                             <div className="mt-8 p-6 bg-background-alt rounded-2xl border border-slate-100">

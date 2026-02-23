@@ -63,7 +63,7 @@ export function MobileReviewCarousel({ reviews }: { reviews: Review[] }) {
                             </p>
                         </blockquote>
                         <figcaption className="text-white/50 text-xs font-medium">
-                            — {review.name} · Google Review
+                            - {review.name} · Google Review
                         </figcaption>
                     </figure>
                 ))}

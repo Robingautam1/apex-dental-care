@@ -9,9 +9,9 @@ import Logo from '@/components/Logo';
 export default function Hero() {
   return (
     <>
-      {/* MOBILE HERO — below md breakpoint only */}
+      {/* MOBILE HERO - below md breakpoint only */}
       <div className="md:hidden flex flex-col min-h-[100svh] bg-white pt-[env(safe-area-inset-top)]">
-        {/* Top bar — compact identity */}
+        {/* Top bar - compact identity */}
         <div className="flex items-center justify-between px-5 pt-5 pb-3">
           <Logo variant="dark" />
           <a href="tel:+919802155667"
@@ -23,7 +23,7 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Hero content — vertically centered in remaining space */}
+        {/* Hero content - vertically centered in remaining space */}
         <div className="flex-1 flex flex-col justify-center px-5 pb-6 gap-6 mt-4">
 
           {/* Trust badge */}
@@ -36,7 +36,7 @@ export default function Hero() {
             <span className="text-xs font-semibold text-[#1a8f6a]">5.0 · 38 Google Reviews</span>
           </div>
 
-          {/* Headline — punchy, short */}
+          {/* Headline - punchy, short */}
           <div>
             <h1 className="font-display text-[2.4rem] leading-[1.1] font-bold text-[#1C1C1E] tracking-[-0.03em]">
               Rohtak&apos;s<br />
@@ -44,12 +44,12 @@ export default function Hero() {
               Dental Clinic
             </h1>
             <p className="mt-3 text-[#6B7280] text-base leading-relaxed">
-              Led by <strong className="text-[#1C1C1E] font-semibold">Dr. Aashish Malik</strong> —
+              Led by <strong className="text-[#1C1C1E] font-semibold">Dr. Aashish Malik</strong> -
               gentle, modern care for your entire family in Model Town.
             </p>
           </div>
 
-          {/* Primary action buttons — full width, large tap targets */}
+          {/* Primary action buttons - full width, large tap targets */}
           <div className="flex flex-col gap-3">
             <a href="/contact"
               className="w-full flex items-center justify-center gap-2 bg-[#2DBD8F] text-white 
@@ -70,7 +70,7 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Address — compact, tappable to open Google Maps */}
+          {/* Address - compact, tappable to open Google Maps */}
           <a href="https://share.google/3z1exJby1De0Ailde"
             target="_blank" rel="noopener noreferrer"
             className="flex items-start gap-2.5 text-[#6B7280] text-sm"
@@ -90,7 +90,7 @@ export default function Hero() {
 
         </div>
 
-        {/* Scroll indicator — subtle cue that more exists below */}
+        {/* Scroll indicator - subtle cue that more exists below */}
         <div className="flex flex-col items-center pb-4 gap-1 opacity-40" aria-hidden="true">
           <span className="text-xs text-[#6B7280]">scroll to explore</span>
           <ChevronDown className="w-4 h-4 text-[#6B7280] animate-bounce" />
@@ -98,7 +98,7 @@ export default function Hero() {
 
       </div>
 
-      {/* DESKTOP HERO — md and above, unchanged */}
+      {/* DESKTOP HERO - md and above, unchanged */}
       <div className="hidden md:block">
         <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden bg-background-base">
           {/* Background SVG Mesh Pattern */}

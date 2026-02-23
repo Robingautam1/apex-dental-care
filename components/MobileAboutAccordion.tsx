@@ -49,7 +49,7 @@ export function MobileAboutAccordion() {
                 <blockquote className="border-l-2 border-[#2DBD8F] pl-4 italic text-[#6B7280] text-sm mb-5">
                     &quot;Very polite with patients. One of the best doctors in Rohtak.&quot;
                     <footer className="mt-1 text-xs not-italic font-medium text-[#9CA3AF]">
-                        — Google Review
+                        - Google Review
                     </footer>
                 </blockquote>
                 <Link href="/about"

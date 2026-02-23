@@ -17,10 +17,10 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://apex-dental-care.vercel.app'),
-  title: 'Best Dental Clinic in Rohtak, Haryana — Apex Dental Care',
+  title: 'Best Dental Clinic in Rohtak, Haryana - Apex Dental Care',
   description: 'Apex Dental Care in Model Town, Rohtak offers painless dental treatment led by Dr. Aashish Malik. Root canal, implants, whitening & more. Call 98021 55667.',
   openGraph: {
-    title: 'Best Dental Clinic in Rohtak, Haryana — Apex Dental Care',
+    title: 'Best Dental Clinic in Rohtak, Haryana - Apex Dental Care',
     description: 'Apex Dental Care in Model Town, Rohtak offers painless dental treatment led by Dr. Aashish Malik. Root canal, implants, whitening & more. Call 98021 55667.',
     url: 'https://apex-dental-care.vercel.app',
     siteName: 'Apex Dental Care',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Dental Clinic in Rohtak, Haryana — Apex Dental Care',
+    title: 'Best Dental Clinic in Rohtak, Haryana - Apex Dental Care',
     description: 'Apex Dental Care in Model Town, Rohtak offers painless dental treatment led by Dr. Aashish Malik. Root canal, implants, whitening & more. Call 98021 55667.',
   },
   alternates: {

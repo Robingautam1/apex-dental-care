@@ -1,5 +1,5 @@
 export const footerData = {
-    tagline: "Trusted dental care in the heart of Model Town, Rohtak — led by Dr. Aashish Malik. Your smile is our commitment.",
+    tagline: "Trusted dental care in the heart of Model Town, Rohtak - led by Dr. Aashish Malik. Your smile is our commitment.",
     quickLinks: [
         { label: 'Home', href: '/' },
         { label: 'About Dr. Malik', href: '/about' },

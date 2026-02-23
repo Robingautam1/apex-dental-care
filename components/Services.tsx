@@ -24,7 +24,7 @@ const itemVariants = {
 export default function Services() {
   return (
     <>
-      {/* MOBILE SERVICES — horizontal scroll chips */}
+      {/* MOBILE SERVICES - horizontal scroll chips */}
       <section className="md:hidden py-10 bg-[#F7F4EF]" aria-label="Our dental services">
         <div className="px-5 mb-5">
           <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#2DBD8F] mb-2">
@@ -73,7 +73,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* DESKTOP SERVICES — unchanged grid */}
+      {/* DESKTOP SERVICES - unchanged grid */}
       <section id="services" className="hidden md:block py-24 bg-background-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">

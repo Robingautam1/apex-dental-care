@@ -78,7 +78,7 @@ export default function Blog() {
 
   return (
     <>
-      {/* MOBILE BLOG — single featured post + link */}
+      {/* MOBILE BLOG - single featured post + link */}
       <section className="md:hidden px-5 py-10 bg-[#F7F4EF]">
         <div className="mb-6">
           <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#2DBD8F] mb-2">
@@ -116,7 +116,7 @@ export default function Blog() {
         </a>
       </section>
 
-      {/* DESKTOP BLOG — unchanged */}
+      {/* DESKTOP BLOG - unchanged */}
       <section id="blog" className="hidden md:block py-24 bg-background-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">

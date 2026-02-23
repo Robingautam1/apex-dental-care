@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     if (!service) return {};
 
     return {
-        title: `${service.title} in Rohtak — Apex Dental Care | Dr. Aashish Malik`,
+        title: `${service.title} in Rohtak - Apex Dental Care | Dr. Aashish Malik`,
         description: `At Apex Dental Care in Rohtak, ${service.title.toLowerCase()} is performed by Dr. Aashish Malik using modern techniques designed for your comfort and long-term oral health.`,
     };
 }
@@ -60,7 +60,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                         <h2 className="text-2xl font-bold text-text-dark mt-10 mb-4">Why Choose Us for {service.title}?</h2>
                         <ul className="list-disc pl-5 space-y-3">
                             <li>Painless procedures with advanced local anaesthesia</li>
-                            <li>Thorough, honest diagnoses—we never overprescribe</li>
+                            <li>Thorough, honest diagnoses-we never overprescribe</li>
                             <li>Strict sterilization protocols for your safety</li>
                             <li>Detailed post-treatment guidance and follow-up</li>
                         </ul>

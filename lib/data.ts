@@ -39,6 +39,6 @@ export const reviews = [
     {
         name: "A.M., Rohtak",
         rating: 5,
-        text: "Dr. Aashish is one of the finest dental surgeons in town — knowledgeable, gentle, and genuinely caring with his patients."
+        text: "Dr. Aashish is one of the finest dental surgeons in town - knowledgeable, gentle, and genuinely caring with his patients."
     }
 ];
