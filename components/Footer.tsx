@@ -101,11 +101,19 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '0px 0px -50px 0px' }}
           transition={{ delay: 0.5, duration: 0.5 }}
-          className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs will-change-opacity"
+          className="flex flex-col md:flex-row items-center justify-between pt-6 border-t border-white/10 gap-2 will-change-opacity"
         >
-          <p>{footerData.copyright}</p>
-          <p className="text-white/30 text-[10px] hidden md:block">
-            {footerData.locationText}
+          <p className="text-white/40 text-xs">
+            © 2026 Apex Dental Care, Model Town, Rohtak, Haryana 124001
+          </p>
+          <p className="text-white/40 text-xs">
+            Designed & developed by{' '}
+            <a href="https://robingautam.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/60 hover:text-[#2DBD8F] transition-colors duration-200 underline underline-offset-2">
+              Robin Gautam
+            </a>
           </p>
         </motion.div>
       </div>
