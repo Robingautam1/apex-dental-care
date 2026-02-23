@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <>
       {/* MOBILE HERO — below md breakpoint only */}
-      <div className="md:hidden flex flex-col min-h-[100svh] bg-white pt-16">
+      <div className="md:hidden flex flex-col min-h-[100svh] bg-white pt-[env(safe-area-inset-top)]">
         {/* Top bar — compact identity */}
         <div className="flex items-center justify-between px-5 pt-5 pb-3">
           <Logo variant="dark" />
@@ -132,7 +132,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: 'easeOut' as const }}
-                className="flex flex-col gap-6"
+                className="flex flex-col gap-6 will-change-transform will-change-opacity"
               >
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary font-medium text-sm w-fit">
                   <Star className="w-4 h-4 fill-accent text-accent" />
@@ -197,7 +197,7 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' as const }}
-                className="relative h-[400px] md:h-[500px] lg:h-[600px] w-full rounded-3xl overflow-hidden shadow-soft"
+                className="relative h-[400px] md:h-[500px] lg:h-[600px] w-full rounded-3xl overflow-hidden shadow-soft will-change-transform will-change-opacity"
               >
                 {/* Placeholder for high-quality clinic/dentist photo */}
                 <Image

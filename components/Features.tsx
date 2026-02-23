@@ -22,9 +22,9 @@ export default function Features() {
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: '0px 0px -50px 0px' }}
             transition={{ duration: 0.8, ease: 'easeOut' as const }}
-            className="relative"
+            className="relative will-change-transform will-change-opacity"
           >
             {/* Background Blob */}
             <div className="absolute -top-10 -left-10 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
@@ -46,7 +46,7 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="relative mt-4 md:mt-0 md:absolute md:-bottom-8 md:-right-12 bg-white p-6 rounded-2xl shadow-soft border border-slate-50 md:max-w-[240px]"
+              className="relative mt-4 md:mt-0 md:absolute md:-bottom-8 md:-right-12 bg-white p-6 rounded-2xl shadow-soft border border-slate-50 md:max-w-[240px] will-change-transform will-change-opacity"
             >
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
@@ -64,9 +64,9 @@ export default function Features() {
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: '0px 0px -50px 0px' }}
             transition={{ duration: 0.8, ease: 'easeOut' as const }}
-            className="flex flex-col gap-8"
+            className="flex flex-col gap-8 will-change-transform will-change-opacity"
           >
             <div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
@@ -86,7 +86,7 @@ export default function Features() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.4 }}
-                  className="flex items-start gap-3"
+                  className="flex items-start gap-3 will-change-transform will-change-opacity"
                 >
                   <CheckCircle2 className="w-6 h-6 text-secondary shrink-0 mt-0.5" />
                   <span className="text-text-dark font-medium">{feature}</span>

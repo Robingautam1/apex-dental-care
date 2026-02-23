@@ -11,17 +11,17 @@ export default function Contact() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            className="text-3xl md:text-4xl font-bold mb-4"
+            viewport={{ once: true, margin: '0px 0px -50px 0px' }}
+            className="text-3xl md:text-4xl font-bold mb-4 will-change-transform will-change-opacity"
           >
             Visit Our Clinic in Rohtak
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: '0px 0px -50px 0px' }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-text-muted"
+            className="text-lg text-text-muted will-change-transform will-change-opacity"
           >
             {/* INSERT USER CONTENT: Contact Subheadline Here */}
             Ready for a healthier smile? Book your appointment today or drop by our clinic.
@@ -33,9 +33,9 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: '0px 0px -50px 0px' }}
             transition={{ duration: 0.6 }}
-            className="p-6 md:p-12 flex flex-col gap-8 md:gap-10"
+            className="p-6 md:p-12 flex flex-col gap-8 md:gap-10 will-change-transform will-change-opacity"
           >
             <div>
               <h3 className="text-2xl font-bold mb-6 text-text-dark">Get in Touch</h3>
@@ -118,9 +118,9 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: '0px 0px -50px 0px' }}
             transition={{ duration: 0.6 }}
-            className="p-6 md:p-12 bg-background-alt border-t md:border-t-0 md:border-l border-slate-100 flex flex-col justify-center"
+            className="p-6 md:p-12 bg-background-alt border-t md:border-t-0 md:border-l border-slate-100 flex flex-col justify-center will-change-transform will-change-opacity"
           >
             <h3 className="text-2xl font-bold mb-6 text-text-dark">Request an Appointment</h3>
             <form className="flex flex-col gap-5" noValidate>

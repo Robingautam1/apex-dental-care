@@ -23,18 +23,18 @@ export default function FAQ() {
                         <motion.h2
                             initial={{ opacity: 0, y: 32 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: '-60px' }}
+                            viewport={{ once: true, margin: '0px 0px -50px 0px' }}
                             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                            className="text-3xl md:text-4xl font-bold mb-4"
+                            className="text-3xl md:text-4xl font-bold mb-4 will-change-transform will-change-opacity"
                         >
                             Frequently Asked Questions
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0, y: 32 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: '-60px' }}
+                            viewport={{ once: true, margin: '0px 0px -50px 0px' }}
                             transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                            className="text-lg text-text-muted"
+                            className="text-lg text-text-muted will-change-transform will-change-opacity"
                         >
                             Everything you need to know about dental care at Apex Dental Clinic, Rohtak.
                         </motion.p>
@@ -46,9 +46,9 @@ export default function FAQ() {
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: '-60px' }}
+                                viewport={{ once: true, margin: '0px 0px -50px 0px' }}
                                 transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                                className={`bg-white rounded-2xl border transition-colors duration-300 ${openIndex === index ? 'border-secondary/30 shadow-soft' : 'border-slate-100'
+                                className={`bg-white rounded-2xl border transition-colors duration-300 will-change-transform will-change-opacity ${openIndex === index ? 'border-secondary/30 shadow-soft' : 'border-slate-100'
                                     }`}
                             >
                                 <button

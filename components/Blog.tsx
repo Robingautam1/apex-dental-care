@@ -124,17 +124,17 @@ export default function Blog() {
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                className="text-3xl md:text-4xl font-bold mb-4"
+                viewport={{ once: true, margin: '0px 0px -50px 0px' }}
+                className="text-3xl md:text-4xl font-bold mb-4 will-change-transform will-change-opacity"
               >
                 Latest from Our Blog
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
+                viewport={{ once: true, margin: '0px 0px -50px 0px' }}
                 transition={{ delay: 0.1 }}
-                className="text-lg text-text-muted"
+                className="text-lg text-text-muted will-change-transform will-change-opacity"
               >
                 Stay updated with dental care tips, news, and insights from our experts in Rohtak.
               </motion.p>
@@ -142,9 +142,9 @@ export default function Blog() {
             <motion.a
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, margin: '0px 0px -50px 0px' }}
               href="#"
-              className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-hover transition-colors"
+              className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-hover transition-colors will-change-transform will-change-opacity"
             >
               View All Posts <ArrowRight className="w-5 h-5" />
             </motion.a>
@@ -154,14 +154,14 @@ export default function Blog() {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            className="flex overflow-x-auto pb-8 md:pb-0 md:grid md:grid-cols-3 gap-8 snap-x snap-mandatory"
+            viewport={{ once: true, margin: '0px 0px -50px 0px' }}
+            className="flex overflow-x-auto pb-8 md:pb-0 md:grid md:grid-cols-3 gap-8 snap-x snap-mandatory will-change-transform will-change-opacity"
           >
             {blogPosts.map((post, index) => (
               <motion.article
                 key={index}
                 variants={itemVariants}
-                className="min-w-[85vw] sm:min-w-[300px] md:min-w-0 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-soft transition-all duration-300 ease-in-out hover:-translate-y-2 group snap-center border border-slate-50 flex flex-col h-full"
+                className="min-w-[85vw] sm:min-w-[300px] md:min-w-0 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-soft transition-all duration-300 ease-in-out hover:-translate-y-2 group snap-center border border-slate-50 flex flex-col h-full will-change-transform will-change-opacity"
               >
                 <div className={`relative h-48 w-full overflow-hidden bg-gradient-to-br ${post.gradient} flex items-center justify-center`}>
                   <div className="group-hover:scale-105 transition-transform duration-500">

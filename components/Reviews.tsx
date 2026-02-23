@@ -35,18 +35,18 @@ export default function Reviews() {
                         <motion.h2
                             initial={{ opacity: 0, y: 32 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: '-60px' }}
+                            viewport={{ once: true, margin: '0px 0px -50px 0px' }}
                             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                            className="text-3xl md:text-4xl font-bold mb-4"
+                            className="text-3xl md:text-4xl font-bold mb-4 will-change-transform will-change-opacity"
                         >
                             What Our Patients Say
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0, y: 32 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: '-60px' }}
+                            viewport={{ once: true, margin: '0px 0px -50px 0px' }}
                             transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                            className="text-lg text-text-muted"
+                            className="text-lg text-text-muted will-change-transform will-change-opacity"
                         >
                             Real stories from the Rohtak community. We are grateful for the trust our patients place in us.
                         </motion.p>
@@ -56,14 +56,14 @@ export default function Reviews() {
                         variants={containerVariants}
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true, margin: '-60px' }}
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                        viewport={{ once: true, margin: '0px 0px -50px 0px' }}
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 will-change-transform will-change-opacity"
                     >
                         {reviews.map((review, index) => (
                             <motion.figure
                                 key={index}
                                 variants={itemVariants}
-                                className="bg-white p-8 rounded-2xl border border-slate-50 shadow-sm hover:shadow-soft transition-all duration-300 ease-in-out hover:-translate-y-2 flex flex-col h-full"
+                                className="bg-white p-8 rounded-2xl border border-slate-50 shadow-sm hover:shadow-soft transition-all duration-300 ease-in-out hover:-translate-y-2 flex flex-col h-full will-change-transform will-change-opacity"
                             >
                                 <div className="flex items-center gap-1 mb-6">
                                     {[...Array(review.rating)].map((_, i) => (

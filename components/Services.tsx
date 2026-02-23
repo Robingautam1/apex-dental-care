@@ -80,17 +80,17 @@ export default function Services() {
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              className="text-3xl md:text-4xl font-bold mb-4"
+              viewport={{ once: true, margin: '0px 0px -50px 0px' }}
+              className="text-3xl md:text-4xl font-bold mb-4 will-change-transform will-change-opacity"
             >
               Comprehensive Dental Services
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, margin: '0px 0px -50px 0px' }}
               transition={{ delay: 0.1 }}
-              className="text-lg text-text-muted"
+              className="text-lg text-text-muted will-change-transform will-change-opacity"
             >
               We offer a full range of dental treatments under one roof, utilizing the latest technology for optimal results.
             </motion.p>
@@ -100,15 +100,15 @@ export default function Services() {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8"
+            viewport={{ once: true, margin: '0px 0px -50px 0px' }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 will-change-transform will-change-opacity"
           >
             {servicesData.map((service, index) => (
               <motion.a
                 href={`/services/${service.slug}`}
                 key={index}
                 variants={itemVariants}
-                className="bg-white px-5 py-4 md:p-8 rounded-2xl border border-slate-50 shadow-sm hover:shadow-soft transition-all duration-300 ease-in-out hover:-translate-y-2 group flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0 min-h-[72px]"
+                className="bg-white px-5 py-4 md:p-8 rounded-2xl border border-slate-50 shadow-sm hover:shadow-soft transition-all duration-300 ease-in-out hover:-translate-y-2 group flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0 min-h-[72px] will-change-transform will-change-opacity"
               >
                 <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-slate-50 flex items-center justify-center md:mb-6 shrink-0 group-hover:bg-primary/5 transition-colors">
                   {service.icon}

@@ -15,9 +15,9 @@ export default function Footer() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: '0px 0px -50px 0px' }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col gap-6"
+            className="flex flex-col gap-6 will-change-transform will-change-opacity"
           >
             <Logo variant="light" />
             <p className="text-sm leading-relaxed max-w-xs">
@@ -29,8 +29,9 @@ export default function Footer() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: '0px 0px -50px 0px' }}
             transition={{ delay: 0.1, duration: 0.5 }}
+            className="will-change-transform will-change-opacity"
           >
             <h4 className="text-white font-bold text-lg mb-6">Quick Links</h4>
             <ul className="flex flex-col gap-4">
@@ -48,8 +49,9 @@ export default function Footer() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: '0px 0px -50px 0px' }}
             transition={{ delay: 0.2, duration: 0.5 }}
+            className="will-change-transform will-change-opacity"
           >
             <h4 className="text-white font-bold text-lg mb-6">Our Services</h4>
             <ul className="flex flex-col gap-4">
@@ -67,8 +69,9 @@ export default function Footer() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: '0px 0px -50px 0px' }}
             transition={{ delay: 0.3, duration: 0.5 }}
+            className="will-change-transform will-change-opacity"
           >
             <h4 className="text-white font-bold text-lg mb-6">Contact Us</h4>
             <ul className="flex flex-col gap-4">
@@ -96,9 +99,9 @@ export default function Footer() {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: '0px 0px -50px 0px' }}
           transition={{ delay: 0.5, duration: 0.5 }}
-          className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs"
+          className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs will-change-opacity"
         >
           <p>{footerData.copyright}</p>
           <p className="text-white/30 text-[10px] hidden md:block">

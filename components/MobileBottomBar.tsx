@@ -7,7 +7,7 @@ export default function MobileBottomBar() {
     return (
         <div className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white/90 backdrop-blur-md 
                     border-t border-[#E5E0D8] px-4 py-3 pb-[max(12px,env(safe-area-inset-bottom))]
-                    flex gap-3 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+                    flex gap-3 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] transform-gpu">
             <a href="tel:09802155667"
                 className="flex-1 flex flex-col items-center justify-center gap-1 bg-[#F7F4EF] 
                     text-[#1A3C5E] py-2.5 rounded-xl active:bg-[#E5E0D8] transition-colors"
