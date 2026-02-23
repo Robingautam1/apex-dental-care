@@ -1,72 +1,20 @@
-# Apex Dental Care — Website
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-Production-ready website for **Apex Dental Care**, a dental clinic in Model Town, Rohtak, Haryana, India.
+# Run and deploy your AI Studio app
 
-## Tech Stack
+This contains everything you need to run your app locally.
 
-- **Next.js 14** (App Router)
-- **TypeScript**
-- **Tailwind CSS**
-- **Framer Motion** (animations)
-- **Lucide React** (icons)
+View your app in AI Studio: https://ai.studio/apps/2f8e012d-c276-40d1-baeb-8040867cd0bd
 
-## Getting Started
+## Run Locally
 
-```bash
-npm install
-npm run dev
-```
+**Prerequisites:**  Node.js
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## How to Customize
-
-### Replace Placeholder Images
-
-Search for `// TODO: Replace` comments throughout the codebase. Key locations:
-
-- **Hero section**: `src/components/home/Hero.tsx` — clinic photo
-- **About section**: `src/components/home/AboutSection.tsx` — doctor photo
-- **About page**: `src/app/about/page.tsx` — doctor portrait + clinic gallery
-- **Blog cards**: `src/components/shared/BlogCard.tsx` — featured images
-
-Replace the gradient placeholders with `<Image>` from `next/image` using files in `public/images/`.
-
-### Update Business Information
-
-All business details are centralized in `src/lib/seo.ts`:
-
-- Clinic name, doctor name, phone
-- Address and geo coordinates
-- Opening hours
-- Google rating
-
-### Add New Blog Posts
-
-1. Open `src/data/blog-posts.ts`
-2. Add a new object to the `blogPosts` array following the existing format
-3. The new post will automatically appear on `/blog` and generate a page at `/blog/[slug]`
-
-### Add or Modify Services
-
-1. Open `src/data/services.ts`
-2. Add/edit entries in the `services` array
-3. Each service auto-generates a page at `/services/[slug]`
-
-## Deployment
-
-This project is ready to deploy on **Vercel** with zero configuration:
-
-```bash
-npm run build  # Verify build succeeds
-```
-
-Then connect the GitHub repository to Vercel.
-
-## SEO Features
-
-- JSON-LD structured data (LocalBusiness, Dentist, Person, FAQPage, Article, BreadcrumbList)
-- Dynamic `sitemap.xml` and `robots.txt`
-- `generateMetadata()` on every page
-- Semantic HTML throughout
-- Core Web Vitals optimized
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
