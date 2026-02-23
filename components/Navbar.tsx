@@ -57,7 +57,9 @@ export default function Navbar() {
           {/* Desktop CTA & Mobile Toggle */}
           <div className="flex items-center gap-4">
             <a
-              href="/contact"
+              href="https://wa.me/919802155667"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden md:flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-medium text-sm hover:bg-primary-hover hover:scale-105 transition-all duration-300 shadow-[0_4px_20px_rgba(11,59,96,0.15)]"
               aria-label="Book Appointment"
             >

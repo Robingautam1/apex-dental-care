@@ -38,12 +38,12 @@ export function MobileAboutAccordion() {
                 className={`overflow-hidden transition-all duration-500 ease-in-out
                        ${open ? 'max-h-[800px] opacity-100 mt-5' : 'max-h-0 opacity-0'}`}>
 
-                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-5">
+                <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden mb-5">
                     <Image
                         src="/images/dr-aashish-malik-white-coat.jpg"
                         alt="Dr. Aashish Malik, BDS - Dental Surgeon at Apex Dental Care, Rohtak"
                         fill
-                        className="object-cover object-top"
+                        className="object-cover object-center"
                     />
                 </div>
 

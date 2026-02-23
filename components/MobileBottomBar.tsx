@@ -15,14 +15,15 @@ export default function MobileBottomBar() {
                 <PhoneIcon className="w-5 h-5" aria-hidden="true" />
                 <span className="text-[11px] font-semibold">Call Now</span>
             </a>
-            <Link href="/contact"
+            <a href="https://wa.me/919802155667"
+                target="_blank" rel="noopener noreferrer"
                 className="flex-[1.5] flex items-center justify-center gap-2 bg-[#1A3C5E] 
                        text-white py-2.5 rounded-xl shadow-[0_4px_12px_rgba(26,60,94,0.3)]
                        active:scale-[0.98] transition-transform animate-[softPulse_2s_infinite]"
                 aria-label="Book Appointment">
                 <CalendarIcon className="w-5 h-5" aria-hidden="true" />
                 <span className="text-sm font-semibold">Book Appointment</span>
-            </Link>
+            </a>
         </div>
     );
 }

@@ -75,7 +75,8 @@ export default function Hero() {
 
           {/* Primary action buttons - full width, large tap targets */}
           <div className="flex flex-col gap-3">
-            <a href="/contact"
+            <a href="https://wa.me/919802155667"
+              target="_blank" rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-2 bg-[#2DBD8F] text-white 
                           font-semibold text-base py-4 rounded-2xl 
                           shadow-[0_4px_20px_rgba(45,189,143,0.35)]
@@ -176,10 +177,11 @@ export default function Hero() {
 
                 <div className="flex flex-col sm:flex-row gap-4 mt-4">
                   <a
-                    href="#contact"
+                    href="https://wa.me/919802155667"
+                    target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-primary-hover hover:scale-105 transition-all duration-300 shadow-soft animate-shimmer"
                   >
-                    Book Free Consultation
+                    Book Appointment
                   </a>
                   <a
                     href="#services"
