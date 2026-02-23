@@ -7,6 +7,7 @@ export const metadata = {
 };
 
 import { MobileAboutAccordion } from '@/components/MobileAboutAccordion';
+import Image from 'next/image';
 
 export default function AboutPage() {
     const values = [
@@ -78,6 +79,45 @@ export default function AboutPage() {
                                 <p className="text-sm text-slate-500 italic">Certificate scans and further qualifications to be inserted here.</p>
                             </div>
                         </section>
+
+                        <hr className="border-slate-100" />
+
+                        {/* A Message from Dr. Malik */}
+                        <section aria-labelledby="message-heading">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-[#F7F4EF] p-8 rounded-3xl">
+                                <div className="relative w-full aspect-square md:aspect-[4/5] rounded-2xl overflow-hidden shadow-sm">
+                                    <Image
+                                        src="/images/dr-aashish-desk.jpg"
+                                        alt="Dr. Aashish Malik at his desk"
+                                        fill
+                                        className="object-cover object-top scale-110"
+                                    />
+                                </div>
+                                <div className="flex flex-col gap-4">
+                                    <h2 id="message-heading" className="text-2xl font-bold text-primary">A Message from Dr. Malik</h2>
+                                    <blockquote className="text-lg text-text-dark italic leading-relaxed">
+                                        &quot;My philosophy has always been simple: treat every patient like family. I want you to feel completely at ease the moment you sit in the chair, knowing you are receiving the most honest and advanced care possible.&quot;
+                                    </blockquote>
+                                    <p className="text-text-muted font-medium mt-2">- Dr. Aashish Malik</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <hr className="border-slate-100" />
+
+                        {/* Inside Apex Dental Care */}
+                        <section aria-labelledby="gallery-heading">
+                            <h2 id="gallery-heading" className="text-2xl font-bold text-primary mb-6"> Inside Apex Dental Care </h2>
+                            <div className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-soft">
+                                <Image
+                                    src="/images/clinic-treatment.jpg"
+                                    alt="Inside Apex Dental Care treatment room"
+                                    fill
+                                    className="object-cover object-center"
+                                />
+                            </div>
+                        </section>
+
                     </div>
 
                     {/* Sidebar Column */}

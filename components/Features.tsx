@@ -30,13 +30,12 @@ export default function Features() {
             <div className="absolute -top-10 -left-10 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
             <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
 
-            <div className="relative h-[500px] w-full rounded-3xl overflow-hidden shadow-soft">
+            <div className="relative w-full aspect-[4/3] md:aspect-auto md:h-[500px] rounded-3xl overflow-hidden shadow-soft">
               <Image
-                src="https://picsum.photos/800/1000?random=2"
-                alt="Apex Dental Clinic Team in Rohtak"
+                src="/images/dr-aashish-malik-white-coat.jpg"
+                alt="Dr. Aashish Malik, BDS - Dental Surgeon at Apex Dental Care, Rohtak"
                 fill
-                className="object-cover"
-                referrerPolicy="no-referrer"
+                className="object-cover object-top"
               />
             </div>
 

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { ChevronDown, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 export function MobileAboutAccordion() {
     const [open, setOpen] = useState(false);
@@ -35,7 +36,17 @@ export function MobileAboutAccordion() {
             {/* Expandable content */}
             <div id="about-content"
                 className={`overflow-hidden transition-all duration-500 ease-in-out
-                       ${open ? 'max-h-[600px] opacity-100 mt-5' : 'max-h-0 opacity-0'}`}>
+                       ${open ? 'max-h-[800px] opacity-100 mt-5' : 'max-h-0 opacity-0'}`}>
+
+                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-5">
+                    <Image
+                        src="/images/dr-aashish-malik-white-coat.jpg"
+                        alt="Dr. Aashish Malik, BDS - Dental Surgeon at Apex Dental Care, Rohtak"
+                        fill
+                        className="object-cover object-top"
+                    />
+                </div>
+
                 <p className="text-[#4B5563] text-sm leading-relaxed mb-4">
                     Dr. Aashish Malik has earned the trust of hundreds of families across Rohtak, Haryana.
                     His commitment to painless procedures, honest diagnoses, and affordable treatment has

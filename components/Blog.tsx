@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 const blogPosts = [
   {
@@ -97,10 +98,20 @@ export default function Blog() {
             {featuredPost.svg}
           </div>
           <div className="p-5">
-            <span className="text-[#9CA3AF] text-xs mb-2 block">{featuredPost.date}</span>
-            <h3 className="text-white font-semibold text-lg leading-snug mb-2">
+            <span className="text-[#9CA3AF] text-xs mb-3 block">{featuredPost.date}</span>
+            <h3 className="text-white font-semibold text-lg leading-snug mb-4">
               {featuredPost.title}
             </h3>
+            <div className="flex items-center gap-3 mb-4">
+              <Image
+                src="/images/dr-aashish-avatar.jpg"
+                alt="Dr. Aashish Malik"
+                width={32}
+                height={32}
+                className="rounded-full object-cover object-top border border-white/10"
+              />
+              <span className="text-[#9CA3AF] text-xs font-medium">By Dr. Aashish Malik</span>
+            </div>
             <div className="flex items-center gap-1.5 text-[#2DBD8F] text-sm font-semibold">
               Read Article <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </div>
@@ -173,7 +184,6 @@ export default function Blog() {
                     <span className="text-xs text-secondary font-bold uppercase tracking-wider">
                       {post.category}
                     </span>
-                    <span className="text-sm text-text-muted">{post.date}</span>
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-text-dark group-hover:text-primary transition-colors">
                     {post.title}
@@ -181,9 +191,25 @@ export default function Blog() {
                   <p className="text-text-muted leading-relaxed mb-6 flex-grow">
                     {post.excerpt}
                   </p>
+
+                  {/* Author Block */}
+                  <div className="flex items-center gap-3 mt-auto mb-4 border-t border-slate-50 pt-4">
+                    <Image
+                      src="/images/dr-aashish-avatar.jpg"
+                      alt="Dr. Aashish Malik"
+                      width={40}
+                      height={40}
+                      className="rounded-full object-cover object-top border border-slate-100"
+                    />
+                    <div className="flex flex-col">
+                      <span className="text-sm font-bold text-text-dark">Dr. Aashish Malik</span>
+                      <span className="text-xs text-text-muted">{post.date}</span>
+                    </div>
+                  </div>
+
                   <a
                     href={post.link}
-                    className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-hover transition-colors mt-auto"
+                    className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-hover transition-colors"
                   >
                     Read More <ArrowRight className="w-4 h-4" />
                   </a>

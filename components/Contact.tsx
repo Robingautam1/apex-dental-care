@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Contact() {
   return (
@@ -123,6 +124,25 @@ export default function Contact() {
             className="p-6 md:p-12 bg-background-alt border-t md:border-t-0 md:border-l border-slate-100 flex flex-col justify-center will-change-transform will-change-opacity"
           >
             <h3 className="text-2xl font-bold mb-6 text-text-dark">Request an Appointment</h3>
+
+            {/* Trust Building Aside Card */}
+            <div className="flex items-center gap-4 p-4 mb-8 bg-white rounded-2xl border border-slate-100 shadow-sm">
+              <div className="relative w-16 h-16 shrink-0 rounded-full overflow-hidden border-2 border-primary/10">
+                <Image
+                  src="/images/dr-aashish-scrubs.jpg"
+                  alt="Dr. Aashish Malik"
+                  fill
+                  className="object-cover object-top scale-110"
+                />
+              </div>
+              <div>
+                <p className="text-sm text-text-dark font-medium leading-snug">
+                  &quot;Dr. Aashish Malik will personally follow up on your enquiry.&quot;
+                </p>
+                <p className="text-xs text-secondary font-bold mt-1 uppercase tracking-wider">Fast Response Guaranteed</p>
+              </div>
+            </div>
+
             <form className="flex flex-col gap-5" noValidate>
               <div className="flex flex-col gap-2">
                 <label htmlFor="name" className="text-sm font-bold text-text-dark">Full Name <span className="text-red-500" aria-hidden="true">*</span></label>

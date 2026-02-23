@@ -10,9 +10,33 @@ export default function Hero() {
   return (
     <>
       {/* MOBILE HERO - below md breakpoint only */}
-      <div className="md:hidden flex flex-col min-h-[100svh] bg-white pt-[env(safe-area-inset-top)]">
+      <div className="relative md:hidden flex flex-col min-h-[100svh] bg-background-base pt-[env(safe-area-inset-top)] overflow-hidden">
+        {/* Background SVG Mesh Pattern */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-0 flex items-center justify-center">
+          <svg
+            aria-hidden="true"
+            width="100%"
+            height="100%"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <pattern id="mesh-mobile" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path
+                  d="M 20 0 L 0 20 M 0 0 L 20 20"
+                  fill="none"
+                  stroke="var(--color-secondary)"
+                  strokeWidth="0.5"
+                />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#mesh-mobile)" />
+          </svg>
+        </div>
+
         {/* Top bar - compact identity */}
-        <div className="flex items-center justify-between px-5 pt-5 pb-3">
+        <div className="relative z-10 flex items-center justify-between px-5 pt-5 pb-3">
           <Logo variant="dark" />
           <a href="tel:+919802155667"
             className="flex items-center gap-1.5 text-[#1A3C5E] font-semibold text-sm 
@@ -24,7 +48,7 @@ export default function Hero() {
         </div>
 
         {/* Hero content - vertically centered in remaining space */}
-        <div className="flex-1 flex flex-col justify-center px-5 pb-6 gap-6 mt-4">
+        <div className="relative z-10 flex-1 flex flex-col justify-center px-5 pb-6 gap-6 mt-4">
 
           {/* Trust badge */}
           <div className="flex items-center gap-2 bg-[#EBF9F4] px-3 py-1.5 rounded-full w-fit">
@@ -197,16 +221,15 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' as const }}
-                className="relative h-[400px] md:h-[500px] lg:h-[600px] w-full rounded-3xl overflow-hidden shadow-soft will-change-transform will-change-opacity"
+                className="relative aspect-[4/5] w-full rounded-3xl overflow-hidden shadow-soft will-change-transform will-change-opacity"
               >
-                {/* Placeholder for high-quality clinic/dentist photo */}
                 <Image
-                  src="https://picsum.photos/800/1000?random=1"
-                  alt="Apex Dental Clinic Interior"
+                  src="/images/clinic-treatment.jpg"
+                  alt="Dr. Aashish Malik performing dental treatment at Apex Dental Care, Model Town Rohtak"
                   fill
                   priority
-                  className="object-cover"
-                  referrerPolicy="no-referrer"
+                  className="object-cover object-center"
+                  style={{ filter: "brightness(1.05) contrast(1.02)" }}
                 />
                 {/* Decorative element */}
                 <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-secondary rounded-full blur-3xl opacity-30"></div>
