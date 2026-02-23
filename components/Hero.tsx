@@ -14,7 +14,7 @@ export default function Hero() {
         {/* Top bar — compact identity */}
         <div className="flex items-center justify-between px-5 pt-5 pb-3">
           <Logo variant="dark" />
-          <a href="tel:09802155667"
+          <a href="tel:+919802155667"
             className="flex items-center gap-1.5 text-[#1A3C5E] font-semibold text-sm 
                         bg-[#F7F4EF] px-3 py-2 rounded-full border border-[#E5E0D8]"
             aria-label="Call Apex Dental Care">
@@ -60,18 +60,18 @@ export default function Hero() {
               <CalendarIcon className="w-5 h-5" aria-hidden="true" />
               Book an Appointment
             </a>
-            <a href="tel:09802155667"
+            <a href="tel:+919802155667"
               className="w-full flex items-center justify-center gap-2 bg-[#1A3C5E] text-white 
                           font-semibold text-base py-4 rounded-2xl
                           active:scale-[0.98] transition-transform duration-150"
-              aria-label="Call Apex Dental Care at 098021 55667">
+              aria-label="Call Apex Dental Care at 98021 55667">
               <PhoneIcon className="w-5 h-5" aria-hidden="true" />
-              Call: 098021 55667
+              Call: 98021 55667
             </a>
           </div>
 
           {/* Address — compact, tappable to open Google Maps */}
-          <a href="https://www.google.com/maps/search/Apex+Dental+Care+Rohtak"
+          <a href="https://share.google/3z1exJby1De0Ailde"
             target="_blank" rel="noopener noreferrer"
             className="flex items-start gap-2.5 text-[#6B7280] text-sm"
             aria-label="Get directions to Apex Dental Care">

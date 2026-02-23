@@ -1,7 +1,7 @@
 export const faqs = [
     {
         question: "Where is Apex Dental Care located in Rohtak?",
-        answer: "Apex Dental Care is situated near Life Care Hospital, Model Town, Rohtak, Haryana 124001. We are easily accessible from all areas of Rohtak and are well-known as a landmark near Life Care Hospital."
+        answer: "Apex Dental Care is situated at Apex Dental Care, near life care hospital, Model Town, Rohtak, Haryana 124001. We are easily accessible from all areas of Rohtak and are well-known as a landmark near life care hospital."
     },
     {
         question: "Who is the dentist at Apex Dental Care Rohtak?",
@@ -9,15 +9,15 @@ export const faqs = [
     },
     {
         question: "What are the timings of Apex Dental Care?",
-        answer: "We are open Monday through Saturday from 9:00 AM to 8:00 PM. The clinic remains closed on Sundays. For urgent dental concerns, please call 098021 55667 and we will do our best to accommodate you."
+        answer: "We are open Monday through Saturday from 9:00 AM to 8:00 PM. The clinic remains closed on Sundays. For urgent dental concerns, please call 98021 55667 and we will do our best to accommodate you."
     },
     {
         question: "Does Apex Dental Care offer emergency dental services?",
-        answer: "Yes. We understand that dental emergencies do not follow a schedule. Apex Dental Care provides emergency dental care during clinic hours. If you are experiencing severe pain, a broken tooth, or swelling, call us immediately at 098021 55667 for priority attention."
+        answer: "Yes. We understand that dental emergencies do not follow a schedule. Apex Dental Care provides emergency dental care during clinic hours. If you are experiencing severe pain, a broken tooth, or swelling, call us immediately at 98021 55667 for priority attention."
     },
     {
         question: "How do I book an appointment at Apex Dental Care?",
-        answer: "Booking an appointment is simple. You may call us directly at 098021 55667, or fill out the contact form on this page. Our team will confirm your appointment within a few hours and ensure you receive timely, attentive care."
+        answer: "Booking an appointment is simple. You may call us directly at 98021 55667, or fill out the contact form on this page. Our team will confirm your appointment within a few hours and ensure you receive timely, attentive care."
     },
     {
         question: "Is root canal treatment painful at Apex Dental Care Rohtak?",

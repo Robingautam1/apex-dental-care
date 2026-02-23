@@ -18,10 +18,10 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL('https://apex-dental-care.vercel.app'),
   title: 'Best Dental Clinic in Rohtak, Haryana — Apex Dental Care',
-  description: 'Apex Dental Care in Model Town, Rohtak offers painless dental treatment led by Dr. Aashish Malik. Root canal, implants, whitening & more. Call 098021 55667.',
+  description: 'Apex Dental Care in Model Town, Rohtak offers painless dental treatment led by Dr. Aashish Malik. Root canal, implants, whitening & more. Call 98021 55667.',
   openGraph: {
     title: 'Best Dental Clinic in Rohtak, Haryana — Apex Dental Care',
-    description: 'Apex Dental Care in Model Town, Rohtak offers painless dental treatment led by Dr. Aashish Malik. Root canal, implants, whitening & more. Call 098021 55667.',
+    description: 'Apex Dental Care in Model Town, Rohtak offers painless dental treatment led by Dr. Aashish Malik. Root canal, implants, whitening & more. Call 98021 55667.',
     url: 'https://apex-dental-care.vercel.app',
     siteName: 'Apex Dental Care',
     images: [{ url: '/og-image.jpg' }],
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Best Dental Clinic in Rohtak, Haryana — Apex Dental Care',
-    description: 'Apex Dental Care in Model Town, Rohtak offers painless dental treatment led by Dr. Aashish Malik. Root canal, implants, whitening & more. Call 098021 55667.',
+    description: 'Apex Dental Care in Model Town, Rohtak offers painless dental treatment led by Dr. Aashish Malik. Root canal, implants, whitening & more. Call 98021 55667.',
   },
   alternates: {
     canonical: '/',
@@ -47,7 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     telephone: '+919802155667',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Near Life Care Hospital, Model Town',
+      streetAddress: 'Apex Dental Care, near life care hospital, Model Town',
       addressLocality: 'Rohtak',
       addressRegion: 'Haryana',
       postalCode: '124001',
@@ -60,7 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], opens: '09:00', closes: '20:00' }
     ],
     aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '38' },
-    hasMap: 'https://www.google.com/maps/place/Apex+Dental+Care',
+    hasMap: 'https://share.google/3z1exJby1De0Ailde',
     medicalSpecialty: 'Dentistry'
   };
 

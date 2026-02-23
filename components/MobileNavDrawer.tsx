@@ -85,12 +85,12 @@ export function MobileNavDrawer() {
                 {/* Drawer footer CTAs */}
                 <div className="p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] 
                         border-t border-[#E5E0D8] flex flex-col gap-3">
-                    <a href="tel:09802155667"
+                    <a href="tel:+919802155667"
                         className="flex items-center justify-center gap-2 w-full bg-[#1A3C5E] 
                         text-white font-semibold py-3.5 rounded-xl text-sm"
                         aria-label="Call Apex Dental Care">
                         <PhoneIcon className="w-4 h-4" aria-hidden="true" />
-                        Call: 098021 55667
+                        Call: 98021 55667
                     </a>
                     <Link href="/contact"
                         onClick={() => setOpen(false)}

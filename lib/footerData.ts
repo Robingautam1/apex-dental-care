@@ -18,9 +18,9 @@ export const footerData = {
         { label: 'Emergency Care', href: '/services/emergency-dental-care' },
     ],
     contact: {
-        address: 'Near Life Care Hospital, Model Town, Rohtak, Haryana 124001',
-        phone: '098021 55667',
-        phoneHref: 'tel:09802155667',
+        address: 'Apex Dental Care, near life care hospital, Model Town, Rohtak, Haryana 124001',
+        phone: '98021 55667',
+        phoneHref: 'tel:+919802155667',
         onlineBooking: { label: 'Book Online', href: '/contact' }
     },
     copyright: '© 2026 Apex Dental Care, Model Town, Rohtak, Haryana 124001',

@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 
 export const metadata = {
     title: 'Book a Dental Appointment in Rohtak — Apex Dental Care',
-    description: 'Visit Apex Dental Care near Life Care Hospital in Model Town, Rohtak. Call 098021 55667 to schedule an appointment with Dr. Aashish Malik.',
+    description: 'Visit Apex Dental Care near life care hospital in Model Town, Rohtak. Call 98021 55667 to schedule an appointment with Dr. Aashish Malik.',
     alternates: {
         canonical: '/contact',
     },

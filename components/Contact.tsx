@@ -49,13 +49,13 @@ export default function Contact() {
                       <h4 className="font-bold text-text-dark mb-1">Clinic Address</h4>
                       <p className="text-text-muted leading-relaxed">
                         {/* INSERT USER CONTENT: Full Address Here */}
-                        123 Dental Street, Model Town,<br />
-                        Rohtak, Haryana 124001
+                        Apex Dental Care, near life care hospital,<br />
+                        Model Town, Rohtak, Haryana 124001
                       </p>
                     </div>
                   </div>
                   {/* MOBILE MAP CTA */}
-                  <a href="https://www.google.com/maps/place/Apex+Dental+Care"
+                  <a href="https://share.google/3z1exJby1De0Ailde"
                     target="_blank" rel="noopener noreferrer"
                     className="md:hidden flex items-center justify-center gap-2 bg-[#F7F4EF] text-[#1A3C5E] py-3.5 mt-2 rounded-xl font-semibold w-full">
                     <MapPin className="w-5 h-5" />
@@ -71,7 +71,7 @@ export default function Contact() {
                     <h4 className="font-bold text-text-dark mb-1">Phone Number</h4>
                     <p className="text-text-muted leading-relaxed">
                       {/* INSERT USER CONTENT: Phone Number Here */}
-                      +91 98765 43210
+                      +91 98021 55667
                     </p>
                   </div>
                 </div>
