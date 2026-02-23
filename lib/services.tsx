@@ -20,6 +20,7 @@ export const servicesData = [
         slug: 'dental-implants',
         title: 'Dental Implants',
         description: 'Permanent, natural-looking tooth replacements to restore your confidence and bite.',
+        content: "Dental implants are the most advanced and permanent solution for missing teeth. Whether you need to replace a single tooth or require a full-mouth restoration, our implant procedures are meticulously planned using state-of-the-art 3D imaging. Dr. Aashish Malik specializes in placing high-quality titanium implants that fuse securely with your jawbone, providing unparalleled stability, preventing bone loss, and perfectly mimicking the look and feel of your natural teeth.",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 text-secondary">
                 <path d="M12 22c-2.76 0-5-2.24-5-5v-2h10v2c0 2.76-2.24 5-5 5z" />
@@ -48,6 +49,7 @@ export const servicesData = [
         slug: 'teeth-whitening',
         title: 'Teeth Whitening',
         description: 'Professional whitening treatments for a brighter, more radiant smile in just one visit.',
+        content: "Erase years of stubborn stains caused by coffee, tea, smoking, or aging with our professional teeth whitening treatments. At Apex Dental Care, we utilize premium, highly effective whitening agents that deliver dazzling, long-lasting results in just a single in-clinic visit, without compromising your enamel or causing sensitivity. We also provide customized take-home whitening kits for maintenance, ensuring your bright, confident smile lasts for years to come.",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 text-secondary">
                 <path d="M12 22c-2.76 0-5-2.24-5-5V8h10v9c0 2.76-2.24 5-5 5z" />
@@ -74,6 +76,7 @@ export const servicesData = [
         slug: 'cosmetic-dentistry',
         title: 'Cosmetic Dentistry',
         description: 'Veneers, bonding, and smile makeovers tailored to your unique facial features.',
+        content: "Transform the appearance of your smile with our bespoke cosmetic dentistry services. Whether you are looking to fix chipped or cracked teeth with seamless composite bonding, or desire a complete Hollywood smile makeover using ultra-thin custom porcelain veneers, we have the artistic precision and technical expertise to achieve your goals. Dr. Aashish Malik carefully analyzes your facial symmetry to design enhancements that look effortlessly natural and strikingly beautiful.",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 text-secondary">
                 <path d="M12 22c-2.76 0-5-2.24-5-5V8h10v9c0 2.76-2.24 5-5 5z" />
