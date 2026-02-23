@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Phone } from 'lucide-react';
 import Link from 'next/link';
+import Logo from '@/components/Logo';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,23 +28,15 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
-        isScrolled
-          ? 'bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-soft py-3'
-          : 'bg-transparent py-5'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${isScrolled
+        ? 'bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-soft py-3'
+        : 'bg-transparent py-5'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white font-heading font-bold text-xl group-hover:bg-primary-hover transition-colors">
-              A
-            </div>
-            <span className="font-heading font-bold text-xl text-text-dark tracking-tight">
-              Apex Dental
-            </span>
-          </Link>
+          <Logo variant="dark" />
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
@@ -80,30 +73,65 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Backdrop */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-slate-100 overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-text-dark/40 z-40 md:hidden backdrop-blur-sm"
+            onClick={() => setIsMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Mobile Drawer */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-white z-50 md:hidden shadow-2xl flex flex-col"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile Navigation Menu"
           >
-            <div className="px-4 py-6 flex flex-col gap-4">
+            <div className="flex justify-between items-center p-6 border-b border-slate-100">
+              <span className="font-heading font-bold text-xl text-text-dark">Menu</span>
+              <button
+                className="p-2 text-text-muted hover:text-text-dark transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+                aria-label="Close menu"
+                style={{ minWidth: '44px', minHeight: '44px' }}
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto px-6 py-6 flex flex-col gap-6">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium text-text-dark py-2 border-b border-slate-50"
+                  className="text-lg font-medium text-text-dark hover:text-primary transition-colors flex items-center"
+                  style={{ minHeight: '44px' }}
                 >
                   {link.name}
                 </Link>
               ))}
+            </div>
+
+            <div className="p-6 border-t border-slate-100 bg-background-alt mb-safe">
               <a
                 href="#contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="mt-4 flex items-center justify-center gap-2 bg-primary text-white px-6 py-4 rounded-full font-medium text-base hover:bg-primary-hover transition-colors"
+                className="flex items-center justify-center gap-2 bg-primary text-white w-full py-4 rounded-full font-medium text-base hover:bg-primary-hover transition-colors shadow-soft"
+                style={{ minHeight: '44px' }}
               >
                 <Phone className="w-5 h-5" />
                 <span>Book Appointment</span>

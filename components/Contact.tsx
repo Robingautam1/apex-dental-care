@@ -105,28 +105,69 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Map Placeholder */}
+          {/* Accessible Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6 }}
-            className="relative h-[400px] lg:h-auto w-full bg-slate-100 overflow-hidden"
+            className="p-8 md:p-12 bg-background-alt border-l border-slate-100 flex flex-col justify-center"
           >
-            {/* Replace this div with an actual Google Maps iframe */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-              <MapPin className="w-16 h-16 text-slate-300 mb-4" />
-              <h3 className="text-xl font-bold text-slate-400 mb-2">Interactive Map Placeholder</h3>
-              <p className="text-slate-500 max-w-sm">
-                Embed your Google Maps iframe here to help patients find your Rohtak clinic easily.
-              </p>
-              <a
-                href="#"
-                className="mt-6 inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-medium text-sm hover:bg-primary-hover transition-colors shadow-soft"
+            <h3 className="text-2xl font-bold mb-6 text-text-dark">Request an Appointment</h3>
+            <form className="flex flex-col gap-5" noValidate>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="name" className="text-sm font-bold text-text-dark">Full Name <span className="text-red-500" aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  aria-required="true"
+                  placeholder="e.g. Rahul Sharma"
+                  className="px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow w-full"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="phone" className="text-sm font-bold text-text-dark">Phone Number <span className="text-red-500" aria-hidden="true">*</span></label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  aria-required="true"
+                  placeholder="+91 90000 00000"
+                  className="px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow w-full"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="service" className="text-sm font-bold text-text-dark">Service Required</label>
+                <select
+                  id="service"
+                  name="service"
+                  className="px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow w-full appearance-none"
+                >
+                  <option value="">Select a service (Optional)</option>
+                  <option value="general">General Checkup</option>
+                  <option value="implants">Dental Implants</option>
+                  <option value="braces">Braces / Invisalign</option>
+                  <option value="whitening">Teeth Whitening</option>
+                  <option value="rct">Root Canal Therapy</option>
+                  <option value="other">Other / Not sure</option>
+                </select>
+              </div>
+
+              <div role="alert" aria-live="polite" className="text-sm text-red-500 min-h-[20px]">
+                {/* Error messages would appear here */}
+              </div>
+
+              <button
+                type="submit"
+                className="mt-2 bg-primary text-white px-6 py-4 rounded-xl font-bold text-lg hover:bg-primary-hover transition-colors shadow-soft w-full flex justify-center items-center gap-2"
               >
-                Get Directions
-              </a>
-            </div>
+                Submit Request
+              </button>
+              <p className="text-xs text-text-muted text-center mt-2">
+                We will call you back within 2 hours during clinic timings to confirm your slot.
+              </p>
+            </form>
           </motion.div>
         </div>
       </div>

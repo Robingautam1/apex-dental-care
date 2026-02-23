@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import { Star, ShieldCheck, Stethoscope, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
+import Counter from '@/components/Counter';
 
 export default function Hero() {
   return (
@@ -10,6 +11,7 @@ export default function Hero() {
       {/* Background SVG Mesh Pattern */}
       <div className="absolute inset-0 pointer-events-none opacity-5 z-0 flex items-center justify-center">
         <svg
+          aria-hidden="true"
           width="100%"
           height="100%"
           viewBox="0 0 100 100"
@@ -52,14 +54,13 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg md:text-xl text-text-muted max-w-lg leading-relaxed">
-              {/* INSERT USER CONTENT: Hero Subheadline Here */}
               Experience painless, world-class dentistry. From routine checkups to advanced implants, your perfect smile starts here.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-primary-hover hover:scale-105 transition-all duration-300 shadow-soft"
+                className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-primary-hover hover:scale-105 transition-all duration-300 shadow-soft animate-shimmer"
               >
                 Book Free Consultation
               </a>
@@ -73,18 +74,27 @@ export default function Hero() {
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center gap-6 mt-8 pt-8 border-t border-slate-100">
-              <div className="flex items-center gap-2 text-sm font-medium text-text-dark">
-                <Star className="w-5 h-5 fill-accent text-accent" />
-                <span>5-Star Rated on Google</span>
+            <div className="flex flex-wrap items-center gap-8 mt-8 pt-8 border-t border-slate-100">
+              <div className="flex flex-col gap-1">
+                <div className="text-3xl font-bold text-text-dark flex items-center">
+                  <Counter end={5.0} decimals={1} />
+                  <Star className="w-6 h-6 fill-accent text-accent ml-1" />
+                </div>
+                <span className="text-xs text-text-muted font-medium uppercase tracking-wider">Google Rating</span>
               </div>
-              <div className="flex items-center gap-2 text-sm font-medium text-text-dark">
-                <Stethoscope className="w-5 h-5 text-secondary" />
-                <span>Experienced Specialists</span>
+
+              <div className="flex flex-col gap-1">
+                <div className="text-3xl font-bold text-text-dark flex items-center">
+                  <Counter end={38} />+
+                </div>
+                <span className="text-xs text-text-muted font-medium uppercase tracking-wider">5-Star Reviews</span>
               </div>
-              <div className="flex items-center gap-2 text-sm font-medium text-text-dark">
-                <ShieldCheck className="w-5 h-5 text-primary" />
-                <span>Modern Equipment</span>
+
+              <div className="flex flex-col gap-1">
+                <div className="text-3xl font-bold text-text-dark flex items-center">
+                  <Counter end={10} />+
+                </div>
+                <span className="text-xs text-text-muted font-medium uppercase tracking-wider">Years Experience</span>
               </div>
             </div>
           </motion.div>

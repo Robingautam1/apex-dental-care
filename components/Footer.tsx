@@ -1,8 +1,9 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'motion/react';
 import { Facebook, Instagram, Twitter, MapPin } from 'lucide-react';
-import Link from 'next/link';
+import Logo from '@/components/Logo';
 
 export default function Footer() {
   return (
@@ -17,16 +18,8 @@ export default function Footer() {
             transition={{ duration: 0.5 }}
             className="flex flex-col gap-6"
           >
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-primary font-heading font-bold text-xl group-hover:bg-slate-100 transition-colors">
-                A
-              </div>
-              <span className="font-heading font-bold text-xl text-white tracking-tight">
-                Apex Dental
-              </span>
-            </Link>
+            <Logo variant="light" />
             <p className="text-sm leading-relaxed max-w-xs">
-              {/* INSERT USER CONTENT: Footer Bio Here */}
               Delivering premium, painless dental care to the Rohtak community. Your smile is our signature.
             </p>
             <div className="flex items-center gap-4 mt-2">

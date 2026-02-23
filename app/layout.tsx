@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
+import MobileBottomBar from '@/components/MobileBottomBar';
 import './globals.css'; // Global styles
 
 const inter = Inter({
@@ -15,54 +16,52 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Apex Dental Clinic | Top Dentist & Dental Care in Rohtak',
-  description: 'Experience premium dental care at Apex Dental Clinic in Rohtak. We provide advanced treatments, from general checkups to implants and braces.',
+  metadataBase: new URL('https://apex-dental-care.vercel.app'),
+  title: 'Best Dental Clinic in Rohtak, Haryana — Apex Dental Care',
+  description: 'Apex Dental Care in Model Town, Rohtak offers painless dental treatment led by Dr. Aashish Malik. Root canal, implants, whitening & more. Call 098021 55667.',
   openGraph: {
-    title: 'Apex Dental Clinic | Top Dentist in Rohtak',
-    description: 'Experience premium dental care at Apex Dental Clinic in Rohtak. We provide advanced treatments, from general checkups to implants and braces.',
-    url: 'https://apexdentalrohtak.com',
-    siteName: 'Apex Dental Clinic',
+    title: 'Best Dental Clinic in Rohtak, Haryana — Apex Dental Care',
+    description: 'Apex Dental Care in Model Town, Rohtak offers painless dental treatment led by Dr. Aashish Malik. Root canal, implants, whitening & more. Call 098021 55667.',
+    url: 'https://apex-dental-care.vercel.app',
+    siteName: 'Apex Dental Care',
+    images: [{ url: '/og-image.jpg' }],
     locale: 'en_IN',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Apex Dental Clinic | Top Dentist in Rohtak',
-    description: 'Experience premium dental care at Apex Dental Clinic in Rohtak.',
+    title: 'Best Dental Clinic in Rohtak, Haryana — Apex Dental Care',
+    description: 'Apex Dental Care in Model Town, Rohtak offers painless dental treatment led by Dr. Aashish Malik. Root canal, implants, whitening & more. Call 098021 55667.',
+  },
+  alternates: {
+    canonical: '/',
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': ['MedicalClinic', 'LocalBusiness'],
-    name: 'Apex Dental Clinic',
-    image: 'https://apexdentalrohtak.com/logo.png',
-    '@id': 'https://apexdentalrohtak.com',
-    url: 'https://apexdentalrohtak.com',
-    telephone: '+91-XXXXXXXXXX', // INSERT USER CONTENT: Phone Number Here
+    '@type': 'Dentist',
+    name: 'Apex Dental Care',
+    image: 'https://apex-dental-care.vercel.app/og-image.jpg',
+    telephone: '+919802155667',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'INSERT USER CONTENT: Street Address Here',
+      streetAddress: 'Near Life Care Hospital, Model Town',
       addressLocality: 'Rohtak',
       addressRegion: 'Haryana',
-      postalCode: '124001', // INSERT USER CONTENT: Postal Code Here
-      addressCountry: 'IN',
+      postalCode: '124001',
+      addressCountry: 'IN'
     },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 28.8955, // INSERT USER CONTENT: Latitude Here
-      longitude: 76.5833, // INSERT USER CONTENT: Longitude Here
-    },
+    geo: { '@type': 'GeoCoordinates', latitude: 28.8955, longitude: 76.5849 },
+    url: 'https://apex-dental-care.vercel.app',
+    priceRange: '₹₹',
     openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-        opens: '09:00',
-        closes: '19:00',
-      },
+      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], opens: '09:00', closes: '20:00' }
     ],
-    medicalSpecialty: 'Dentistry',
+    aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '38' },
+    hasMap: 'https://www.google.com/maps/place/Apex+Dental+Care',
+    medicalSpecialty: 'Dentistry'
   };
 
   return (
@@ -74,7 +73,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="antialiased" suppressHydrationWarning>
-        {children}
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[100] bg-primary text-white px-6 py-3 rounded-lg font-bold shadow-soft">
+          Skip to main content
+        </a>
+        <div id="main-content">
+          {children}
+        </div>
+        <MobileBottomBar />
       </body>
     </html>
   );
