@@ -2,9 +2,10 @@ import * as React from "react";
 
 export const servicesData = [
     {
-        slug: 'general-checkup',
-        title: 'General Checkup',
-        description: 'Comprehensive dental exams, cleanings, and digital X-rays to keep your smile healthy.',
+        slug: 'teeth-cleaning',
+        title: 'Teeth Cleaning',
+        description: 'Comprehensive exams, scaling, and polishing to keep your smile healthy and plaque-free.',
+        content: "Professional teeth cleaning (scaling and polishing) removes plaque, tartar, and surface stains that regular brushing can't reach. It prevents gum disease, bad breath, and tooth decay. At Apex Dental Care, our gentle cleaning process ensures a comfortable experience, leaving your teeth feeling fresh and looking bright. We recommend a professional cleaning every 6 months for optimal oral health.",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 text-primary">
                 <path d="M12 22v-5" />
@@ -30,9 +31,10 @@ export const servicesData = [
         ),
     },
     {
-        slug: 'braces-invisalign',
-        title: 'Braces & Invisalign',
-        description: 'Straighten your teeth with traditional braces or clear, removable aligners.',
+        slug: 'orthodontics-braces',
+        title: 'Orthodontics',
+        description: 'Straighten your teeth with traditional braces or discreet, removable aligners.',
+        content: "Straighten your teeth and correct your bite with our comprehensive orthodontic solutions. We offer traditional metal braces for reliable, effective alignment, as well as clear aligners for a more discreet treatment option. Properly aligned teeth not only improve your appearance but also make it easier to maintain good oral hygiene and prevent jaw strain. Our customized treatment plans cater to patients of all ages, from teens to adults.",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 text-primary">
                 <path d="M12 22c-2.76 0-5-2.24-5-5V8h10v9c0 2.76-2.24 5-5 5z" />
@@ -55,9 +57,10 @@ export const servicesData = [
         ),
     },
     {
-        slug: 'root-canal-therapy',
-        title: 'Root Canal Therapy',
-        description: 'Painless treatment to save infected teeth and relieve severe toothaches.',
+        slug: 'root-canal-treatment',
+        title: 'Root Canal Treatment',
+        description: 'Painless therapy to save infected teeth, eliminate infection, and relieve severe toothaches.',
+        content: "A root canal is a highly effective, virtually painless procedure used to save a tooth that is badly decayed or severely infected. Dr. Aashish Malik uses advanced visualization and modern local anaesthesia to gently remove the infected pulp, clean the internal canals, and securely seal the tooth. This immediate intervention eliminates severe, throbbing toothaches and permanently prevents the need for extraction. Most patients are pleasantly surprised by how comfortable and straightforward our root canal treatments are.",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 text-primary">
                 <path d="M12 22c-2.76 0-5-2.24-5-5V8h10v9c0 2.76-2.24 5-5 5z" />
@@ -80,9 +83,10 @@ export const servicesData = [
         ),
     },
     {
-        slug: 'paediatric-dentistry',
+        slug: 'pediatric-dentistry',
         title: 'Paediatric Dentistry',
-        description: 'Gentle, friendly dental care for children of all ages to ensure a lifetime of healthy functional smiles.',
+        description: 'Gentle, friendly dental care for children to ensure a lifetime of healthy smiles.',
+        content: "We provide gentle, remarkably friendly dental care tailored specifically for children. Our primary goal is to make every dental visit a highly positive, fun experience, helping your child build robust foundational habits for lifelong oral health. From routine exams and protective fluoride treatments to cavity prevention and early developmental assessments, we ensure your child's growing smile receives the utmost care in a welcoming, completely anxiety-free environment.",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 text-primary">
                 <path d="M12 22c-2.76 0-5-2.24-5-5V8h10v9c0 2.76-2.24 5-5 5z" />
@@ -92,9 +96,10 @@ export const servicesData = [
         ),
     },
     {
-        slug: 'emergency-care',
+        slug: 'emergency-dental-care',
         title: 'Emergency Care',
-        description: 'Immediate priority attention for severe dental pain, broken teeth, and other urgent concerns.',
+        description: 'Immediate priority attention for severe dental pain, broken teeth, and urgent concerns.',
+        content: "Dental emergencies don't wait for a convenient time. If you're experiencing excruciating tooth pain, a fractured or broken tooth, facial swelling, or a knocked-out tooth, we provide immediate, same-day priority attention. Our emergency clinic is fully equipped to handle urgent oral traumas quickly and effectively, providing instantaneous pain relief while preventing further long-term complications. Please call us immediately for prompt, stabilizing medical assistance.",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 text-secondary">
                 <path d="M12 22c-2.76 0-5-2.24-5-5V8h10v9c0 2.76-2.24 5-5 5z" />

@@ -54,7 +54,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                             {service.description}
                         </p>
                         <p className="text-lg leading-relaxed mb-6">
-                            Your comfort is our priority. We utilise state-of-the-art diagnostic tools to properly assess your needs before recommending any treatment. Dr. Aashish Malik takes the time to explain every step, ensuring you feel confident in your care.
+                            {service.content || "Your comfort is our priority. We utilise state-of-the-art diagnostic tools to properly assess your needs before recommending any treatment. Dr. Aashish Malik takes the time to explain every step, ensuring you feel confident in your care."}
                         </p>
 
                         <h2 className="text-2xl font-bold text-text-dark mt-10 mb-4">Why Choose Us for {service.title}?</h2>
