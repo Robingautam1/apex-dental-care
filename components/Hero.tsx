@@ -46,6 +46,26 @@ export default function Hero() {
             <span className="text-yellow-400 text-sm">★★★★★</span>
             <span className="text-white text-xs font-semibold">5.0 · 38 Google Reviews</span>
           </div>
+
+          {/* Doctor Identity Card */}
+          <div className="flex items-center gap-3 bg-white/15 backdrop-blur-md border border-white/20 rounded-2xl px-3 py-2.5 w-fit">
+            <Image
+              src="/images/dr-aashish-avatar.jpg"
+              alt="Dr. Aashish Malik"
+              width={36}
+              height={36}
+              className="rounded-full object-cover object-top flex-shrink-0"
+            />
+            <div>
+              <p className="text-white font-semibold text-sm leading-tight">Dr. Aashish Malik</p>
+              <p className="text-white/60 text-xs">BDS · Dental Surgeon</p>
+            </div>
+            <div className="ml-3 flex gap-0.5">
+              {[...Array(5)].map((_, i) => (
+                <span key={i} className="text-yellow-400 text-[10px]" aria-hidden="true">★</span>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="relative z-10 px-5 pb-6 flex flex-col gap-4">
@@ -79,30 +99,7 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Floating Credential Card */}
-          <div className="absolute bottom-[200px] left-5 right-5 z-20
-                bg-white/15 backdrop-blur-md border border-white/20
-                rounded-2xl px-4 py-3 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#2DBD8F]/30 
-                            border-2 border-[#2DBD8F] flex-shrink-0
-                            flex items-center justify-center overflow-hidden">
-              <Image
-                src="/images/dr-aashish-avatar.jpg"
-                alt="Dr. Aashish Malik"
-                width={40} height={40}
-                className="object-cover object-top w-full h-full"
-              />
-            </div>
-            <div>
-              <p className="text-white font-semibold text-sm">Dr. Aashish Malik</p>
-              <p className="text-white/60 text-xs">BDS · Dental Surgeon, Rohtak</p>
-            </div>
-            <div className="ml-auto flex gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <span key={i} className="text-yellow-400 text-xs drop-shadow-sm" aria-hidden="true">★</span>
-              ))}
-            </div>
-          </div>
+
 
           {/* Address */}
           <a href="https://share.google/3z1exJby1De0Ailde"
