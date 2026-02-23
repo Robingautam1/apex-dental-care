@@ -10,117 +10,85 @@ export default function Hero() {
   return (
     <>
       {/* MOBILE HERO - below md breakpoint only */}
-      <div className="relative md:hidden flex flex-col min-h-[100svh] bg-background-base pt-[env(safe-area-inset-top)] overflow-hidden">
-        {/* Background SVG Mesh Pattern */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-0 flex items-center justify-center">
-          <svg
-            aria-hidden="true"
-            width="100%"
-            height="100%"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <defs>
-              <pattern id="mesh-mobile" width="20" height="20" patternUnits="userSpaceOnUse">
-                <path
-                  d="M 20 0 L 0 20 M 0 0 L 20 20"
-                  fill="none"
-                  stroke="var(--color-secondary)"
-                  strokeWidth="0.5"
-                />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#mesh-mobile)" />
-          </svg>
+      <div className="md:hidden relative min-h-[85svh] flex flex-col justify-between">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/clinic-treatment.jpg"
+            alt="Apex Dental Care clinic, Rohtak"
+            fill
+            className="object-cover object-[center_20%]"
+            priority
+            style={{ filter: "brightness(0.9) contrast(1.1)" }}
+          />
+          {/* Dark gradient overlay - heavier at bottom where text sits */}
+          <div className="absolute inset-0 bg-gradient-to-b 
+                          from-[#1A3C5E]/60 via-[#1A3C5E]/40 to-[#1A3C5E]/85" />
         </div>
 
-        {/* Top bar - compact identity */}
-        <div className="relative z-10 flex items-center justify-between px-5 pt-5 pb-3">
-          <Logo variant="dark" />
-          <a href="tel:+919802155667"
-            className="flex items-center gap-1.5 text-[#1A3C5E] font-semibold text-sm 
-                        bg-[#F7F4EF] px-3 py-2 rounded-full border border-[#E5E0D8]"
-            aria-label="Call Apex Dental Care">
-            <PhoneIcon className="w-3.5 h-3.5" aria-hidden="true" />
-            Call Us
-          </a>
-        </div>
-
-        {/* Hero content - vertically centered in remaining space */}
-        <div className="relative z-10 flex-1 flex flex-col justify-center px-5 pb-6 gap-6 mt-4">
-
-          {/* Trust badge */}
-          <div className="flex items-center gap-2 bg-[#EBF9F4] px-3 py-1.5 rounded-full w-fit">
-            <div className="flex gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-3 h-3 fill-[#FBBF24] text-[#FBBF24]" />
-              ))}
-            </div>
-            <span className="text-xs font-semibold text-[#1a8f6a]">5.0 · 38 Google Reviews</span>
+        {/* Content on top - all text becomes white */}
+        <div className="relative z-10 px-5 pt-8 flex flex-col gap-6">
+          {/* Top bar - compact identity */}
+          <div className="flex items-center justify-between">
+            <Logo variant="light" />
+            <a href="tel:+919802155667"
+              className="flex items-center gap-1.5 text-white font-semibold text-sm 
+                          bg-white/15 backdrop-blur-sm px-3 py-2 rounded-full border border-white/20"
+              aria-label="Call Apex Dental Care">
+              <PhoneIcon className="w-3.5 h-3.5" aria-hidden="true" />
+              Call Us
+            </a>
           </div>
 
-          {/* Headline - punchy, short */}
+          {/* Star badge - white version */}
+          <div className="flex items-center gap-2 bg-white/15 backdrop-blur-sm 
+                          px-3 py-1.5 rounded-full w-fit border border-white/20">
+            <span className="text-yellow-400 text-sm">★★★★★</span>
+            <span className="text-white text-xs font-semibold">5.0 · 38 Google Reviews</span>
+          </div>
+        </div>
+
+        <div className="relative z-10 px-5 pb-8 flex flex-col gap-5">
           <div>
-            <h1 className="font-display text-[2.4rem] leading-[1.1] font-bold text-[#1C1C1E] tracking-[-0.03em]">
+            <h1 className="font-display text-4xl font-bold text-white leading-[1.1] tracking-[-0.02em]">
               Rohtak&apos;s<br />
               <span className="text-[#2DBD8F]">Trusted</span><br />
               Dental Clinic
             </h1>
-            <p className="mt-3 text-[#6B7280] text-base leading-relaxed">
-              Led by <strong className="text-[#1C1C1E] font-semibold">Dr. Aashish Malik</strong> -
-              gentle, modern care for your entire family in Model Town.
+            <p className="mt-3 text-white/80 text-base leading-relaxed">
+              Led by <strong className="text-white">Dr. Aashish Malik</strong> -
+              gentle, modern care for your entire family.
             </p>
           </div>
 
-          {/* Primary action buttons - full width, large tap targets */}
           <div className="flex flex-col gap-3">
             <a href="https://wa.me/919802155667"
               target="_blank" rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 bg-[#2DBD8F] text-white 
-                          font-semibold text-base py-4 rounded-2xl 
-                          shadow-[0_4px_20px_rgba(45,189,143,0.35)]
-                          active:scale-[0.98] transition-transform duration-150"
-              aria-label="Book a dental appointment at Apex Dental Care">
+              className="w-full flex items-center justify-center gap-2 
+                          bg-[#2DBD8F] text-white font-semibold text-base 
+                          py-4 rounded-2xl shadow-lg active:scale-[0.98] transition-transform">
               <CalendarIcon className="w-5 h-5" aria-hidden="true" />
               Book an Appointment
             </a>
             <a href="tel:+919802155667"
-              className="w-full flex items-center justify-center gap-2 bg-[#1A3C5E] text-white 
-                          font-semibold text-base py-4 rounded-2xl
-                          active:scale-[0.98] transition-transform duration-150"
-              aria-label="Call Apex Dental Care at 98021 55667">
+              className="w-full flex items-center justify-center gap-2 
+                          bg-white/15 backdrop-blur-sm border border-white/25
+                          text-white font-semibold text-base 
+                          py-4 rounded-2xl active:scale-[0.98] transition-transform">
               <PhoneIcon className="w-5 h-5" aria-hidden="true" />
               Call: 98021 55667
             </a>
           </div>
 
-          {/* Address - compact, tappable to open Google Maps */}
+          {/* Address */}
           <a href="https://share.google/3z1exJby1De0Ailde"
             target="_blank" rel="noopener noreferrer"
-            className="flex items-start gap-2.5 text-[#6B7280] text-sm"
-            aria-label="Get directions to Apex Dental Care">
-            <MapPinIcon className="w-4 h-4 text-[#2DBD8F] flex-shrink-0 mt-0.5" aria-hidden="true" />
-            Near Life Care Hospital, Model Town, Rohtak
-            <span className="text-[#2DBD8F] font-medium underline underline-offset-2 flex-shrink-0">
-              Directions →
-            </span>
+            className="flex items-center gap-2 text-white/70 text-sm mt-1">
+            <MapPinIcon className="w-4 h-4 text-[#2DBD8F] flex-shrink-0" aria-hidden="true" />
+            <span className="leading-tight">Near Life Care Hospital, Model Town, Rohtak</span>
+            <span className="text-[#2DBD8F] font-medium ml-auto pl-2 flex-shrink-0">Directions →</span>
           </a>
-
-          {/* Hours pill */}
-          <div className="flex items-center gap-2 text-xs text-[#6B7280]">
-            <ClockIcon className="w-3.5 h-3.5 text-[#2DBD8F]" aria-hidden="true" />
-            <span>Mon – Sat: 9:00 AM – 8:00 PM &nbsp;·&nbsp; Sunday: Closed</span>
-          </div>
-
         </div>
-
-        {/* Scroll indicator - subtle cue that more exists below */}
-        <div className="flex flex-col items-center pb-4 gap-1 opacity-40" aria-hidden="true">
-          <span className="text-xs text-[#6B7280]">scroll to explore</span>
-          <ChevronDown className="w-4 h-4 text-[#6B7280] animate-bounce" />
-        </div>
-
       </div>
 
       {/* DESKTOP HERO - md and above, unchanged */}
