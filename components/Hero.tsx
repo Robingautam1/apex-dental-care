@@ -17,13 +17,13 @@ export default function Hero() {
             src="/images/clinic-treatment.jpg"
             alt="Apex Dental Care clinic, Rohtak"
             fill
-            className="object-cover object-[center_20%]"
+            className="object-cover object-[20%_25%]"
             priority
             style={{ filter: "brightness(0.9) contrast(1.1)" }}
           />
           {/* Dark gradient overlay - heavier at bottom where text sits */}
           <div className="absolute inset-0 bg-gradient-to-b 
-                          from-[#1A3C5E]/60 via-[#1A3C5E]/40 to-[#1A3C5E]/85" />
+                          from-[#0d2a42]/80 via-[#1A3C5E]/50 to-[#1A3C5E]/90" />
         </div>
 
         {/* Content on top - all text becomes white */}
@@ -48,7 +48,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative z-10 px-5 pb-8 flex flex-col gap-5">
+        <div className="relative z-10 px-5 pb-6 flex flex-col gap-4">
           <div>
             <h1 className="font-display text-4xl font-bold text-white leading-[1.1] tracking-[-0.02em]">
               Rohtak&apos;s<br />
@@ -68,16 +68,40 @@ export default function Hero() {
                           bg-[#2DBD8F] text-white font-semibold text-base 
                           py-4 rounded-2xl shadow-lg active:scale-[0.98] transition-transform">
               <CalendarIcon className="w-5 h-5" aria-hidden="true" />
-              Book an Appointment
+              Book Free Consultation
             </a>
             <a href="tel:+919802155667"
               className="w-full flex items-center justify-center gap-2 
-                          bg-white/15 backdrop-blur-sm border border-white/25
-                          text-white font-semibold text-base 
-                          py-4 rounded-2xl active:scale-[0.98] transition-transform">
+                          bg-white text-[#1A3C5E] font-semibold text-base 
+                          py-4 rounded-2xl active:scale-[0.98] transition-transform shadow-sm">
               <PhoneIcon className="w-5 h-5" aria-hidden="true" />
               Call: 98021 55667
             </a>
+          </div>
+
+          {/* Floating Credential Card */}
+          <div className="absolute bottom-[200px] left-5 right-5 z-20
+                bg-white/15 backdrop-blur-md border border-white/20
+                rounded-2xl px-4 py-3 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-[#2DBD8F]/30 
+                            border-2 border-[#2DBD8F] flex-shrink-0
+                            flex items-center justify-center overflow-hidden">
+              <Image
+                src="/images/dr-aashish-avatar.jpg"
+                alt="Dr. Aashish Malik"
+                width={40} height={40}
+                className="object-cover object-top w-full h-full"
+              />
+            </div>
+            <div>
+              <p className="text-white font-semibold text-sm">Dr. Aashish Malik</p>
+              <p className="text-white/60 text-xs">BDS · Dental Surgeon, Rohtak</p>
+            </div>
+            <div className="ml-auto flex gap-0.5">
+              {[...Array(5)].map((_, i) => (
+                <span key={i} className="text-yellow-400 text-xs drop-shadow-sm" aria-hidden="true">★</span>
+              ))}
+            </div>
           </div>
 
           {/* Address */}
