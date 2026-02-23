@@ -169,10 +169,11 @@ export default function Blog() {
             className="flex overflow-x-auto pb-8 md:pb-0 md:grid md:grid-cols-3 gap-8 snap-x snap-mandatory will-change-transform will-change-opacity"
           >
             {blogPosts.map((post, index) => (
-              <motion.article
+              <motion.a
                 key={index}
+                href={post.link}
                 variants={itemVariants}
-                className="min-w-[85vw] sm:min-w-[300px] md:min-w-0 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-soft transition-all duration-300 ease-in-out hover:-translate-y-2 group snap-center border border-slate-50 flex flex-col h-full will-change-transform will-change-opacity"
+                className="min-w-[85vw] sm:min-w-[300px] md:min-w-0 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-soft transition-all duration-300 ease-in-out hover:-translate-y-2 group snap-center border border-slate-50 flex flex-col h-full will-change-transform will-change-opacity block"
               >
                 <div className={`relative h-48 w-full overflow-hidden bg-gradient-to-br ${post.gradient} flex items-center justify-center`}>
                   <div className="group-hover:scale-105 transition-transform duration-500">
@@ -207,14 +208,11 @@ export default function Blog() {
                     </div>
                   </div>
 
-                  <a
-                    href={post.link}
-                    className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-hover transition-colors"
-                  >
+                  <div className="inline-flex items-center gap-2 text-primary font-medium group-hover:text-primary-hover transition-colors">
                     Read More <ArrowRight className="w-4 h-4" />
-                  </a>
+                  </div>
                 </div>
-              </motion.article>
+              </motion.a>
             ))}
           </motion.div>
         </div>
