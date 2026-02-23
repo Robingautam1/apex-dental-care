@@ -23,7 +23,7 @@ export default function Logo({ variant = 'dark', className }: LogoProps) {
                 "font-heading font-bold text-xl tracking-tight",
                 isDark ? "text-text-dark" : "text-white"
             )}>
-                Apex Dental
+                Apex Dental Care
             </span>
         </Link>
     );

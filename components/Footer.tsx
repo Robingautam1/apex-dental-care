@@ -2,8 +2,9 @@
 
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { Facebook, Instagram, Twitter, MapPin } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import Logo from '@/components/Logo';
+import { footerData } from '@/lib/footerData';
 
 export default function Footer() {
   return (
@@ -20,19 +21,8 @@ export default function Footer() {
           >
             <Logo variant="light" />
             <p className="text-sm leading-relaxed max-w-xs">
-              Delivering premium, painless dental care to the Rohtak community. Your smile is our signature.
+              {footerData.tagline}
             </p>
-            <div className="flex items-center gap-4 mt-2">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-colors" aria-label="Facebook">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-colors" aria-label="Instagram">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-white transition-colors" aria-label="Twitter">
-                <Twitter className="w-5 h-5" />
-              </a>
-            </div>
           </motion.div>
 
           {/* Quick Links */}
@@ -44,11 +34,13 @@ export default function Footer() {
           >
             <h4 className="text-white font-bold text-lg mb-6">Quick Links</h4>
             <ul className="flex flex-col gap-4">
-              <li><Link href="#" className="hover:text-secondary transition-colors text-sm">Home</Link></li>
-              <li><Link href="#services" className="hover:text-secondary transition-colors text-sm">Our Services</Link></li>
-              <li><Link href="#features" className="hover:text-secondary transition-colors text-sm">Why Choose Us</Link></li>
-              <li><Link href="#blog" className="hover:text-secondary transition-colors text-sm">Dental Blog</Link></li>
-              <li><Link href="#contact" className="hover:text-secondary transition-colors text-sm">Contact & Location</Link></li>
+              {footerData.quickLinks.map((link, idx) => (
+                <li key={idx}>
+                  <Link href={link.href} className="hover:text-secondary transition-colors text-sm">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
@@ -61,11 +53,13 @@ export default function Footer() {
           >
             <h4 className="text-white font-bold text-lg mb-6">Our Services</h4>
             <ul className="flex flex-col gap-4">
-              <li><Link href="#" className="hover:text-secondary transition-colors text-sm">General Checkup</Link></li>
-              <li><Link href="#" className="hover:text-secondary transition-colors text-sm">Dental Implants</Link></li>
-              <li><Link href="#" className="hover:text-secondary transition-colors text-sm">Braces & Invisalign</Link></li>
-              <li><Link href="#" className="hover:text-secondary transition-colors text-sm">Teeth Whitening</Link></li>
-              <li><Link href="#" className="hover:text-secondary transition-colors text-sm">Root Canal Therapy</Link></li>
+              {footerData.services.map((service, idx) => (
+                <li key={idx}>
+                  <Link href={service.href} className="hover:text-secondary transition-colors text-sm">
+                    {service.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
@@ -80,15 +74,19 @@ export default function Footer() {
             <ul className="flex flex-col gap-4">
               <li className="flex items-start gap-3 text-sm">
                 <MapPin className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
-                <span>123 Dental Street, Model Town,<br />Rohtak, Haryana 124001</span>
+                <span>{footerData.contact.address}</span>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <span className="w-5 h-5 flex items-center justify-center text-secondary shrink-0">P</span>
-                <span>+91 98765 43210</span>
+                <a href={footerData.contact.phoneHref} className="hover:text-secondary transition-colors text-sm">
+                  {footerData.contact.phone}
+                </a>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <span className="w-5 h-5 flex items-center justify-center text-secondary shrink-0">E</span>
-                <span>info@apexdentalrohtak.com</span>
+                <Link href={footerData.contact.onlineBooking.href} className="hover:text-secondary transition-colors text-sm">
+                  {footerData.contact.onlineBooking.label}
+                </Link>
               </li>
             </ul>
           </motion.div>
@@ -102,13 +100,10 @@ export default function Footer() {
           transition={{ delay: 0.5, duration: 0.5 }}
           className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs"
         >
-          <p>&copy; {new Date().getFullYear()} Apex Dental Clinic. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
-          </div>
-          {/* Hidden/Small text for local SEO signal */}
-          <p className="text-white/30 text-[10px] hidden md:block">Proudly serving Rohtak, Haryana</p>
+          <p>{footerData.copyright}</p>
+          <p className="text-white/30 text-[10px] hidden md:block">
+            {footerData.locationText}
+          </p>
         </motion.div>
       </div>
     </footer>
