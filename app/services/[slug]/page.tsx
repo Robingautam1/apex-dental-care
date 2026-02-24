@@ -37,7 +37,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                     <div className="flex flex-col md:flex-row gap-8 items-start mb-12 border-b border-slate-100 pb-12">
                         <div className="w-20 h-20 rounded-3xl bg-primary/5 flex items-center justify-center shrink-0">
-                            {service.icon}
+                            <service.icon className="w-10 h-10 text-primary" aria-hidden="true" strokeWidth={1.5} />
                         </div>
                         <div>
                             <h1 className="text-4xl md:text-5xl font-bold text-text-dark mb-6">
