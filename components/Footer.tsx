@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { MapPin } from 'lucide-react';
+import { MapPin as MapPinIcon, Phone as PhoneIcon } from 'lucide-react';
 import Logo from '@/components/Logo';
 import { footerData } from '@/lib/footerData';
 
@@ -73,25 +73,42 @@ export default function Footer() {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="will-change-transform will-change-opacity"
           >
-            <h4 className="text-white font-bold text-lg mb-6">Contact Us</h4>
-            <ul className="flex flex-col gap-4">
-              <li className="flex items-start gap-3 text-sm">
-                <MapPin className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
-                <span>{footerData.contact.address}</span>
-              </li>
-              <li className="flex items-center gap-3 text-sm">
-                <span className="w-5 h-5 flex items-center justify-center text-secondary shrink-0">P</span>
-                <a href={footerData.contact.phoneHref} className="hover:text-secondary transition-colors text-sm">
-                  {footerData.contact.phone}
+            <div className="flex flex-col gap-4">
+              <p className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-1">
+                Our Locations
+              </p>
+
+              {/* Branch 1 */}
+              <div className="flex items-start gap-3">
+                <MapPinIcon className="w-4 h-4 text-[#2DBD8F] flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-white text-xs font-semibold mb-0.5">Model Town</p>
+                  <p className="text-white/60 text-xs leading-relaxed">
+                    Near Life Care Hospital, Model Town,<br />Rohtak, Haryana 124001
+                  </p>
+                </div>
+              </div>
+
+              {/* Branch 2 */}
+              <div className="flex items-start gap-3">
+                <MapPinIcon className="w-4 h-4 text-[#2DBD8F] flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-white text-xs font-semibold mb-0.5">MDU Gate No. 2</p>
+                  <p className="text-white/60 text-xs leading-relaxed">
+                    Opp. Agro Mall, Near MDU Gate No. 2,<br />Rohtak, Haryana
+                  </p>
+                </div>
+              </div>
+
+              {/* Single phone serves both */}
+              <div className="flex items-center gap-3 mt-2">
+                <PhoneIcon className="w-4 h-4 text-[#2DBD8F] flex-shrink-0" />
+                <a href="tel:09802155667"
+                  className="text-white/60 text-xs hover:text-[#2DBD8F] transition-colors">
+                  098021 55667
                 </a>
-              </li>
-              <li className="flex items-center gap-3 text-sm">
-                <span className="w-5 h-5 flex items-center justify-center text-secondary shrink-0">E</span>
-                <Link href={footerData.contact.onlineBooking.href} className="hover:text-secondary transition-colors text-sm">
-                  {footerData.contact.onlineBooking.label}
-                </Link>
-              </li>
-            </ul>
+              </div>
+            </div>
           </motion.div>
         </div>
 

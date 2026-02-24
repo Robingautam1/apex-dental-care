@@ -1,10 +1,13 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Contact() {
+  const [activeLocation, setActiveLocation] = useState<'model-town' | 'mdu-gate'>('model-town');
+
   return (
     <section id="contact" className="py-24 bg-background-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,6 +45,26 @@ export default function Contact() {
               <h3 className="text-2xl font-bold mb-6 text-text-dark">Get in Touch</h3>
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-2">
+                  {/* Location toggle */}
+                  <div className="flex gap-2 mb-6 bg-[#F7F4EF] p-1 rounded-xl w-fit">
+                    <button
+                      onClick={(e) => { e.preventDefault(); setActiveLocation('model-town'); }}
+                      className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200
+                                  ${activeLocation === 'model-town'
+                          ? 'bg-white text-[#1A3C5E] shadow-sm'
+                          : 'text-[#6B7280]'}`}>
+                      Model Town
+                    </button>
+                    <button
+                      onClick={(e) => { e.preventDefault(); setActiveLocation('mdu-gate'); }}
+                      className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200
+                                  ${activeLocation === 'mdu-gate'
+                          ? 'bg-white text-[#1A3C5E] shadow-sm'
+                          : 'text-[#6B7280]'}`}>
+                      MDU Gate No. 2
+                    </button>
+                  </div>
+
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                       <MapPin className="w-6 h-6 text-primary" />
@@ -49,14 +72,16 @@ export default function Contact() {
                     <div>
                       <h4 className="font-bold text-text-dark mb-1">Clinic Address</h4>
                       <p className="text-text-muted leading-relaxed">
-                        {/* INSERT USER CONTENT: Full Address Here */}
-                        Apex Dental Care, near life care hospital,<br />
-                        Model Town, Rohtak, Haryana 124001
+                        {activeLocation === 'model-town' ? (
+                          <>Apex Dental Care, near life care hospital,<br />Model Town, Rohtak, Haryana 124001</>
+                        ) : (
+                          <>Apex Dental Care, Opp. Agro Mall, Near MDU Gate No. 2,<br />Rohtak, Haryana</>
+                        )}
                       </p>
                     </div>
                   </div>
                   {/* MOBILE MAP CTA */}
-                  <a href="https://share.google/3z1exJby1De0Ailde"
+                  <a href={activeLocation === 'model-town' ? "https://share.google/3z1exJby1De0Ailde" : "https://www.google.com/maps/search/Apex+Dental+Care+MDU+Gate+Rohtak"}
                     target="_blank" rel="noopener noreferrer"
                     className="md:hidden flex items-center justify-center gap-2 bg-[#F7F4EF] text-[#1A3C5E] py-3.5 mt-2 rounded-xl font-semibold w-full">
                     <MapPin className="w-5 h-5" />
